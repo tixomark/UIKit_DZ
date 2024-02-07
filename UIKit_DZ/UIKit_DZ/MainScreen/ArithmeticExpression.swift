@@ -4,9 +4,12 @@
 import Foundation
 
 /// Calculator expressions
-enum ArithmeticExpression<Value: Numeric> {
+enum ArithmeticExpression<Value: SignedNumeric & FloatingPoint> {
     case value(Value)
     indirect case add(ArithmeticExpression, ArithmeticExpression)
+    indirect case subtract(ArithmeticExpression, ArithmeticExpression)
+    indirect case multiply(ArithmeticExpression, ArithmeticExpression)
+    indirect case divide(ArithmeticExpression, ArithmeticExpression)
 
     func resolve() -> Value {
         switch self {
@@ -14,6 +17,12 @@ enum ArithmeticExpression<Value: Numeric> {
             value
         case let .add(operand1, operand2):
             operand1.resolve() + operand2.resolve()
+        case let .subtract(operand1, operand2):
+            operand1.resolve() - operand2.resolve()
+        case let .multiply(operand1, operand2):
+            operand1.resolve() * operand2.resolve()
+        case let .divide(operand1, operand2):
+            operand1.resolve() / operand2.resolve()
         }
     }
 }

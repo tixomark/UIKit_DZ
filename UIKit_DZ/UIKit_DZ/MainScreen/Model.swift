@@ -5,21 +5,25 @@ import Foundation
 
 /// Main screen Model
 class Model {
-    var firstNumber = 0
-    var secondNumber = 0
+    // MARK: - Public Properties
 
+    var firstNumber: Float = 0
+    var secondNumber: Float = 0
+    var operation: ArithmeticOperation = .add
     var userName = ""
 
-    func performOperation(_ operatrion: ArithmeticOperation) -> Int {
-        let expresion: ArithmeticExpression = switch operatrion {
+    // MARK: - Public Methods
+
+    func performOperation() -> Float {
+        let expresion: ArithmeticExpression = switch operation {
         case .add:
             .add(.value(firstNumber), .value(secondNumber))
         case .subtract:
-            .add(.value(firstNumber), .value(secondNumber))
+            .subtract(.value(firstNumber), .value(secondNumber))
         case .multiply:
-            .add(.value(firstNumber), .value(secondNumber))
+            .multiply(.value(firstNumber), .value(secondNumber))
         case .divide:
-            .add(.value(firstNumber), .value(secondNumber))
+            .divide(.value(firstNumber), .value(secondNumber))
         }
         firstNumber = 0
         secondNumber = 0

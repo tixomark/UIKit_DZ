@@ -6,9 +6,9 @@ import UIKit
 /// Main screen view
 final class MainViewController: UIViewController {
     // MARK: - Public Properties
-
+    
     var model = Model()
-
+    
     let backgroundLayer: CALayer = {
         let layer = CALayer()
         layer.contents = UIImage(.backgroundImage)?.cgImage
@@ -16,7 +16,7 @@ final class MainViewController: UIViewController {
         layer.masksToBounds = true
         return layer
     }()
-
+    
     let greetingLabel: UILabel = {
         let label = UILabel()
         label.font = UIFont(name: "Verdana", size: 30)
@@ -28,7 +28,7 @@ final class MainViewController: UIViewController {
         label.layer.borderWidth = 3
         return label
     }()
-
+    
     let guessNumberButton: CUIButton = {
         let button = CUIButton()
         button.backgroundColor = .customPurple
@@ -36,7 +36,7 @@ final class MainViewController: UIViewController {
         button.setTitle("Угадай число", for: .normal)
         return button
     }()
-
+    
     let calculatorButton: CUIButton = {
         let button = CUIButton()
         button.backgroundColor = .customGreen
@@ -44,23 +44,23 @@ final class MainViewController: UIViewController {
         button.setTitle("Калькулятор", for: .normal)
         return button
     }()
-
+    
     // MARK: - Private Properties
-
+    
     private var greetingAlertDoneActionn: UIAlertAction?
-
+    
     // MARK: - Life Cycle
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         showGreetingAlert()
     }
-
+    
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         backgroundLayer.frame = CGRect(
@@ -72,91 +72,50 @@ final class MainViewController: UIViewController {
             size: CGSize(width: view.bounds.width, height: 82)
         )
     }
-
+    
     // MARK: - Private Methods
-
+    
     private func setUpUI() {
         view.backgroundColor = .systemBackground
-
+        
         guessNumberButton.frame = CGRect(x: 82, y: 301, width: 150, height: 150)
-        guessNumberButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
-
+        guessNumberButton.addTarget(
+            self,
+            action: #selector(didTapButton(_:)),
+            for: .touchUpInside
+        )
+        
         calculatorButton.frame = CGRect(x: 132, y: 507, width: 200, height: 200)
-        calculatorButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
-
+        calculatorButton.addTarget(
+            self,
+            action: #selector(didTapButton(_:)),
+            for: .touchUpInside
+        )
+        
         view.layer.addSublayer(backgroundLayer)
         view.addSubviews(greetingLabel, guessNumberButton, calculatorButton)
     }
     
     private func showGreetingAlert() {
-        greetingAlertDoneActionn = UIAlertAction(title: "Готово", style: .default) { [greetingLabel] _ in
-            greetingLabel.text = "Приветствую,\n" + self.model.userName + "!"
-        }
-        let greetingAlert = UIAlertController(
-            title: "Пожалуйста,\nпредставьтесь",
-            message: nil,
-            preferredStyle: .alert
-        )
-
-        greetingAlertDoneActionn?.isEnabled = false
-        if let greetingAlertDoneActionn {
-            greetingAlert.addAction(greetingAlertDoneActionn)
-        }
-        greetingAlert.addTextField { textfield in
-            textfield.placeholder = "Введите ваше имя"
-            textfield.tag = 0
-            textfield.addTarget(self, action: #selector(self.textDidChangeIn(_:)), for: .editingChanged)
-            textfield.returnKeyType = .done
-        }
-
+        let greetingAlert = createGreetingAlert()
         present(greetingAlert, animated: true)
     }
-
+    
     private func showEnterTwoNumbersAlert() {
-        let addAction = UIAlertAction(title: "Сложить", style: .cancel) { [unowned self] _ in
-            showCalculationResultAlert()
-        }
-        let cancelAction = UIAlertAction(title: "Отмена", style: .default)
-        let enterTwoNumbersAlert = UIAlertController(
-            title: "Введите ваши числа",
-            message: nil,
-            preferredStyle: .alert
-        )
-
-        enterTwoNumbersAlert.addAction(addAction)
-        enterTwoNumbersAlert.addAction(cancelAction)
-        enterTwoNumbersAlert.addTextField { textfield in
-            textfield.placeholder = "Число 1"
-            textfield.tag = 1
-            textfield.keyboardType = .numberPad
-            textfield.addTarget(self, action: #selector(self.textDidChangeIn(_:)), for: .editingChanged)
-        }
-        enterTwoNumbersAlert.addTextField { textfield in
-            textfield.placeholder = "Число 2"
-            textfield.tag = 2
-            textfield.keyboardType = .numberPad
-            textfield.addTarget(self, action: #selector(self.textDidChangeIn(_:)), for: .editingChanged)
-        }
-
+        let enterTwoNumbersAlert = createEnterTwoNumbersAlert()
         present(enterTwoNumbersAlert, animated: true)
     }
-
+    
+    private func showSelectOperationAlert() {
+        let selectOperationAlert = createSelectOperationAlert()
+        present(selectOperationAlert, animated: true)
+    }
+    
     private func showCalculationResultAlert() {
-        let cancelAction = UIAlertAction(title: "Отмена", style: .default)
-        let okAction = UIAlertAction(title: "Ок", style: .cancel)
-        let operationResult = model.performOperation(.add)
-        let calculationResultAlert = UIAlertController(
-            title: "Ваш результат",
-            message: "\(operationResult)",
-            preferredStyle: .alert
-        )
-
-        calculationResultAlert.addAction(cancelAction)
-        calculationResultAlert.addAction(okAction)
-
+        let calculationResultAlert = createCalculationResultAlert()
         present(calculationResultAlert, animated: true)
     }
-
+    
     @objc private func textDidChangeIn(_ sender: UITextField) {
         switch sender.tag {
         case 0:
@@ -164,14 +123,14 @@ final class MainViewController: UIViewController {
             greetingAlertDoneActionn?.isEnabled = !text.isEmpty
             model.userName = text
         case 1:
-            model.firstNumber = Int(sender.text ?? "0") ?? 0
+            model.firstNumber = Float(sender.text ?? "0") ?? 0
         case 2:
-            model.secondNumber = Int(sender.text ?? "0") ?? 0
+            model.secondNumber = Float(sender.text ?? "0") ?? 0
         default:
             break
         }
     }
-
+    
     @objc private func didTapButton(_ sender: UIButton) {
         switch sender {
         case guessNumberButton:
@@ -181,5 +140,116 @@ final class MainViewController: UIViewController {
         default:
             break
         }
+    }
+}
+
+extension MainViewController {
+    private func createGreetingAlert() -> UIAlertController {
+        let alert = UIAlertController(
+            title: "Пожалуйста,\nпредставьтесь",
+            message: nil,
+            preferredStyle: .alert
+        )
+        
+        greetingAlertDoneActionn = UIAlertAction(
+            title: "Готово",
+            style: .default
+        ) { [greetingLabel] _ in
+            greetingLabel.text = "Приветствую,\n" + self.model.userName + "!"
+        }
+        
+        greetingAlertDoneActionn?.isEnabled = false
+        if let greetingAlertDoneActionn {
+            alert.addAction(greetingAlertDoneActionn)
+        }
+        alert.addTextField { textfield in
+            textfield.placeholder = "Введите ваше имя"
+            textfield.tag = 0
+            textfield.addTarget(
+                self,
+                action: #selector(self.textDidChangeIn(_:)),
+                for: .editingChanged
+            )
+            textfield.returnKeyType = .done
+        }
+        
+        return alert
+    }
+    
+    private func createEnterTwoNumbersAlert() -> UIAlertController {
+        let alert = UIAlertController(
+            title: "Введите ваши числа",
+            message: nil,
+            preferredStyle: .alert
+        )
+        alert.addTextField { textfield in
+            textfield.placeholder = "Число 1"
+            textfield.tag = 1
+            textfield.keyboardType = .numberPad
+            textfield.addTarget(
+                self,
+                action: #selector(self.textDidChangeIn(_:)),
+                for: .editingChanged
+            )
+        }
+        alert.addTextField { textfield in
+            textfield.placeholder = "Число 2"
+            textfield.tag = 2
+            textfield.keyboardType = .numberPad
+            textfield.addTarget(
+                self,
+                action: #selector(self.textDidChangeIn(_:)),
+                for: .editingChanged
+            )
+        }
+        
+        let selectOperationAction = UIAlertAction(
+            title: "Выбрать операцию",
+            style: .cancel
+        ) { [unowned self] _ in
+            showSelectOperationAlert()
+        }
+        let cancelAction = UIAlertAction(title: "Отмена", style: .default)
+        
+        alert.addAction(selectOperationAction)
+        alert.addAction(cancelAction)
+        
+        return alert
+    }
+    
+    private func createSelectOperationAlert() -> UIAlertController {
+        let alert = UIAlertController(
+            title: "Выберите математическую операцию",
+            message: nil,
+            preferredStyle: .alert
+        )
+        
+        for operation in ArithmeticOperation.allCases {
+            let action = UIAlertAction(title: operation.rawValue, style: .default) { _ in
+                self.model.operation = operation
+                self.showCalculationResultAlert()
+            }
+            alert.addAction(action)
+        }
+        
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
+        alert.addAction(cancelAction)
+        
+        return alert
+    }
+    
+    private func createCalculationResultAlert() -> UIAlertController {
+        let operationResult = model.performOperation()
+        let alert = UIAlertController(
+            title: "Ваш результат",
+            message: "\(operationResult)",
+            preferredStyle: .alert
+        )
+        let cancelAction = UIAlertAction(title: "Отмена", style: .default)
+        let okAction = UIAlertAction(title: "Ок", style: .cancel)
+        
+        alert.addAction(cancelAction)
+        alert.addAction(okAction)
+        return alert
     }
 }
