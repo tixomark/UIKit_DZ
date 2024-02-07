@@ -32,6 +32,11 @@ final class MainViewController: UIViewController {
         setUpUI()
     }
 
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        showGreetingAlert()
+    }
+
     // MARK: - Private Methods
 
     private func setUpUI() {
@@ -53,6 +58,24 @@ final class MainViewController: UIViewController {
         calculatorButton.frame = CGRect(x: 132, y: 507, width: 200, height: 200)
         calculatorButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
         view.addSubviews(guessNumberButton, calculatorButton)
+    }
+
+    private func showGreetingAlert() {
+        let doneAction = UIAlertAction(title: "Готово", style: .default)
+        let enterNameAlert = UIAlertController(
+            title: "Пожалуйста, представьтесь",
+            message: nil,
+            preferredStyle: .alert
+        )
+
+        enterNameAlert.addAction(doneAction)
+        enterNameAlert.addTextField { textfield in
+            textfield.placeholder = "Введите ваше имя"
+            textfield.tag = 0
+            textfield.addTarget(self, action: #selector(self.textDidChangeIn(_:)), for: .editingChanged)
+        }
+
+        present(enterNameAlert, animated: true)
     }
 
     private func showEnterTwoNumbersAlert() {
@@ -87,9 +110,10 @@ final class MainViewController: UIViewController {
     private func showCalculationResultAlert() {
         let cancelAction = UIAlertAction(title: "Отмена", style: .default)
         let okAction = UIAlertAction(title: "Ок", style: .cancel)
+        let operationResult = model.performOperation(.add)
         let calculationResultAlert = UIAlertController(
             title: "Ваш результат",
-            message: "\(model.performOperation(.add))",
+            message: "\(operationResult)",
             preferredStyle: .alert
         )
 
@@ -101,6 +125,8 @@ final class MainViewController: UIViewController {
 
     @objc private func textDidChangeIn(_ sender: UITextField) {
         switch sender.tag {
+        case 0:
+            print(sender.text)
         case 1:
             model.firstNumber = Int(sender.text ?? "0") ?? 0
         case 2:
