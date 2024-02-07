@@ -22,6 +22,8 @@ final class GuessNumberGame {
 
     private var number = Int.random(in: 1 ... 10)
 
+    // MARK: - Public Methods
+
     func checkSuggestNumber() {
         if suggestedNumber > number {
             delegate?.suggestedNumber(.greaterThanTakenNumer)

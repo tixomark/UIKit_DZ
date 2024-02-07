@@ -7,7 +7,7 @@ import UIKit
 final class MainViewController: UIViewController {
     // MARK: - Public Properties
 
-    var model = Model()
+    var numberOperation = NumberOperationModel()
     var guessNumberGame = GuessNumberGame()
 
     let backgroundLayer: CALayer = {
@@ -114,7 +114,7 @@ final class MainViewController: UIViewController {
             title: "Готово",
             style: .default
         ) { [greetingLabel] _ in
-            greetingLabel.text = "Приветствую,\n" + self.model.userName + "!"
+            greetingLabel.text = "Приветствую,\n" + self.numberOperation.userName + "!"
         }
 
         greetingAlertDoneAktion?.isEnabled = false
@@ -140,11 +140,11 @@ final class MainViewController: UIViewController {
         case 0:
             guard let text = sender.text else { return }
             greetingAlertDoneAktion?.isEnabled = !text.isEmpty
-            model.userName = text
+            numberOperation.userName = text
         case 1:
-            model.firstNumber = Float(sender.text ?? "0") ?? 0
+            numberOperation.firstNumber = Float(sender.text ?? "0") ?? 0
         case 2:
-            model.secondNumber = Float(sender.text ?? "0") ?? 0
+            numberOperation.secondNumber = Float(sender.text ?? "0") ?? 0
         case 3:
             if let text = sender.text, let number = Int(text), (1 ... 10) ~= number {
                 guessNumberAlertOkAktion?.isEnabled = true
@@ -304,7 +304,7 @@ extension MainViewController {
 
         for operation in ArithmeticOperation.allCases {
             let action = UIAlertAction(title: operation.rawValue, style: .default) { _ in
-                self.model.operation = operation
+                self.numberOperation.operation = operation
                 self.showCalculationResultAlert()
             }
             alert.addAction(action)
@@ -317,7 +317,7 @@ extension MainViewController {
     }
 
     private func createCalculationResultAlert() -> UIAlertController {
-        let operationResult = model.performOperation()
+        let operationResult = numberOperation.performOperation()
         let alert = UIAlertController(
             title: "Ваш результат",
             message: "\(operationResult)",

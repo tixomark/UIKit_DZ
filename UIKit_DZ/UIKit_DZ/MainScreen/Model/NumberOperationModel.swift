@@ -1,10 +1,10 @@
-// Model.swift
+// NumberOperationModel.swift
 // Copyright © RoadMap. All rights reserved.
 
 import Foundation
 
 /// Main screen Model
-class Model {
+class NumberOperationModel {
     // MARK: - Public Properties
 
     var firstNumber: Float = 0
