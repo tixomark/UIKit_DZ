@@ -19,6 +19,7 @@
 		9DC0B3A72B73D3700096CD39 /* CUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B3A62B73D3700096CD39 /* CUIButton.swift */; };
 		9DC0B3A92B73D9380096CD39 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B3A82B73D9380096CD39 /* Model.swift */; };
 		9DC0B3AB2B73D9C70096CD39 /* ArithmeticOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B3AA2B73D9C70096CD39 /* ArithmeticOperation.swift */; };
+		9DC0B3AD2B7413A70096CD39 /* GuessNumberModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B3AC2B7413A70096CD39 /* GuessNumberModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		9DC0B3A62B73D3700096CD39 /* CUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUIButton.swift; sourceTree = "<group>"; };
 		9DC0B3A82B73D9380096CD39 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		9DC0B3AA2B73D9C70096CD39 /* ArithmeticOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticOperation.swift; sourceTree = "<group>"; };
+		9DC0B3AC2B7413A70096CD39 /* GuessNumberModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessNumberModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 			children = (
 				9DC0B3832B72AB990096CD39 /* MainViewController.swift */,
 				9DC0B3A82B73D9380096CD39 /* Model.swift */,
+				9DC0B3AC2B7413A70096CD39 /* GuessNumberModel.swift */,
 				9DC0B39D2B73C2D10096CD39 /* ArithmeticExpression.swift */,
 				9DC0B3AA2B73D9C70096CD39 /* ArithmeticOperation.swift */,
 				9DC0B3A52B73D30F0096CD39 /* UIelements */,
@@ -223,6 +226,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DC0B3AD2B7413A70096CD39 /* GuessNumberModel.swift in Sources */,
 				9DC0B3A72B73D3700096CD39 /* CUIButton.swift in Sources */,
 				9DC0B3982B73A8D00096CD39 /* UIImage + extension.swift in Sources */,
 				9DC0B3842B72AB990096CD39 /* MainViewController.swift in Sources */,
