@@ -81,18 +81,10 @@ final class MainViewController: UIViewController {
         view.backgroundColor = .systemBackground
 
         guessNumberButton.frame = CGRect(x: 82, y: 301, width: 150, height: 150)
-        guessNumberButton.addTarget(
-            self,
-            action: #selector(didTapButton(_:)),
-            for: .touchUpInside
-        )
+        guessNumberButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
 
         calculatorButton.frame = CGRect(x: 132, y: 507, width: 200, height: 200)
-        calculatorButton.addTarget(
-            self,
-            action: #selector(didTapButton(_:)),
-            for: .touchUpInside
-        )
+        calculatorButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
 
         view.layer.addSublayer(backgroundLayer)
         view.addSubviews(greetingLabel, guessNumberButton, calculatorButton)
@@ -131,7 +123,6 @@ final class MainViewController: UIViewController {
             )
             textfield.returnKeyType = .done
         }
-
         return alert
     }
 
@@ -260,27 +251,19 @@ extension MainViewController {
             message: nil,
             preferredStyle: .alert
         )
-        alert.addTextField { textfield in
-            textfield.placeholder = "Число 1"
-            textfield.tag = 1
-            textfield.keyboardType = .numberPad
-            textfield.addTarget(
-                self,
-                action: #selector(self.textDidChangeIn(_:)),
-                for: .editingChanged
-            )
-        }
-        alert.addTextField { textfield in
-            textfield.placeholder = "Число 2"
-            textfield.tag = 2
-            textfield.keyboardType = .numberPad
-            textfield.addTarget(
-                self,
-                action: #selector(self.textDidChangeIn(_:)),
-                for: .editingChanged
-            )
-        }
 
+        for index in 1 ... 2 {
+            alert.addTextField { textfield in
+                textfield.placeholder = "Число \(index)"
+                textfield.tag = index
+                textfield.keyboardType = .numberPad
+                textfield.addTarget(
+                    self,
+                    action: #selector(self.textDidChangeIn(_:)),
+                    for: .editingChanged
+                )
+            }
+        }
         let selectOperationAction = UIAlertAction(
             title: "Выбрать операцию",
             style: .cancel
@@ -291,7 +274,6 @@ extension MainViewController {
 
         alert.addAction(selectOperationAction)
         alert.addAction(cancelAction)
-
         return alert
     }
 
@@ -303,16 +285,18 @@ extension MainViewController {
         )
 
         for operation in ArithmeticOperation.allCases {
-            let action = UIAlertAction(title: operation.rawValue, style: .default) { _ in
-                self.numberOperation.operation = operation
-                self.showCalculationResultAlert()
+            let action = UIAlertAction(
+                title: operation.rawValue,
+                style: .default
+            ) { [unowned self] _ in
+                numberOperation.operation = operation
+                showCalculationResultAlert()
             }
             alert.addAction(action)
         }
 
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
         alert.addAction(cancelAction)
-
         return alert
     }
 
