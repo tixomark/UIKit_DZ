@@ -7,8 +7,7 @@ import UIKit
 final class MainViewController: UIViewController {
     // MARK: - Public Properties
 
-    var firstNumber = 0
-    var secondNumber = 0
+    var model = Model()
 
     let guessNumberButton: CUIButton = {
         let button = CUIButton()
@@ -90,7 +89,7 @@ final class MainViewController: UIViewController {
         let okAction = UIAlertAction(title: "Ок", style: .cancel)
         let calculationResultAlert = UIAlertController(
             title: "Ваш результат",
-            message: "\(firstNumber + secondNumber)",
+            message: "\(model.performOperation(.add))",
             preferredStyle: .alert
         )
 
@@ -103,9 +102,9 @@ final class MainViewController: UIViewController {
     @objc private func textDidChangeIn(_ sender: UITextField) {
         switch sender.tag {
         case 1:
-            firstNumber = Int(sender.text ?? "0") ?? 0
+            model.firstNumber = Int(sender.text ?? "0") ?? 0
         case 2:
-            secondNumber = Int(sender.text ?? "0") ?? 0
+            model.secondNumber = Int(sender.text ?? "0") ?? 0
         default:
             break
         }

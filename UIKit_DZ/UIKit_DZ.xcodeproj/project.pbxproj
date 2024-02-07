@@ -17,6 +17,8 @@
 		9DC0B39C2B73C2570096CD39 /* UIView + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B39B2B73C2570096CD39 /* UIView + extension.swift */; };
 		9DC0B39E2B73C2D10096CD39 /* ArithmeticExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B39D2B73C2D10096CD39 /* ArithmeticExpression.swift */; };
 		9DC0B3A72B73D3700096CD39 /* CUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B3A62B73D3700096CD39 /* CUIButton.swift */; };
+		9DC0B3A92B73D9380096CD39 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B3A82B73D9380096CD39 /* Model.swift */; };
+		9DC0B3AB2B73D9C70096CD39 /* ArithmeticOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B3AA2B73D9C70096CD39 /* ArithmeticOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		9DC0B39B2B73C2570096CD39 /* UIView + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + extension.swift"; sourceTree = "<group>"; };
 		9DC0B39D2B73C2D10096CD39 /* ArithmeticExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticExpression.swift; sourceTree = "<group>"; };
 		9DC0B3A62B73D3700096CD39 /* CUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUIButton.swift; sourceTree = "<group>"; };
+		9DC0B3A82B73D9380096CD39 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		9DC0B3AA2B73D9C70096CD39 /* ArithmeticOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticOperation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +93,9 @@
 			isa = PBXGroup;
 			children = (
 				9DC0B3832B72AB990096CD39 /* MainViewController.swift */,
+				9DC0B3A82B73D9380096CD39 /* Model.swift */,
 				9DC0B39D2B73C2D10096CD39 /* ArithmeticExpression.swift */,
+				9DC0B3AA2B73D9C70096CD39 /* ArithmeticOperation.swift */,
 				9DC0B3A52B73D30F0096CD39 /* UIelements */,
 			);
 			path = MainScreen;
@@ -220,10 +226,12 @@
 				9DC0B3A72B73D3700096CD39 /* CUIButton.swift in Sources */,
 				9DC0B3982B73A8D00096CD39 /* UIImage + extension.swift in Sources */,
 				9DC0B3842B72AB990096CD39 /* MainViewController.swift in Sources */,
+				9DC0B3AB2B73D9C70096CD39 /* ArithmeticOperation.swift in Sources */,
 				9DC0B3802B72AB990096CD39 /* AppDelegate.swift in Sources */,
 				9DC0B39E2B73C2D10096CD39 /* ArithmeticExpression.swift in Sources */,
 				9DC0B39C2B73C2570096CD39 /* UIView + extension.swift in Sources */,
 				9DC0B3822B72AB990096CD39 /* SceneDelegate.swift in Sources */,
+				9DC0B3A92B73D9380096CD39 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

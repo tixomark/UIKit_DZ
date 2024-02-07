@@ -3,7 +3,7 @@
 
 import Foundation
 
-/// Calculator model
+/// Calculator expressions
 enum ArithmeticExpression<Value: Numeric> {
     case value(Value)
     indirect case add(ArithmeticExpression, ArithmeticExpression)
