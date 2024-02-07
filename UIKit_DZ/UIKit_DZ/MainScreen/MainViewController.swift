@@ -154,6 +154,7 @@ final class MainViewController: UIViewController {
             guessNumberGame.delegate = self
             showGuessNumberAlert(title: "Угадай число от 1 до 10", message: nil)
         case calculatorButton:
+            numberOperation.delegate = self
             showEnterTwoNumbersAlert()
         default:
             break
@@ -161,11 +162,13 @@ final class MainViewController: UIViewController {
     }
 }
 
+// Guess number game delegate & reloated alerts
 extension MainViewController: GuessNumberGameDelegate {
     func suggestedNumber(_ position: GuessNumberGame.PositionRelativeToTakenNumber) {
         switch position {
         case .isTakenNumber:
             showSuccessAlert()
+            guessNumberGame.delegate = nil
         case .greaterThanTakenNumer:
             showGuessNumberAlert(
                 title: "Попробуйте еще раз",
@@ -228,8 +231,13 @@ extension MainViewController: GuessNumberGameDelegate {
     }
 }
 
-// Operations ower two numbers alerts
-extension MainViewController {
+// Operations over two numbers delegate & reloated alerts
+extension MainViewController: NumberOperationModelDelegate {
+    func operationResultedWith(_ number: Float) {
+        showCalculationResultAlert(number)
+        numberOperation.delegate = nil
+    }
+
     private func showEnterTwoNumbersAlert() {
         let enterTwoNumbersAlert = createEnterTwoNumbersAlert()
         present(enterTwoNumbersAlert, animated: true)
@@ -240,8 +248,8 @@ extension MainViewController {
         present(selectOperationAlert, animated: true)
     }
 
-    private func showCalculationResultAlert() {
-        let calculationResultAlert = createCalculationResultAlert()
+    private func showCalculationResultAlert(_ result: Float) {
+        let calculationResultAlert = createCalculationResultAlert(result)
         present(calculationResultAlert, animated: true)
     }
 
@@ -290,7 +298,7 @@ extension MainViewController {
                 style: .default
             ) { [unowned self] _ in
                 numberOperation.operation = operation
-                showCalculationResultAlert()
+                numberOperation.performOperation()
             }
             alert.addAction(action)
         }
@@ -300,11 +308,10 @@ extension MainViewController {
         return alert
     }
 
-    private func createCalculationResultAlert() -> UIAlertController {
-        let operationResult = numberOperation.performOperation()
+    private func createCalculationResultAlert(_ result: Float) -> UIAlertController {
         let alert = UIAlertController(
             title: "Ваш результат",
-            message: "\(operationResult)",
+            message: "\(result)",
             preferredStyle: .alert
         )
         let cancelAction = UIAlertAction(title: "Отмена", style: .default)

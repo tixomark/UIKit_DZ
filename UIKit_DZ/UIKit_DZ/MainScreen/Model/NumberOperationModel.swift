@@ -12,9 +12,11 @@ class NumberOperationModel {
     var operation: ArithmeticOperation = .add
     var userName = ""
 
+    weak var delegate: NumberOperationModelDelegate?
+
     // MARK: - Public Methods
 
-    func performOperation() -> Float {
+    func performOperation() {
         let expresion: ArithmeticExpression = switch operation {
         case .add:
             .add(.value(firstNumber), .value(secondNumber))
@@ -25,8 +27,10 @@ class NumberOperationModel {
         case .divide:
             .divide(.value(firstNumber), .value(secondNumber))
         }
-        firstNumber = 0
-        secondNumber = 0
-        return expresion.resolve()
+        delegate?.operationResultedWith(expresion.resolve())
     }
+}
+
+protocol NumberOperationModelDelegate: AnyObject {
+    func operationResultedWith(_ number: Float)
 }
