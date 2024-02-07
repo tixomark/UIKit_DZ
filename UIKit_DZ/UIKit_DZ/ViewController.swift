@@ -3,9 +3,5 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    }
-}
+/// Main screen view
+class ViewController: UIViewController {}
