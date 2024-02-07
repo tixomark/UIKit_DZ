@@ -9,6 +9,26 @@ final class MainViewController: UIViewController {
 
     var model = Model()
 
+    let backgroundLayer: CALayer = {
+        let layer = CALayer()
+        layer.contents = UIImage(.backgroundImage)?.cgImage
+        layer.contentsGravity = .resizeAspectFill
+        layer.masksToBounds = true
+        return layer
+    }()
+
+    let greetingLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: "Verdana", size: 30)
+        label.textAlignment = .center
+        label.textColor = .systemBackground
+        label.backgroundColor = .customBlue
+        label.numberOfLines = 0
+        label.layer.borderColor = UIColor.systemBackground.cgColor
+        label.layer.borderWidth = 3
+        return label
+    }()
+
     let guessNumberButton: CUIButton = {
         let button = CUIButton()
         button.backgroundColor = .customPurple
@@ -25,6 +45,10 @@ final class MainViewController: UIViewController {
         return button
     }()
 
+    // MARK: - Private Properties
+
+    private var doneActionn: UIAlertAction?
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -37,45 +61,59 @@ final class MainViewController: UIViewController {
         showGreetingAlert()
     }
 
-    // MARK: - Private Methods
-
-    private func setUpUI() {
-        view.backgroundColor = .systemBackground
-
-        // set up background image
-        let backgroundLayer = CALayer()
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         backgroundLayer.frame = CGRect(
             origin: CGPoint(x: 0, y: view.safeAreaInsets.top),
             size: view.bounds.size
         )
-        backgroundLayer.contents = UIImage(.backgroundImage)?.cgImage
-        backgroundLayer.contentsGravity = .resizeAspectFill
-        view.layer.addSublayer(backgroundLayer)
+        greetingLabel.frame = CGRect(
+            origin: CGPoint(x: 0, y: view.safeAreaInsets.top),
+            size: CGSize(width: view.bounds.width, height: 82)
+        )
+    }
+
+    // MARK: - Private Methods
+
+    private func setUpUI() {
+        view.backgroundColor = .systemBackground
 
         guessNumberButton.frame = CGRect(x: 82, y: 301, width: 150, height: 150)
         guessNumberButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
 
         calculatorButton.frame = CGRect(x: 132, y: 507, width: 200, height: 200)
         calculatorButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
-        view.addSubviews(guessNumberButton, calculatorButton)
+
+        view.layer.addSublayer(backgroundLayer)
+        view.addSubviews(greetingLabel, guessNumberButton, calculatorButton)
     }
 
+//    override func viewDidAppear(_ animated: Bool) {
+//        super.viewDidAppear(animated)
+//    }
+
     private func showGreetingAlert() {
-        let doneAction = UIAlertAction(title: "Готово", style: .default)
-        let enterNameAlert = UIAlertController(
-            title: "Пожалуйста, представьтесь",
+        doneActionn = UIAlertAction(title: "Готово", style: .default) { [greetingLabel] _ in
+            greetingLabel.text = "Приветствую,\n" + self.model.userName + "!"
+        }
+        let greetingAlert = UIAlertController(
+            title: "Пожалуйста,\nпредставьтесь",
             message: nil,
             preferredStyle: .alert
         )
 
-        enterNameAlert.addAction(doneAction)
-        enterNameAlert.addTextField { textfield in
+        doneActionn?.isEnabled = false
+        if let doneActionn {
+            greetingAlert.addAction(doneActionn)
+        }
+        greetingAlert.addTextField { textfield in
             textfield.placeholder = "Введите ваше имя"
             textfield.tag = 0
             textfield.addTarget(self, action: #selector(self.textDidChangeIn(_:)), for: .editingChanged)
+            textfield.returnKeyType = .done
         }
 
-        present(enterNameAlert, animated: true)
+        present(greetingAlert, animated: true)
     }
 
     private func showEnterTwoNumbersAlert() {
@@ -126,7 +164,9 @@ final class MainViewController: UIViewController {
     @objc private func textDidChangeIn(_ sender: UITextField) {
         switch sender.tag {
         case 0:
-            print(sender.text)
+            guard let text = sender.text else { return }
+            doneActionn?.isEnabled = !text.isEmpty
+            model.userName = text
         case 1:
             model.firstNumber = Int(sender.text ?? "0") ?? 0
         case 2:

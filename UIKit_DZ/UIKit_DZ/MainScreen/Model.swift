@@ -8,6 +8,8 @@ class Model {
     var firstNumber = 0
     var secondNumber = 0
 
+    var userName = ""
+
     func performOperation(_ operatrion: ArithmeticOperation) -> Int {
         let expresion: ArithmeticExpression = switch operatrion {
         case .add:
