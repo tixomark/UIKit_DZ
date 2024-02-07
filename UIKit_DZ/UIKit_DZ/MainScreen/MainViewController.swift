@@ -4,4 +4,4 @@
 import UIKit
 
 /// Main screen view
-class MainViewController: UIViewController {}
+final class MainViewController: UIViewController {}
