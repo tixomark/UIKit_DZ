@@ -1,15 +1,18 @@
-// UIView + extension.swift
-// Copyright © RoadMap. All rights reserved.
+//
+//  UIView + Extension.swift
+//  UIKit_DZ
+//
+//  Created by Tixon Markin on 07.02.2024.
+//
 
 import UIKit
 
-/// Emun of all images from assets
-enum ImageName: String {
-    case backgroundImage
-}
-
-extension UIImage {
-    convenience init?(_ name: ImageName) {
-        self.init(named: name.rawValue)
+extension UIView {
+    func addSubviews(_ views: UIView...) {
+        views.forEach { self.addSubview($0) }
+    }
+    
+    func addSubviews(_ views: [UIView]) {
+        views.forEach { self.addSubview($0) }
     }
 }
