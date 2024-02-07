@@ -70,12 +70,50 @@ final class MainViewController: UIViewController {
         view.addSubview(calculatorButton)
     }
 
+    private func showEnterTwoNumbersAlert() {
+        let addAction = UIAlertAction(title: "Сложить", style: .default) { _ in
+            print("did add")
+        }
+        let cancelAction = UIAlertAction(title: "Отмена", style: .default)
+        let enterTwoNumbersAlert = UIAlertController(
+            title: "Введите ваши числа",
+            message: nil,
+            preferredStyle: .alert
+        )
+
+        enterTwoNumbersAlert.addAction(addAction)
+        enterTwoNumbersAlert.addAction(cancelAction)
+        enterTwoNumbersAlert.addTextField { textfield in
+            textfield.placeholder = "Число 1"
+            textfield.tag = 1
+            textfield.addTarget(self, action: #selector(self.textDidChangeIn(_:)), for: .editingChanged)
+        }
+        enterTwoNumbersAlert.addTextField { textfield in
+            textfield.placeholder = "Число 2"
+            textfield.tag = 2
+            textfield.addTarget(self, action: #selector(self.textDidChangeIn(_:)), for: .editingChanged)
+        }
+
+        present(enterTwoNumbersAlert, animated: true)
+    }
+
+    @objc private func textDidChangeIn(_ sender: UITextField) {
+        switch sender.tag {
+        case 1:
+            print(sender.text ?? "")
+        case 2:
+            print(sender.text ?? "")
+        default:
+            break
+        }
+    }
+
     @objc private func didTapButton(_ sender: UIButton) {
         switch sender {
         case guessNumberButton:
             print("guessNumberButton tapped")
         case calculatorButton:
-            print("calculatorButton tapped")
+            showEnterTwoNumbersAlert()
         default:
             break
         }
