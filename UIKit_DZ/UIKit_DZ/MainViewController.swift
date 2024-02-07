@@ -9,6 +9,23 @@ final class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .green
+
+        setUpUI()
+    }
+
+    // MARK: - Private Methods
+
+    private func setUpUI() {
+        view.backgroundColor = .systemBackground
+        let backgroundLayer = CALayer()
+        backgroundLayer.frame = CGRect(
+            origin: CGPoint(x: 0, y: 0),
+            size: view.bounds.size
+        )
+        let backgrounImage = UIImage(named: "backgroundImage")
+        backgroundLayer.contentsGravity = .resizeAspectFill
+        backgroundLayer.contents = backgrounImage?.cgImage
+
+        view.layer.addSublayer(backgroundLayer)
     }
 }
