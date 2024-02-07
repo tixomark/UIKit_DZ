@@ -47,7 +47,7 @@ final class MainViewController: UIViewController {
 
     // MARK: - Private Properties
 
-    private var doneActionn: UIAlertAction?
+    private var greetingAlertDoneActionn: UIAlertAction?
 
     // MARK: - Life Cycle
 
@@ -87,13 +87,9 @@ final class MainViewController: UIViewController {
         view.layer.addSublayer(backgroundLayer)
         view.addSubviews(greetingLabel, guessNumberButton, calculatorButton)
     }
-
-//    override func viewDidAppear(_ animated: Bool) {
-//        super.viewDidAppear(animated)
-//    }
-
+    
     private func showGreetingAlert() {
-        doneActionn = UIAlertAction(title: "Готово", style: .default) { [greetingLabel] _ in
+        greetingAlertDoneActionn = UIAlertAction(title: "Готово", style: .default) { [greetingLabel] _ in
             greetingLabel.text = "Приветствую,\n" + self.model.userName + "!"
         }
         let greetingAlert = UIAlertController(
@@ -102,9 +98,9 @@ final class MainViewController: UIViewController {
             preferredStyle: .alert
         )
 
-        doneActionn?.isEnabled = false
-        if let doneActionn {
-            greetingAlert.addAction(doneActionn)
+        greetingAlertDoneActionn?.isEnabled = false
+        if let greetingAlertDoneActionn {
+            greetingAlert.addAction(greetingAlertDoneActionn)
         }
         greetingAlert.addTextField { textfield in
             textfield.placeholder = "Введите ваше имя"
@@ -165,7 +161,7 @@ final class MainViewController: UIViewController {
         switch sender.tag {
         case 0:
             guard let text = sender.text else { return }
-            doneActionn?.isEnabled = !text.isEmpty
+            greetingAlertDoneActionn?.isEnabled = !text.isEmpty
             model.userName = text
         case 1:
             model.firstNumber = Int(sender.text ?? "0") ?? 0
