@@ -16,6 +16,7 @@
 		9DC0B39A2B73B2FB0096CD39 /* Verdana.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC0B3992B73B2FB0096CD39 /* Verdana.ttf */; };
 		9DC0B39C2B73C2570096CD39 /* UIView + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B39B2B73C2570096CD39 /* UIView + extension.swift */; };
 		9DC0B39E2B73C2D10096CD39 /* ArithmeticExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B39D2B73C2D10096CD39 /* ArithmeticExpression.swift */; };
+		9DC0B3A72B73D3700096CD39 /* CUIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B3A62B73D3700096CD39 /* CUIButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		9DC0B3992B73B2FB0096CD39 /* Verdana.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Verdana.ttf; sourceTree = "<group>"; };
 		9DC0B39B2B73C2570096CD39 /* UIView + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + extension.swift"; sourceTree = "<group>"; };
 		9DC0B39D2B73C2D10096CD39 /* ArithmeticExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticExpression.swift; sourceTree = "<group>"; };
+		9DC0B3A62B73D3700096CD39 /* CUIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CUIButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,8 +90,17 @@
 			children = (
 				9DC0B3832B72AB990096CD39 /* MainViewController.swift */,
 				9DC0B39D2B73C2D10096CD39 /* ArithmeticExpression.swift */,
+				9DC0B3A52B73D30F0096CD39 /* UIelements */,
 			);
 			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		9DC0B3A52B73D30F0096CD39 /* UIelements */ = {
+			isa = PBXGroup;
+			children = (
+				9DC0B3A62B73D3700096CD39 /* CUIButton.swift */,
+			);
+			path = UIelements;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -206,6 +217,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DC0B3A72B73D3700096CD39 /* CUIButton.swift in Sources */,
 				9DC0B3982B73A8D00096CD39 /* UIImage + extension.swift in Sources */,
 				9DC0B3842B72AB990096CD39 /* MainViewController.swift in Sources */,
 				9DC0B3802B72AB990096CD39 /* AppDelegate.swift in Sources */,

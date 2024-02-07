@@ -10,36 +10,19 @@ final class MainViewController: UIViewController {
     var firstNumber = 0
     var secondNumber = 0
 
-    // MARK: - Private Properties
-
-    let guessNumberButton: UIButton = {
-        let button = UIButton()
+    let guessNumberButton: CUIButton = {
+        let button = CUIButton()
         button.backgroundColor = .customPurple
         button.layer.borderColor = UIColor.customPurpleStroke.cgColor
-        button.layer.borderWidth = 3
-        button.layer.cornerRadius = 30
-
         button.setTitle("Угадай число", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Verdana", size: 20)
-        button.titleLabel?.textAlignment = .center
-        button.titleLabel?.textColor = .systemBackground
-        button.titleEdgeInsets = .init(top: 10, left: 10, bottom: 10, right: 10)
-        button.titleLabel?.numberOfLines = 0
         return button
     }()
 
-    let calculatorButton: UIButton = {
-        let button = UIButton()
+    let calculatorButton: CUIButton = {
+        let button = CUIButton()
         button.backgroundColor = .customGreen
         button.layer.borderColor = UIColor.customGreenStroke.cgColor
-        button.layer.borderWidth = 3
-        button.layer.cornerRadius = 30
         button.setTitle("Калькулятор", for: .normal)
-        button.titleLabel?.font = UIFont(name: "Verdana", size: 20)
-        button.titleLabel?.textAlignment = .center
-        button.titleLabel?.textColor = .systemBackground
-        button.titleEdgeInsets = .init(top: 10, left: 10, bottom: 10, right: 10)
-        button.titleLabel?.numberOfLines = 0
         return button
     }()
 
@@ -47,7 +30,6 @@ final class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setUpUI()
     }
 
