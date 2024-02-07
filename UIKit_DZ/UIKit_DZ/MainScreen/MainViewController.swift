@@ -182,6 +182,8 @@ extension MainViewController: GuessNumberGameDelegate {
         }
     }
 
+    // MARK: - Private Methods
+
     private func showGuessNumberAlert(title: String, message: String?) {
         let guessNumberAlert = createGuessNumberAlert(title: title, message: message)
         present(guessNumberAlert, animated: true)
@@ -237,6 +239,8 @@ extension MainViewController: NumberOperationModelDelegate {
         showCalculationResultAlert(number)
         numberOperation.delegate = nil
     }
+
+    // MARK: - Private Methods
 
     private func showEnterTwoNumbersAlert() {
         let enterTwoNumbersAlert = createEnterTwoNumbersAlert()

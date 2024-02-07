@@ -11,6 +11,8 @@ enum ArithmeticExpression<Value: SignedNumeric & FloatingPoint> {
     indirect case multiply(ArithmeticExpression, ArithmeticExpression)
     indirect case divide(ArithmeticExpression, ArithmeticExpression)
 
+    // MARK: - Public Properties
+
     func resolve() -> Value {
         switch self {
         case let .value(value):
