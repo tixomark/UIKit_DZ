@@ -1,4 +1,4 @@
-// UIView + extension.swift
+// UIImage + extension.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit

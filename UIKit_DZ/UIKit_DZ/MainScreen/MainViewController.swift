@@ -66,12 +66,11 @@ final class MainViewController: UIViewController {
 
         calculatorButton.frame = CGRect(x: 132, y: 507, width: 200, height: 200)
         calculatorButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
-        view.addSubview(guessNumberButton)
-        view.addSubview(calculatorButton)
+        view.addSubviews(guessNumberButton, calculatorButton)
     }
 
     private func showEnterTwoNumbersAlert() {
-        let addAction = UIAlertAction(title: "Сложить", style: .default) { _ in
+        let addAction = UIAlertAction(title: "Сложить", style: .cancel) { _ in
             print("did add")
         }
         let cancelAction = UIAlertAction(title: "Отмена", style: .default)

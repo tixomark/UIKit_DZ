@@ -15,6 +15,7 @@
 		9DC0B3982B73A8D00096CD39 /* UIImage + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B3972B73A8D00096CD39 /* UIImage + extension.swift */; };
 		9DC0B39A2B73B2FB0096CD39 /* Verdana.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DC0B3992B73B2FB0096CD39 /* Verdana.ttf */; };
 		9DC0B39C2B73C2570096CD39 /* UIView + extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B39B2B73C2570096CD39 /* UIView + extension.swift */; };
+		9DC0B39E2B73C2D10096CD39 /* ArithmeticExpression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B39D2B73C2D10096CD39 /* ArithmeticExpression.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		9DC0B3972B73A8D00096CD39 /* UIImage + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + extension.swift"; sourceTree = "<group>"; };
 		9DC0B3992B73B2FB0096CD39 /* Verdana.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Verdana.ttf; sourceTree = "<group>"; };
 		9DC0B39B2B73C2570096CD39 /* UIView + extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + extension.swift"; sourceTree = "<group>"; };
+		9DC0B39D2B73C2D10096CD39 /* ArithmeticExpression.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArithmeticExpression.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,15 +64,32 @@
 			children = (
 				9DC0B37F2B72AB990096CD39 /* AppDelegate.swift */,
 				9DC0B3812B72AB990096CD39 /* SceneDelegate.swift */,
-				9DC0B3832B72AB990096CD39 /* MainViewController.swift */,
-				9DC0B3972B73A8D00096CD39 /* UIImage + extension.swift */,
-				9DC0B39B2B73C2570096CD39 /* UIView + extension.swift */,
+				9DC0B3A02B73C5820096CD39 /* MainScreen */,
+				9DC0B39F2B73C5710096CD39 /* Extensions */,
 				9DC0B3882B72AB9A0096CD39 /* Assets.xcassets */,
 				9DC0B38A2B72AB9A0096CD39 /* LaunchScreen.storyboard */,
 				9DC0B38D2B72AB9A0096CD39 /* Info.plist */,
 				9DC0B3992B73B2FB0096CD39 /* Verdana.ttf */,
 			);
 			path = UIKit_DZ;
+			sourceTree = "<group>";
+		};
+		9DC0B39F2B73C5710096CD39 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9DC0B3972B73A8D00096CD39 /* UIImage + extension.swift */,
+				9DC0B39B2B73C2570096CD39 /* UIView + extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9DC0B3A02B73C5820096CD39 /* MainScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9DC0B3832B72AB990096CD39 /* MainViewController.swift */,
+				9DC0B39D2B73C2D10096CD39 /* ArithmeticExpression.swift */,
+			);
+			path = MainScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,6 +209,7 @@
 				9DC0B3982B73A8D00096CD39 /* UIImage + extension.swift in Sources */,
 				9DC0B3842B72AB990096CD39 /* MainViewController.swift in Sources */,
 				9DC0B3802B72AB990096CD39 /* AppDelegate.swift in Sources */,
+				9DC0B39E2B73C2D10096CD39 /* ArithmeticExpression.swift in Sources */,
 				9DC0B39C2B73C2570096CD39 /* UIView + extension.swift in Sources */,
 				9DC0B3822B72AB990096CD39 /* SceneDelegate.swift in Sources */,
 			);
