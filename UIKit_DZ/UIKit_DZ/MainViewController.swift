@@ -17,15 +17,12 @@ final class MainViewController: UIViewController {
 
     private func setUpUI() {
         view.backgroundColor = .systemBackground
-        let backgroundLayer = CALayer()
-        backgroundLayer.frame = CGRect(
-            origin: CGPoint(x: 0, y: 0),
-            size: view.bounds.size
-        )
-        let backgrounImage = UIImage(named: "backgroundImage")
-        backgroundLayer.contentsGravity = .resizeAspectFill
-        backgroundLayer.contents = backgrounImage?.cgImage
 
+        // set up background image
+        let backgroundLayer = CALayer()
+        backgroundLayer.frame = CGRect(origin: .zero, size: view.bounds.size)
+        backgroundLayer.contents = UIImage(.backgroundImage)?.cgImage
+        backgroundLayer.contentsGravity = .resizeAspectFill
         view.layer.addSublayer(backgroundLayer)
     }
 }
