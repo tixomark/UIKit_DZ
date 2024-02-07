@@ -5,6 +5,11 @@ import UIKit
 
 /// Main screen view
 final class MainViewController: UIViewController {
+    // MARK: - Public Properties
+
+    var firstNumber = 0
+    var secondNumber = 0
+
     // MARK: - Private Properties
 
     let guessNumberButton: UIButton = {
@@ -70,8 +75,8 @@ final class MainViewController: UIViewController {
     }
 
     private func showEnterTwoNumbersAlert() {
-        let addAction = UIAlertAction(title: "Сложить", style: .cancel) { _ in
-            print("did add")
+        let addAction = UIAlertAction(title: "Сложить", style: .cancel) { [unowned self] _ in
+            showCalculationResultAlert()
         }
         let cancelAction = UIAlertAction(title: "Отмена", style: .default)
         let enterTwoNumbersAlert = UIAlertController(
@@ -85,23 +90,40 @@ final class MainViewController: UIViewController {
         enterTwoNumbersAlert.addTextField { textfield in
             textfield.placeholder = "Число 1"
             textfield.tag = 1
+            textfield.keyboardType = .numberPad
             textfield.addTarget(self, action: #selector(self.textDidChangeIn(_:)), for: .editingChanged)
         }
         enterTwoNumbersAlert.addTextField { textfield in
             textfield.placeholder = "Число 2"
             textfield.tag = 2
+            textfield.keyboardType = .numberPad
             textfield.addTarget(self, action: #selector(self.textDidChangeIn(_:)), for: .editingChanged)
         }
 
         present(enterTwoNumbersAlert, animated: true)
     }
 
+    private func showCalculationResultAlert() {
+        let cancelAction = UIAlertAction(title: "Отмена", style: .default)
+        let okAction = UIAlertAction(title: "Ок", style: .cancel)
+        let calculationResultAlert = UIAlertController(
+            title: "Ваш результат",
+            message: "\(firstNumber + secondNumber)",
+            preferredStyle: .alert
+        )
+
+        calculationResultAlert.addAction(cancelAction)
+        calculationResultAlert.addAction(okAction)
+
+        present(calculationResultAlert, animated: true)
+    }
+
     @objc private func textDidChangeIn(_ sender: UITextField) {
         switch sender.tag {
         case 1:
-            print(sender.text ?? "")
+            firstNumber = Int(sender.text ?? "0") ?? 0
         case 2:
-            print(sender.text ?? "")
+            secondNumber = Int(sender.text ?? "0") ?? 0
         default:
             break
         }
