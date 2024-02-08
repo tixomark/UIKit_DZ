@@ -210,7 +210,7 @@ extension MainViewController: GuessNumberGameDelegate {
             preferredStyle: .alert
         )
         let cancelAction = UIAlertAction(title: "Отмена", style: .default)
-        guessNumberAlertOkAktion = UIAlertAction(title: "Ок", style: .cancel) { _ in
+        guessNumberAlertOkAktion = UIAlertAction(title: "Ок", style: .default) { _ in
             self.guessNumberGame.checkSuggestNumber()
         }
         guessNumberAlertOkAktion?.isEnabled = false
@@ -229,6 +229,8 @@ extension MainViewController: GuessNumberGameDelegate {
             )
             textfield.keyboardType = .numberPad
         }
+        alert.preferredAction = guessNumberAlertOkAktion
+
         return alert
     }
 }
@@ -278,7 +280,7 @@ extension MainViewController: NumberOperationModelDelegate {
         }
         let selectOperationAction = UIAlertAction(
             title: "Выбрать операцию",
-            style: .cancel
+            style: .default
         ) { [unowned self] _ in
             showSelectOperationAlert()
         }
@@ -286,6 +288,8 @@ extension MainViewController: NumberOperationModelDelegate {
 
         alert.addAction(selectOperationAction)
         alert.addAction(cancelAction)
+        alert.preferredAction = selectOperationAction
+
         return alert
     }
 
@@ -307,8 +311,10 @@ extension MainViewController: NumberOperationModelDelegate {
             alert.addAction(action)
         }
 
-        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
+        let cancelAction = UIAlertAction(title: "Отмена", style: .default)
         alert.addAction(cancelAction)
+        alert.preferredAction = cancelAction
+
         return alert
     }
 
@@ -319,10 +325,11 @@ extension MainViewController: NumberOperationModelDelegate {
             preferredStyle: .alert
         )
         let cancelAction = UIAlertAction(title: "Отмена", style: .default)
-        let okAction = UIAlertAction(title: "Ок", style: .cancel)
+        let okAction = UIAlertAction(title: "Ок", style: .default)
 
         alert.addAction(cancelAction)
         alert.addAction(okAction)
+        alert.preferredAction = okAction
         return alert
     }
 }
