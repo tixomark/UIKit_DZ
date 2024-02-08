@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9DB59C7D2B756E6D008D21FF /* Verdana-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DB59C7B2B756E6D008D21FF /* Verdana-Bold.ttf */; };
+		9DB59C7E2B756E6D008D21FF /* Verdana.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DB59C7C2B756E6D008D21FF /* Verdana.ttf */; };
 		9DC0B3802B72AB990096CD39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B37F2B72AB990096CD39 /* AppDelegate.swift */; };
 		9DC0B3822B72AB990096CD39 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B3812B72AB990096CD39 /* SceneDelegate.swift */; };
 		9DC0B3842B72AB990096CD39 /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B3832B72AB990096CD39 /* AuthViewController.swift */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9DB59C7B2B756E6D008D21FF /* Verdana-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Verdana-Bold.ttf"; sourceTree = "<group>"; };
+		9DB59C7C2B756E6D008D21FF /* Verdana.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Verdana.ttf; sourceTree = "<group>"; };
 		9DC0B37C2B72AB990096CD39 /* UIKit_DZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKit_DZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DC0B37F2B72AB990096CD39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DC0B3812B72AB990096CD39 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -63,6 +67,8 @@
 				9DC0B3882B72AB9A0096CD39 /* Assets.xcassets */,
 				9DC0B38A2B72AB9A0096CD39 /* LaunchScreen.storyboard */,
 				9DC0B38D2B72AB9A0096CD39 /* Info.plist */,
+				9DB59C7B2B756E6D008D21FF /* Verdana-Bold.ttf */,
+				9DB59C7C2B756E6D008D21FF /* Verdana.ttf */,
 			);
 			path = UIKit_DZ;
 			sourceTree = "<group>";
@@ -127,9 +133,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DB59C7E2B756E6D008D21FF /* Verdana.ttf in Resources */,
 				9DC0B38C2B72AB9A0096CD39 /* LaunchScreen.storyboard in Resources */,
 				9DC0B3892B72AB9A0096CD39 /* Assets.xcassets in Resources */,
 				9DC0B3872B72AB990096CD39 /* Main.storyboard in Resources */,
+				9DB59C7D2B756E6D008D21FF /* Verdana-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
