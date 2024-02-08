@@ -5,17 +5,30 @@ import Foundation
 
 /// User model that is used to validate user related data
 class UserModel {
+    private let loginRegEx = ##"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,10}"##
+    private let passwordRegEx = ##"[a-zA-Z0-9!"#$%&'()*+,-./:;<=>?@\[\]^_`{|}~]{8,32}"##
+
     var login: String? {
         didSet {
-            isLoginValid = (login ?? "").count > 5
-            validationResultReceiver?.loginAndPaswordValidationChangedTo(isLogInPossible)
+            let oldIsLogInPossible = isLogInPossible
+            if let result = login?.validateUsing(loginRegEx) {
+                isLoginValid = result
+            }
+            if isLogInPossible != oldIsLogInPossible {
+                validationResultReceiver?.loginAndPaswordValidationChangedTo(isLogInPossible)
+            }
         }
     }
 
     var password: String? {
         didSet {
-            isPasswordValid = (password ?? "").count > 5
-            validationResultReceiver?.loginAndPaswordValidationChangedTo(isLogInPossible)
+            let oldIsLogInPossible = isLogInPossible
+            if let result = password?.validateUsing(passwordRegEx) {
+                isPasswordValid = result
+            }
+            if isLogInPossible != oldIsLogInPossible {
+                validationResultReceiver?.loginAndPaswordValidationChangedTo(isLogInPossible)
+            }
         }
     }
 
