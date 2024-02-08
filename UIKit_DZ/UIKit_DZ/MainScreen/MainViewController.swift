@@ -79,7 +79,7 @@ final class MainViewController: UIViewController {
     }
 
     @objc private func textDidChangeIn(_ sender: UITextField) {
-        guard let text = sender.text, !text.isEmpty else {
+        guard let text = sender.text, text.count > 1 else {
             enterYourWordAlertOkAktion?.isEnabled = false
             return
         }
