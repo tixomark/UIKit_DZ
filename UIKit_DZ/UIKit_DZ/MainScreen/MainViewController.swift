@@ -20,7 +20,7 @@ final class MainViewController: UIViewController {
 
     let greetingLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont(name: "Verdana", size: 30)
+        label.font = UIFont(name: "Verdana-Bold", size: 30)
         label.textAlignment = .center
         label.textColor = .systemBackground
         label.backgroundColor = .customBlue

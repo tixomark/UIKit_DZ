@@ -22,7 +22,7 @@ class CUIButton: UIButton {
     private func setUpUI() {
         layer.borderWidth = 3
         layer.cornerRadius = 30
-        titleLabel?.font = UIFont(name: "Verdana", size: 20)
+        titleLabel?.font = UIFont(name: "Verdana-Bold", size: 20)
         titleLabel?.textAlignment = .center
         titleLabel?.textColor = .systemBackground
         titleEdgeInsets = .init(top: 10, left: 10, bottom: 10, right: 10)
