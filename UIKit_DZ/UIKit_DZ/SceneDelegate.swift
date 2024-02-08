@@ -4,4 +4,6 @@
 import UIKit
 
 /// Scene delegate
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {}
+class SceneDelegate: UIResponder, UIWindowSceneDelegate {
+    var window: UIWindow?
+}

@@ -17,7 +17,6 @@ class AuthViewController: UIViewController {
     }
 
     private func setUpUI() {
-        view.backgroundColor = .white
         logInButton.layer.cornerRadius = 12
     }
 
