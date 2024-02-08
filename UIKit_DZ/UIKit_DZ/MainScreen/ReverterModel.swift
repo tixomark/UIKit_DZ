@@ -1,14 +1,7 @@
-//
-//  ReverterModel.swift
-//  UIKit_DZ
-//
-//  Created by Tixon Markin on 08.02.2024.
-//
+// ReverterModel.swift
+// Copyright © RoadMap. All rights reserved.
 
 import Foundation
 
-
 /// Model for reverting strings
-final class ReverterModel {
-    
-}
+final class ReverterModel {}
