@@ -3,5 +3,5 @@
 
 import UIKit
 
-/// Main screen view
-class ViewController: UIViewController {}
+/// Authentication screen view
+class AuthViewController: UIViewController {}
