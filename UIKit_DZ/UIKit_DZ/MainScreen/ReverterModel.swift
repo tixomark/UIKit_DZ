@@ -10,9 +10,11 @@ final class ReverterModel {
     var reversedWord: String? {
         guard let word else { return nil }
         var result = String(word.reversed())
+
         if let firstLetter = word.first, firstLetter.isUppercase {
             result = result.capitalized
         }
+
         return result
     }
 

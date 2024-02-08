@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9D21D5342B74EA0C0080664A /* Verdana-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D21D5332B74EA0C0080664A /* Verdana-Bold.ttf */; };
+		9D21D5362B74FAED0080664A /* LabeledView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D21D5352B74FAED0080664A /* LabeledView.swift */; };
+		9DB59C7A2B7516D8008D21FF /* Verdana-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DB59C792B7516D8008D21FF /* Verdana-BoldItalic.ttf */; };
 		9DC0B3802B72AB990096CD39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B37F2B72AB990096CD39 /* AppDelegate.swift */; };
 		9DC0B3822B72AB990096CD39 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B3812B72AB990096CD39 /* SceneDelegate.swift */; };
 		9DC0B3842B72AB990096CD39 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B3832B72AB990096CD39 /* MainViewController.swift */; };
@@ -18,6 +20,8 @@
 
 /* Begin PBXFileReference section */
 		9D21D5332B74EA0C0080664A /* Verdana-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Verdana-Bold.ttf"; sourceTree = "<group>"; };
+		9D21D5352B74FAED0080664A /* LabeledView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabeledView.swift; sourceTree = "<group>"; };
+		9DB59C792B7516D8008D21FF /* Verdana-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Verdana-BoldItalic.ttf"; sourceTree = "<group>"; };
 		9DC0B37C2B72AB990096CD39 /* UIKit_DZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKit_DZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DC0B37F2B72AB990096CD39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DC0B3812B72AB990096CD39 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +69,7 @@
 				9DC0B38A2B72AB9A0096CD39 /* LaunchScreen.storyboard */,
 				9DC0B38D2B72AB9A0096CD39 /* Info.plist */,
 				9D21D5332B74EA0C0080664A /* Verdana-Bold.ttf */,
+				9DB59C792B7516D8008D21FF /* Verdana-BoldItalic.ttf */,
 			);
 			path = UIKit_DZ;
 			sourceTree = "<group>";
@@ -73,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				9DC0B3832B72AB990096CD39 /* MainViewController.swift */,
+				9D21D5352B74FAED0080664A /* LabeledView.swift */,
 				9DC0B3B12B7436490096CD39 /* ReverterModel.swift */,
 			);
 			path = MainScreen;
@@ -141,6 +147,7 @@
 				9DC0B38C2B72AB9A0096CD39 /* LaunchScreen.storyboard in Resources */,
 				9D21D5342B74EA0C0080664A /* Verdana-Bold.ttf in Resources */,
 				9DC0B3892B72AB9A0096CD39 /* Assets.xcassets in Resources */,
+				9DB59C7A2B7516D8008D21FF /* Verdana-BoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -196,6 +203,7 @@
 				9DC0B3802B72AB990096CD39 /* AppDelegate.swift in Sources */,
 				9DC0B3B22B7436490096CD39 /* ReverterModel.swift in Sources */,
 				9DC0B3822B72AB990096CD39 /* SceneDelegate.swift in Sources */,
+				9D21D5362B74FAED0080664A /* LabeledView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
