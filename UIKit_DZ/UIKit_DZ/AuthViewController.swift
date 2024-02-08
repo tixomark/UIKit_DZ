@@ -5,12 +5,18 @@ import UIKit
 
 /// Authentication screen view
 class AuthViewController: UIViewController {
+    // MARK: - IBOutlets
+
     @IBOutlet var loginTextField: UITextField!
     @IBOutlet var passwordTextField: UITextField!
     @IBOutlet var hidePasswordButton: UIButton!
     @IBOutlet var logInButton: UIButton!
 
+    // MARK: - Public Properties
+
     var user = UserModel()
+
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +30,8 @@ class AuthViewController: UIViewController {
         passwordTextField.resignFirstResponder()
         loginTextField.resignFirstResponder()
     }
+
+    // MARK: - Private Methods
 
     private func setUpUI() {
         logInButton.layer.cornerRadius = 12
