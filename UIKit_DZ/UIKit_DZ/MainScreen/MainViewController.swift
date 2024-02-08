@@ -19,6 +19,7 @@ final class MainViewController: UIViewController {
 
     // MARK: - Private Properties
 
+    private var wordReverter = ReverterModel()
     private var enterYourWordAlertOkAktion: UIAlertAction?
 
     // MARK: - Life Cycle
@@ -63,8 +64,8 @@ final class MainViewController: UIViewController {
         let cancelAction = UIAlertAction(title: "Отмена", style: .default)
         alert.addAction(cancelAction)
 
-        enterYourWordAlertOkAktion = UIAlertAction(title: "Ок", style: .cancel) { _ in
-            print(alert.textFields?.first?.text ?? "")
+        enterYourWordAlertOkAktion = UIAlertAction(title: "Ок", style: .cancel) { [wordReverter] _ in
+            wordReverter.updateWord(alert.textFields?.first?.text)
         }
         enterYourWordAlertOkAktion?.isEnabled = false
         if let enterYourWordAlertOkAktion {

@@ -7,9 +7,10 @@ import Foundation
 final class ReverterModel {
     // MARK: - Public Properties
 
-    var reversedWord: String {
-        var result = String(initialWord.reversed())
-        if let firstLetter = initialWord.first, firstLetter.isUppercase {
+    var reversedWord: String? {
+        guard let word else { return nil }
+        var result = String(word.reversed())
+        if let firstLetter = word.first, firstLetter.isUppercase {
             result = result.capitalized
         }
         return result
@@ -17,11 +18,11 @@ final class ReverterModel {
 
     // MARK: - Private Properties
 
-    private(set) var initialWord: String
+    private(set) var word: String?
 
     // MARK: - Life Cycle
 
-    init(initialWord: String) {
-        self.initialWord = initialWord
+    func updateWord(_ word: String?) {
+        self.word = word
     }
 }
