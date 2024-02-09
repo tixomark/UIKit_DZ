@@ -27,7 +27,7 @@ class BillViewController: UIViewController {
     private func showPayAlert() {
         let alert = UIAlertController(title: "Вы хотите оплатить чек?", message: nil, preferredStyle: .alert)
         let yesAction = UIAlertAction(title: "Да", style: .default) { _ in
-            //            self.performSegue(withIdentifier: "goToRecieptSegue", sender: self)
+            self.performSegue(withIdentifier: "goToThanksSegue", sender: self)
         }
         let cancelAction = UIAlertAction(title: "Отмена", style: .default)
 
