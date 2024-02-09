@@ -3,13 +3,8 @@
 
 import UIKit
 
-/// Scene delegate
-class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    // MARK: - Public Properties
-
+final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
-
-    // MARK: - Life Cycle
 
     func scene(
         _ scene: UIScene,

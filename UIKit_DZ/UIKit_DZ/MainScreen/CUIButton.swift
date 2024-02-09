@@ -3,8 +3,8 @@
 
 import UIKit
 
-/// Button template for creating buttons in MainViewController
-class CUIButton: UIButton {
+/// Шаблон кнопки с преднастроенными свойствами для использования там где понадобится.
+final class CUIButton: UIButton {
     // MARK: - Life Cycle
 
     init() {
@@ -14,7 +14,8 @@ class CUIButton: UIButton {
 
     @available(*, unavailable)
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        setUpUI()
     }
 
     // MARK: - Private Methods
