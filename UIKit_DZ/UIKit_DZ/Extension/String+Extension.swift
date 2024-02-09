@@ -4,6 +4,7 @@
 import Foundation
 
 extension String {
+    /// Примеяет к строке переданное регулярное выражение
     func validateUsing(_ pattern: String) -> Bool {
         guard let regEx = try? NSRegularExpression(pattern: pattern, options: .caseInsensitive) else {
             print("Can not create regular expression from: \"\(pattern)\"")

@@ -79,7 +79,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="hidenIcon" title=""/>
                                 <connections>
-                                    <action selector="didTapHidePasswordButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kTL-2J-SqS"/>
+                                    <action selector="hidePasswordButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kTL-2J-SqS"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Sg5-ed-toS">
@@ -111,7 +111,7 @@
         <!--Кафе Алиса-->
         <scene sceneID="jcZ-CE-toT">
             <objects>
-                <viewController title="Кафе Алиса" modalPresentationStyle="fullScreen" id="OD4-Xg-CdY" customClass="DetailsViewController" customModule="UIKit_DZ" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Кафе Алиса" modalPresentationStyle="fullScreen" id="OD4-Xg-CdY" customClass="ReserveTableViewController" customModule="UIKit_DZ" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WIw-OL-sCz">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -240,7 +240,7 @@
         <!--Чек-->
         <scene sceneID="lGx-Rf-fGO">
             <objects>
-                <viewController title="Чек" id="3HV-Mo-bvG" customClass="BillViewController" customModule="UIKit_DZ" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Чек" id="3HV-Mo-bvG" customClass="RecieptViewController" customModule="UIKit_DZ" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleAspectFit" id="cCr-h4-bJp">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -430,7 +430,7 @@
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="opaqueSeparatorColor">
-            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

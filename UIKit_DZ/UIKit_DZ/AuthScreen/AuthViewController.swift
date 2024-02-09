@@ -3,27 +3,35 @@
 
 import UIKit
 
-/// Authentication screen view
-class AuthViewController: UIViewController {
+/// Экран отвечающий за аутентификацию пльзователя
+final class AuthViewController: UIViewController {
+    // MARK: - Constants
+
+    private enum Constants {
+        static let goToDetailsVCSegueID = "goToDatailsSegue"
+    }
+
     // MARK: - IBOutlets
 
-    @IBOutlet var loginTextField: UITextField!
-    @IBOutlet var passwordTextField: UITextField!
-    @IBOutlet var hidePasswordButton: UIButton!
-    @IBOutlet var logInButton: UIButton!
+    @IBOutlet private var loginTextField: UITextField!
+    @IBOutlet private var passwordTextField: UITextField!
+    @IBOutlet private var hidePasswordButton: UIButton!
+    @IBOutlet private var logInButton: UIButton!
 
     // MARK: - Public Properties
 
-    var user = UserModel()
+    /// Модель обрабатывающая данные пользователя
+    private var user = User()
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setUpUI()
         user.validationResultReceiver = self
     }
+
+    // MARK: - Public Methods
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -31,12 +39,10 @@ class AuthViewController: UIViewController {
         loginTextField.resignFirstResponder()
     }
 
-    // MARK: - Public Methods
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToDatailsSegue" {
-            let detailsVC = segue.destination as? DetailsViewController
-            detailsVC?.user = user
+        if segue.identifier == Constants.goToDetailsVCSegueID {
+            let reserveVC = segue.destination as? ReserveTableViewController
+            reserveVC?.user = user
         }
     }
 
@@ -54,11 +60,13 @@ class AuthViewController: UIViewController {
         passwordTextField.addTarget(self, action: #selector(textDidChangeIn(_:)), for: .editingChanged)
     }
 
+    /// Переключает доступность нажатия кнопки входа
     private func switchLogInButtonStateTo(_ isEnabled: Bool) {
         logInButton.isEnabled = isEnabled
         logInButton.alpha = logInButton.isEnabled ? 1 : 0.5
     }
 
+    /// Обноляет пользовательския данные в модели исходя из вводимого текста
     @objc private func textDidChangeIn(_ sender: UITextField) {
         switch sender {
         case loginTextField:
@@ -70,7 +78,8 @@ class AuthViewController: UIViewController {
         }
     }
 
-    @IBAction func didTapHidePasswordButton(_ sender: UIButton) {
+    /// Обрабатывает назатия на кнопку скрытия пароля
+    @IBAction private func hidePasswordButtonTapped(_ sender: UIButton) {
         passwordTextField.isSecureTextEntry.toggle()
         let icon = passwordTextField.isSecureTextEntry ? UIImage(.hidenIcon) : UIImage(.shownIcon)
         hidePasswordButton.setImage(icon, for: .normal)
@@ -78,12 +87,14 @@ class AuthViewController: UIViewController {
 }
 
 extension AuthViewController: UserFieldsValidationResultReceiver {
+    /// Обрабатывает результаты валидации пользовательских данных из модели
     func loginAndPaswordValidationChangedTo(_ doesConform: Bool) {
         switchLogInButtonStateTo(doesConform)
     }
 }
 
 extension AuthViewController: UITextFieldDelegate {
+    /// Управляет фокусировкой, когда надо изменить фокус и когда убрать.
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         switch textField {
         case loginTextField:

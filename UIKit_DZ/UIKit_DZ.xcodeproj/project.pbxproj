@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		9D8A757A2B757D610024AC5F /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A75792B757D610024AC5F /* UIImage+Extension.swift */; };
-		9D8A757C2B758A7D0024AC5F /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A757B2B758A7D0024AC5F /* UserModel.swift */; };
+		9D8A757C2B758A7D0024AC5F /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A757B2B758A7D0024AC5F /* User.swift */; };
 		9D8A757E2B7596F80024AC5F /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A757D2B7596F80024AC5F /* String+Extension.swift */; };
-		9D8A75802B75A2470024AC5F /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A757F2B75A2470024AC5F /* DetailsViewController.swift */; };
+		9D8A75802B75A2470024AC5F /* ReserveTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8A757F2B75A2470024AC5F /* ReserveTableViewController.swift */; };
 		9DB59C7D2B756E6D008D21FF /* Verdana-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DB59C7B2B756E6D008D21FF /* Verdana-Bold.ttf */; };
 		9DB59C7E2B756E6D008D21FF /* Verdana.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DB59C7C2B756E6D008D21FF /* Verdana.ttf */; };
 		9DC0B3802B72AB990096CD39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B37F2B72AB990096CD39 /* AppDelegate.swift */; };
@@ -19,15 +19,15 @@
 		9DC0B3872B72AB990096CD39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC0B3852B72AB990096CD39 /* Main.storyboard */; };
 		9DC0B3892B72AB9A0096CD39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DC0B3882B72AB9A0096CD39 /* Assets.xcassets */; };
 		9DC0B38C2B72AB9A0096CD39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC0B38A2B72AB9A0096CD39 /* LaunchScreen.storyboard */; };
-		9DF07CE12B760E2700F4B488 /* BillViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF07CE02B760E2700F4B488 /* BillViewController.swift */; };
+		9DF07CE12B760E2700F4B488 /* RecieptViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF07CE02B760E2700F4B488 /* RecieptViewController.swift */; };
 		9DF07CE62B76143500F4B488 /* ThanksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DF07CE52B76143500F4B488 /* ThanksViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9D8A75792B757D610024AC5F /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
-		9D8A757B2B758A7D0024AC5F /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		9D8A757B2B758A7D0024AC5F /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9D8A757D2B7596F80024AC5F /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		9D8A757F2B75A2470024AC5F /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		9D8A757F2B75A2470024AC5F /* ReserveTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReserveTableViewController.swift; sourceTree = "<group>"; };
 		9DB59C7B2B756E6D008D21FF /* Verdana-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Verdana-Bold.ttf"; sourceTree = "<group>"; };
 		9DB59C7C2B756E6D008D21FF /* Verdana.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Verdana.ttf; sourceTree = "<group>"; };
 		9DC0B37C2B72AB990096CD39 /* UIKit_DZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKit_DZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -38,7 +38,7 @@
 		9DC0B3882B72AB9A0096CD39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DC0B38B2B72AB9A0096CD39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DC0B38D2B72AB9A0096CD39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9DF07CE02B760E2700F4B488 /* BillViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BillViewController.swift; sourceTree = "<group>"; };
+		9DF07CE02B760E2700F4B488 /* RecieptViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecieptViewController.swift; sourceTree = "<group>"; };
 		9DF07CE52B76143500F4B488 /* ThanksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,7 +57,7 @@
 			isa = PBXGroup;
 			children = (
 				9DC0B3832B72AB990096CD39 /* AuthViewController.swift */,
-				9D8A757B2B758A7D0024AC5F /* UserModel.swift */,
+				9D8A757B2B758A7D0024AC5F /* User.swift */,
 			);
 			path = AuthScreen;
 			sourceTree = "<group>";
@@ -65,7 +65,7 @@
 		9D8A75822B75A50A0024AC5F /* DetailsScreen */ = {
 			isa = PBXGroup;
 			children = (
-				9D8A757F2B75A2470024AC5F /* DetailsViewController.swift */,
+				9D8A757F2B75A2470024AC5F /* ReserveTableViewController.swift */,
 			);
 			path = DetailsScreen;
 			sourceTree = "<group>";
@@ -109,16 +109,24 @@
 				9DC0B3882B72AB9A0096CD39 /* Assets.xcassets */,
 				9DC0B38A2B72AB9A0096CD39 /* LaunchScreen.storyboard */,
 				9DC0B38D2B72AB9A0096CD39 /* Info.plist */,
+				9DE4469E2B76A269005B26EB /* Fonts */,
+			);
+			path = UIKit_DZ;
+			sourceTree = "<group>";
+		};
+		9DE4469E2B76A269005B26EB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
 				9DB59C7B2B756E6D008D21FF /* Verdana-Bold.ttf */,
 				9DB59C7C2B756E6D008D21FF /* Verdana.ttf */,
 			);
-			path = UIKit_DZ;
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		9DF07CE22B760E2D00F4B488 /* BillScreen */ = {
 			isa = PBXGroup;
 			children = (
-				9DF07CE02B760E2700F4B488 /* BillViewController.swift */,
+				9DF07CE02B760E2700F4B488 /* RecieptViewController.swift */,
 			);
 			path = BillScreen;
 			sourceTree = "<group>";
@@ -250,9 +258,9 @@
 				9DC0B3842B72AB990096CD39 /* AuthViewController.swift in Sources */,
 				9D8A757A2B757D610024AC5F /* UIImage+Extension.swift in Sources */,
 				9DC0B3802B72AB990096CD39 /* AppDelegate.swift in Sources */,
-				9D8A757C2B758A7D0024AC5F /* UserModel.swift in Sources */,
-				9D8A75802B75A2470024AC5F /* DetailsViewController.swift in Sources */,
-				9DF07CE12B760E2700F4B488 /* BillViewController.swift in Sources */,
+				9D8A757C2B758A7D0024AC5F /* User.swift in Sources */,
+				9D8A75802B75A2470024AC5F /* ReserveTableViewController.swift in Sources */,
+				9DF07CE12B760E2700F4B488 /* RecieptViewController.swift in Sources */,
 				9D8A757E2B7596F80024AC5F /* String+Extension.swift in Sources */,
 				9DC0B3822B72AB990096CD39 /* SceneDelegate.swift in Sources */,
 				9DF07CE62B76143500F4B488 /* ThanksViewController.swift in Sources */,

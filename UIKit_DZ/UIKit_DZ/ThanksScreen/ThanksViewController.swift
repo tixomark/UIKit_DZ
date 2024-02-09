@@ -3,16 +3,22 @@
 
 import UIKit
 
-/// View that shows thanks message after user payed the bill
-class ThanksViewController: UIViewController {
+/// Экран который говорит спасибо и показывает сообщение, что чек отправлен на почту пользователя
+final class ThanksViewController: UIViewController {
+    //MARK: - Constants
+    
+    private enum Constants {
+        static let sentToEmailText = "Электронный чек отправили Вам на почту "
+    }
+    
     // MARK: - IBOutlets
 
-    @IBOutlet var titleLabel: UILabel!
-    @IBOutlet var exitButton: UIButton!
+    @IBOutlet private var titleLabel: UILabel!
+    @IBOutlet private var exitButton: UIButton!
 
     // MARK: - Public Properties
 
-    var user: UserModel?
+    var user: User?
 
     // MARK: - Life Cycle
 
@@ -20,13 +26,13 @@ class ThanksViewController: UIViewController {
         super.viewDidLoad()
         exitButton.layer.cornerRadius = 12
         if let login = user?.login {
-            titleLabel.text = "Электронный чек отправили Вам на почту " + login
+            titleLabel.text = Constants.sentToEmailText + login
         }
     }
 
-    // MARK: - Public Methods
+    // MARK: - IBAction
 
-    @IBAction func dismissThanksVIew(_ sender: UIButton) {
+    @IBAction private func dismissThanksVIew(_ sender: UIButton) {
         dismiss(animated: true)
     }
 }

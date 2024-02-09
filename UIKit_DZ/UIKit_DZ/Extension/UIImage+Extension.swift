@@ -4,12 +4,16 @@
 import UIKit
 
 extension UIImage {
-    enum ImageNames: String {
+    /// Содержит названия изображений из Assets
+    enum AssetsImages: String {
+        /// Иконка закрытого глаза
         case hidenIcon
+        /// Иконка открытого глаза
         case shownIcon
     }
 
-    convenience init?(_ name: ImageNames) {
+    /// Иниуиализирует изображение из Assets
+    convenience init?(_ name: AssetsImages) {
         self.init(named: name.rawValue)
     }
 }

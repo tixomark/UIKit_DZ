@@ -1,18 +1,24 @@
-// DetailsViewController.swift
+// ReserveTableViewController.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
-/// Second creen with adjustable parameters
-final class DetailsViewController: UIViewController {
+/// Экран бронирования стола
+final class ReserveTableViewController: UIViewController {
+    // MARK: - Constants
+
+    private enum Constants {
+        static let goToBillVCSegueID = "goToRecieptSegue"
+    }
+
     // MARK: - IBOutlets
 
-    @IBOutlet var billButton: UIButton!
-    @IBOutlet var switches: [UISwitch]!
+    @IBOutlet private var billButton: UIButton!
+    @IBOutlet private var switches: [UISwitch]!
 
     // MARK: - Public Properties
 
-    var user: UserModel?
+    var user: User?
 
     // MARK: - Life Cycle
 
@@ -24,20 +30,23 @@ final class DetailsViewController: UIViewController {
     // MARK: - Public Methods
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToRecieptSegue" {
-            let detailsVC = segue.destination as? BillViewController
+        if segue.identifier == Constants.goToBillVCSegueID {
+            let detailsVC = segue.destination as? RecieptViewController
             detailsVC?.user = user
         }
     }
+
+    // MARK: - Private Methods
 
     private func setUpUI() {
         billButton.layer.cornerRadius = 12
     }
 
+    /// Показывает алерт с сообщением о выставлении счета
     private func showBillAlert() {
         let alert = UIAlertController(title: "Выставить счет", message: nil, preferredStyle: .alert)
         let billAction = UIAlertAction(title: "Чек", style: .default) { _ in
-            self.performSegue(withIdentifier: "goToRecieptSegue", sender: self)
+            self.performSegue(withIdentifier: Constants.goToBillVCSegueID, sender: self)
         }
         let cancelAction = UIAlertAction(title: "Отмена", style: .default)
 
@@ -48,11 +57,9 @@ final class DetailsViewController: UIViewController {
         present(alert, animated: true)
     }
 
-    // MARK: - Public Methods
+    // MARK: - IBAction
 
-    @IBAction func switchDidToggle(_ sender: UISwitch) {}
-
-    @IBAction func billButtonTapped(_ sender: UIButton) {
+    @IBAction private func billButtonTapped(_ sender: UIButton) {
         showBillAlert()
     }
 }
