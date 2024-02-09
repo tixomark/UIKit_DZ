@@ -31,6 +31,15 @@ class AuthViewController: UIViewController {
         loginTextField.resignFirstResponder()
     }
 
+    // MARK: - Public Methods
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToDatailsSegue" {
+            let detailsVC = segue.destination as? DetailsViewController
+            detailsVC?.user = user
+        }
+    }
+
     // MARK: - Private Methods
 
     private func setUpUI() {

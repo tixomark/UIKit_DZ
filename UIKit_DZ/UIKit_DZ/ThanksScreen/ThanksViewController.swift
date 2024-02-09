@@ -7,13 +7,21 @@ import UIKit
 class ThanksViewController: UIViewController {
     // MARK: - IBOutlets
 
+    @IBOutlet var titleLabel: UILabel!
     @IBOutlet var exitButton: UIButton!
+
+    // MARK: - Public Properties
+
+    var user: UserModel?
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         exitButton.layer.cornerRadius = 12
+        if let login = user?.login {
+            titleLabel.text = "Электронный чек отправили Вам на почту " + login
+        }
     }
 
     // MARK: - Public Methods

@@ -9,6 +9,10 @@ class BillViewController: UIViewController {
 
     @IBOutlet var totalButton: UIButton!
 
+    // MARK: - Public Properties
+
+    var user: UserModel?
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -17,6 +21,13 @@ class BillViewController: UIViewController {
     }
 
     // MARK: - Public Methods
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToThanksSegue" {
+            let detailsVC = segue.destination as? ThanksViewController
+            detailsVC?.user = user
+        }
+    }
 
     @IBAction func totalButtonTapped(_ sender: UIButton) {
         showPayAlert()

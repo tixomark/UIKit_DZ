@@ -10,11 +10,24 @@ final class DetailsViewController: UIViewController {
     @IBOutlet var billButton: UIButton!
     @IBOutlet var switches: [UISwitch]!
 
+    // MARK: - Public Properties
+
+    var user: UserModel?
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpUI()
+    }
+
+    // MARK: - Public Methods
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToRecieptSegue" {
+            let detailsVC = segue.destination as? BillViewController
+            detailsVC?.user = user
+        }
     }
 
     private func setUpUI() {

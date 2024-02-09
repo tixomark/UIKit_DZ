@@ -70,7 +70,7 @@
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Войти"/>
                                 <connections>
-                                    <segue destination="OD4-Xg-CdY" kind="show" id="uXd-JD-wPu"/>
+                                    <segue destination="OD4-Xg-CdY" kind="show" identifier="goToDatailsSegue" id="uXd-JD-wPu"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FFA-r3-A07">
@@ -389,6 +389,7 @@
                     <navigationItem key="navigationItem" style="editor" id="BSN-AQ-1v4"/>
                     <connections>
                         <outlet property="exitButton" destination="ypI-r9-Sx6" id="19f-4l-hCa"/>
+                        <outlet property="titleLabel" destination="UAh-fL-hhz" id="Nev-86-scO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eaL-RX-6NM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
