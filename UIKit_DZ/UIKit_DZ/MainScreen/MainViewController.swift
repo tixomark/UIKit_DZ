@@ -3,26 +3,35 @@
 
 import UIKit
 
-/// Main screen view
+/// Осносной экран приложения с
 final class MainViewController: UIViewController {
     // MARK: - Constants
+    
+    private enum Constants {
+        static let startButtonTitle = "Начать"
+        
+        static let originalWordAnnotation = "Вы ввели слово"
+        static let revertedWordAnnotation = "А вот что получится, если читать справа налево"
+    }
 
+    // MARK: - Private Properties
     private let startButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 12
         button.backgroundColor = .customLightGreen
-        button.setTitle("Начать", for: .normal)
+        button.setTitle(Constants.startButtonTitle, for: .normal)
         button.setTitleColor(.systemBackground, for: .normal)
         button.titleLabel?.font = UIFont(name: "Verdana-Bold", size: 16)
         return button
     }()
-
+    /// Отображение для исходного слова
     private let originalWordView = LabeledView()
+    /// Отображение для перевернутого слова
     private let revertedWordView = LabeledView()
 
-    // MARK: - Private Properties
-
-    private var wordReverter = ReverterModel()
+/// Модель для переворота слов
+    private var wordReverter = Reverter()
+    
     private var enterYourWordAlertOkAktion: UIAlertAction?
 
     // MARK: - Life Cycle
@@ -43,12 +52,12 @@ final class MainViewController: UIViewController {
     private func setUpUI() {
         view.backgroundColor = .systemBackground
 
-        originalWordView.setAnnotationTextTo("Вы ввели слово")
+        originalWordView.setAnnotationTextTo(Constants.originalWordAnnotation)
         originalWordView.isHidden = true
         originalWordView.alpha = 0
         view.addSubview(originalWordView)
 
-        revertedWordView.setAnnotationTextTo("А вот что получится, если читать справа налево")
+        revertedWordView.setAnnotationTextTo(Constants.revertedWordAnnotation)
         revertedWordView.isHidden = true
         revertedWordView.alpha = 0
         view.addSubview(revertedWordView)
@@ -73,7 +82,7 @@ final class MainViewController: UIViewController {
 
         enterYourWordAlertOkAktion = UIAlertAction(title: "Ок", style: .cancel) { [unowned self] _ in
             wordReverter.updateWord(alert.textFields?.first?.text)
-            originalWordView.setInfoLabelTextTo(wordReverter.word)
+            originalWordView.setInfoLabelTextTo(wordReverter.initialWord)
             revertedWordView.setInfoLabelTextTo(wordReverter.reversedWord)
             updateScreenToShowWordViewsWithAnimation()
         }

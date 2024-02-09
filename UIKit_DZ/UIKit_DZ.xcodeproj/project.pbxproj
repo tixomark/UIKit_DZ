@@ -15,7 +15,7 @@
 		9DC0B3842B72AB990096CD39 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B3832B72AB990096CD39 /* MainViewController.swift */; };
 		9DC0B3892B72AB9A0096CD39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DC0B3882B72AB9A0096CD39 /* Assets.xcassets */; };
 		9DC0B38C2B72AB9A0096CD39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC0B38A2B72AB9A0096CD39 /* LaunchScreen.storyboard */; };
-		9DC0B3B22B7436490096CD39 /* ReverterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B3B12B7436490096CD39 /* ReverterModel.swift */; };
+		9DC0B3B22B7436490096CD39 /* Reverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B3B12B7436490096CD39 /* Reverter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +29,7 @@
 		9DC0B3882B72AB9A0096CD39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DC0B38B2B72AB9A0096CD39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DC0B38D2B72AB9A0096CD39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9DC0B3B12B7436490096CD39 /* ReverterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReverterModel.swift; sourceTree = "<group>"; };
+		9DC0B3B12B7436490096CD39 /* Reverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reverter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,8 +68,7 @@
 				9DC0B3882B72AB9A0096CD39 /* Assets.xcassets */,
 				9DC0B38A2B72AB9A0096CD39 /* LaunchScreen.storyboard */,
 				9DC0B38D2B72AB9A0096CD39 /* Info.plist */,
-				9D21D5332B74EA0C0080664A /* Verdana-Bold.ttf */,
-				9DB59C792B7516D8008D21FF /* Verdana-BoldItalic.ttf */,
+				9DE446982B7686D8005B26EB /* Fonts */,
 			);
 			path = UIKit_DZ;
 			sourceTree = "<group>";
@@ -79,9 +78,18 @@
 			children = (
 				9DC0B3832B72AB990096CD39 /* MainViewController.swift */,
 				9D21D5352B74FAED0080664A /* LabeledView.swift */,
-				9DC0B3B12B7436490096CD39 /* ReverterModel.swift */,
+				9DC0B3B12B7436490096CD39 /* Reverter.swift */,
 			);
 			path = MainScreen;
+			sourceTree = "<group>";
+		};
+		9DE446982B7686D8005B26EB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9D21D5332B74EA0C0080664A /* Verdana-Bold.ttf */,
+				9DB59C792B7516D8008D21FF /* Verdana-BoldItalic.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -201,7 +209,7 @@
 			files = (
 				9DC0B3842B72AB990096CD39 /* MainViewController.swift in Sources */,
 				9DC0B3802B72AB990096CD39 /* AppDelegate.swift in Sources */,
-				9DC0B3B22B7436490096CD39 /* ReverterModel.swift in Sources */,
+				9DC0B3B22B7436490096CD39 /* Reverter.swift in Sources */,
 				9DC0B3822B72AB990096CD39 /* SceneDelegate.swift in Sources */,
 				9D21D5362B74FAED0080664A /* LabeledView.swift in Sources */,
 			);
