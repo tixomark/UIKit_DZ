@@ -66,8 +66,6 @@ class AuthViewController: UIViewController {
         let icon = passwordTextField.isSecureTextEntry ? UIImage(.hidenIcon) : UIImage(.shownIcon)
         hidePasswordButton.setImage(icon, for: .normal)
     }
-
-    @IBAction func didTapLogInButton(_ sender: UIButton) {}
 }
 
 extension AuthViewController: UserFieldsValidationResultReceiver {
