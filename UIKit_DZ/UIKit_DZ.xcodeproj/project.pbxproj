@@ -16,6 +16,8 @@
 		9DC0B3892B72AB9A0096CD39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DC0B3882B72AB9A0096CD39 /* Assets.xcassets */; };
 		9DC0B38C2B72AB9A0096CD39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC0B38A2B72AB9A0096CD39 /* LaunchScreen.storyboard */; };
 		9DC0B3B22B7436490096CD39 /* Reverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B3B12B7436490096CD39 /* Reverter.swift */; };
+		9DE4469A2B768B83005B26EB /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446992B768B83005B26EB /* UIAlertController+Extension.swift */; };
+		9DE4469D2B768E2C005B26EB /* UIAlertAction+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4469C2B768E2C005B26EB /* UIAlertAction+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		9DC0B38B2B72AB9A0096CD39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DC0B38D2B72AB9A0096CD39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DC0B3B12B7436490096CD39 /* Reverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reverter.swift; sourceTree = "<group>"; };
+		9DE446992B768B83005B26EB /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
+		9DE4469C2B768E2C005B26EB /* UIAlertAction+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +69,7 @@
 				9DC0B37F2B72AB990096CD39 /* AppDelegate.swift */,
 				9DC0B3812B72AB990096CD39 /* SceneDelegate.swift */,
 				9DC0B3AF2B7436160096CD39 /* MainScreen */,
+				9DE4469B2B768D9F005B26EB /* Extensions */,
 				9DC0B3882B72AB9A0096CD39 /* Assets.xcassets */,
 				9DC0B38A2B72AB9A0096CD39 /* LaunchScreen.storyboard */,
 				9DC0B38D2B72AB9A0096CD39 /* Info.plist */,
@@ -90,6 +95,15 @@
 				9DB59C792B7516D8008D21FF /* Verdana-BoldItalic.ttf */,
 			);
 			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9DE4469B2B768D9F005B26EB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9DE446992B768B83005B26EB /* UIAlertController+Extension.swift */,
+				9DE4469C2B768E2C005B26EB /* UIAlertAction+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -207,8 +221,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DE4469A2B768B83005B26EB /* UIAlertController+Extension.swift in Sources */,
 				9DC0B3842B72AB990096CD39 /* MainViewController.swift in Sources */,
 				9DC0B3802B72AB990096CD39 /* AppDelegate.swift in Sources */,
+				9DE4469D2B768E2C005B26EB /* UIAlertAction+Extension.swift in Sources */,
 				9DC0B3B22B7436490096CD39 /* Reverter.swift in Sources */,
 				9DC0B3822B72AB990096CD39 /* SceneDelegate.swift in Sources */,
 				9D21D5362B74FAED0080664A /* LabeledView.swift in Sources */,

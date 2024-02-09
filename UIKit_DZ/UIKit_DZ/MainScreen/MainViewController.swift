@@ -6,15 +6,19 @@ import UIKit
 /// Осносной экран приложения с
 final class MainViewController: UIViewController {
     // MARK: - Constants
-    
+
     private enum Constants {
         static let startButtonTitle = "Начать"
-        
+
         static let originalWordAnnotation = "Вы ввели слово"
         static let revertedWordAnnotation = "А вот что получится, если читать справа налево"
+
+        static let enterYourWord = "Введите ваше слово"
+        static let enterWord = "Введите слово"
     }
 
     // MARK: - Private Properties
+
     private let startButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 12
@@ -24,14 +28,15 @@ final class MainViewController: UIViewController {
         button.titleLabel?.font = UIFont(name: "Verdana-Bold", size: 16)
         return button
     }()
+
     /// Отображение для исходного слова
     private let originalWordView = LabeledView()
     /// Отображение для перевернутого слова
     private let revertedWordView = LabeledView()
 
-/// Модель для переворота слов
+    /// Модель для переворота слов
     private var wordReverter = Reverter()
-    
+
     private var enterYourWordAlertOkAktion: UIAlertAction?
 
     // MARK: - Life Cycle
@@ -66,21 +71,16 @@ final class MainViewController: UIViewController {
         view.addSubview(startButton)
     }
 
+    /// Показывает алерт с просьбой ввести слово для разворота
     private func showEnterYourWordAlert() {
-        let alert = UIAlertController(
-            title: "Введите ваше слово",
-            message: nil,
-            preferredStyle: .alert
-        )
+        let alert = UIAlertController(title: Constants.enterYourWord)
         alert.addTextField { [unowned self] textField in
-            textField.placeholder = "Введите слово"
+            textField.placeholder = Constants.enterWord
             textField.addTarget(self, action: #selector(textDidChangeIn(_:)), for: .editingChanged)
         }
 
-        let cancelAction = UIAlertAction(title: "Отмена", style: .default)
-        alert.addAction(cancelAction)
-
-        enterYourWordAlertOkAktion = UIAlertAction(title: "Ок", style: .cancel) { [unowned self] _ in
+        alert.addAction(UIAlertAction.cancel)
+        enterYourWordAlertOkAktion = UIAlertAction.ok { [unowned self] _ in
             wordReverter.updateWord(alert.textFields?.first?.text)
             originalWordView.setInfoLabelTextTo(wordReverter.initialWord)
             revertedWordView.setInfoLabelTextTo(wordReverter.reversedWord)
@@ -90,10 +90,11 @@ final class MainViewController: UIViewController {
         if let enterYourWordAlertOkAktion {
             alert.addAction(enterYourWordAlertOkAktion)
         }
-
+        alert.preferredAction = alert.actions.last
         present(alert, animated: true)
     }
 
+    /// Рассчитывает и устанавливает фрейма кнопки startButton
     private func setFrameOfStartButton() {
         let buttonHeight: CGFloat = 44
         let insetToParentView: CGFloat = 40
@@ -102,7 +103,6 @@ final class MainViewController: UIViewController {
         if originalWordView.isHidden, revertedWordView.isHidden {
             originY = view.bounds.midY - buttonHeight / 2
         }
-
         let buttonSize = CGSize(
             width: view.bounds.width - insetToParentView,
             height: buttonHeight
@@ -114,6 +114,7 @@ final class MainViewController: UIViewController {
         startButton.frame = CGRect(origin: buttonOrigin, size: buttonSize)
     }
 
+    /// Рассчитывает и устанавливает фрейма отображений originalWordView и revertedWordView
     private func setFramesOfWordViews() {
         let wiewWidth = view.bounds.width - 100
         let originalWordViewOrigin = CGPoint(
@@ -141,6 +142,8 @@ final class MainViewController: UIViewController {
         )
     }
 
+    /// Анимирует сползание кнопки startButton вниз и появление отображений originalWordView, revertedWordView после
+    /// первого развернутого слова
     private func updateScreenToShowWordViewsWithAnimation() {
         guard originalWordView.isHidden, revertedWordView.isHidden else { return }
 
