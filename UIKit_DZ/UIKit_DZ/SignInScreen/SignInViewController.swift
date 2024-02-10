@@ -121,15 +121,13 @@ final class SignInViewController: UIViewController {
         emailFieldView.textField.delegate = self
         emailFieldView.textField.addTarget(self, action: #selector(editingChangedIn(_:)), for: .editingChanged)
 
-        passwordFieldView.textField.delegate = self
-        passwordFieldView.textField.addTarget(self, action: #selector(editingChangedIn(_:)), for: .editingChanged)
-        passwordFieldView.accessoryButton.addTarget(
-            self,
-            action: #selector(didTapHidePasswordButton(_:)),
-            for: .touchUpInside
-        )
         switchPasswordVisibilityTo(false)
-        setAuthButtonAvalibilityTo(false)
+        passwordFieldView.textField.addTarget(self, action: #selector(editingChangedIn(_:)), for: .editingChanged)
+        passwordFieldView.accessoryButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
+        passwordFieldView.textField.delegate = self
+
+        setAuthButtonAvalibilityTo(true)
+        authButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
 
         view.addSubviews(headerImageView, titleLabel, signInLabel)
         view.addSubviews(emailFieldView, passwordFieldView, authButton)
@@ -142,15 +140,23 @@ final class SignInViewController: UIViewController {
         passwordFieldView.accessoryButton.setImage(image, for: .normal)
     }
 
-    /// Изменяет даступность и отображениие  кнопки входа
+    /// Изменяет даступность и отображение  кнопки входа
     private func setAuthButtonAvalibilityTo(_ isEnabled: Bool) {
         authButton.isEnabled = isEnabled
         authButton.alpha = isEnabled ? 1 : 0.4
     }
 
-    /// Обрабатывает нажания на кнопку скрытия пароля в passwordFieldView
-    @objc private func didTapHidePasswordButton(_ sender: UIButton) {
-        switchPasswordVisibilityTo(passwordFieldView.textField.isSecureTextEntry)
+    /// Обрабатывает нажания на кнопки
+    @objc private func didTapButton(_ sender: UIButton) {
+        switch sender {
+        case passwordFieldView.accessoryButton:
+            switchPasswordVisibilityTo(passwordFieldView.textField.isSecureTextEntry)
+        case authButton:
+            let birthdayController = BirthdayReminderViewController()
+            navigationController?.pushViewController(birthdayController, animated: true)
+        default:
+            break
+        }
     }
 
     /// Обрабатывает введенные пользователем парол и логин. Путем передаыи их в модель валидатора данных
