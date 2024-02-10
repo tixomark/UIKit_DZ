@@ -13,4 +13,11 @@ extension String {
         let range = NSRange(location: 0, length: count)
         return regEx.firstMatch(in: self, range: range) != nil
     }
+
+    /// Создает дату из туекущей строки
+    func toDate() -> Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.MM.yyyy"
+        return formatter.date(from: self) ?? Date()
+    }
 }

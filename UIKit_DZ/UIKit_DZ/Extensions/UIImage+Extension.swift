@@ -12,6 +12,16 @@ extension UIImage {
         case closedEyeIcon
         /// Иконка открытого глаза
         case openedEyeIcon
+        /// Изовражение helena из Assets
+        case helena
+        /// Изовражение verona из Assets
+        case verona
+        /// Изовражение tom из Assets
+        case tom
+        /// Изовражение alex из Assets
+        case alex
+        /// Изображение торта 
+        case cake
     }
 
     /// Удобная инициализация UIImage без использования строкового литерала

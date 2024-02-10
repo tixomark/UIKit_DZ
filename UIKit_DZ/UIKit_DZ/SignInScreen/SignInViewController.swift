@@ -215,6 +215,8 @@ final class SignInViewController: UIViewController {
     }
 }
 
+// MARK: - UITextFieldDelegate
+
 extension SignInViewController: UITextFieldDelegate {
     /// Управляет фокусировкой текстовых полей (какое поле сделать активным после нажатия Return)
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -229,6 +231,8 @@ extension SignInViewController: UITextFieldDelegate {
         return true
     }
 }
+
+// MARK: - UserDataValidationResultReceiver
 
 extension SignInViewController: UserDataValidationResultReceiver {
     /// Обрабатывает результаты валидации пользовательских данных из модели
