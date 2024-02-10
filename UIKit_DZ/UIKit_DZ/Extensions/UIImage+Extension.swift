@@ -8,6 +8,10 @@ extension UIImage {
     enum ImageNameFromProjectAssets: String {
         /// Изображение календаря с тортом для экрана авторизации
         case signInMainImage
+        /// Иконка закрытого глаза
+        case closedEyeIcon
+        /// Иконка открытого глаза
+        case openedEyeIcon
     }
 
     /// Удобная инициализация UIImage без использования строкового литерала

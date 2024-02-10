@@ -67,11 +67,13 @@ final class SignInViewController: UIViewController {
 
     /// Представление поля ввода пароля
     private let passwordFieldView: FormFieldView = {
-        let view = FormFieldView()
+        let view = FormFieldView(accessoryType: .button)
         view.annotationLabel.textColor = .accentPink
         view.annotationLabel.text = Constants.PasswordView.title
         view.textField.placeholder = Constants.PasswordView.placeholder
         view.textField.returnKeyType = .done
+        view.textField.isSecureTextEntry = true
+        view.accessoryButton.setImage(UIImage(.closedEyeIcon), for: .normal)
         return view
     }()
 
@@ -82,14 +84,17 @@ final class SignInViewController: UIViewController {
         button.backgroundColor = .accentPink
         button.setTitle(Constants.authButtonTitle, for: .normal)
         button.titleLabel?.font = .verdanaBold?.withSize(16)
-        button.isEnabled = false
         return button
     }()
+
+    /// Модель которая валидирует введенные данные пользователя
+    private var dataValidator = UserDataValidator()
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        dataValidator.validationResultReceiver = self
         setUpUI()
     }
 
@@ -114,21 +119,61 @@ final class SignInViewController: UIViewController {
         view.backgroundColor = .systemBackground
 
         emailFieldView.textField.delegate = self
+        emailFieldView.textField.addTarget(self, action: #selector(editingChangedIn(_:)), for: .editingChanged)
+
         passwordFieldView.textField.delegate = self
+        passwordFieldView.textField.addTarget(self, action: #selector(editingChangedIn(_:)), for: .editingChanged)
+        passwordFieldView.accessoryButton.addTarget(
+            self,
+            action: #selector(didTapHidePasswordButton(_:)),
+            for: .touchUpInside
+        )
+        switchPasswordVisibilityTo(false)
+        setAuthButtonAvalibilityTo(false)
 
         view.addSubviews(headerImageView, titleLabel, signInLabel)
         view.addSubviews(emailFieldView, passwordFieldView, authButton)
     }
 
+    /// Скрывает/показывает стоку пароля
+    private func switchPasswordVisibilityTo(_ isVisible: Bool) {
+        passwordFieldView.textField.isSecureTextEntry = !isVisible
+        let image = UIImage(isVisible ? .openedEyeIcon : .closedEyeIcon)
+        passwordFieldView.accessoryButton.setImage(image, for: .normal)
+    }
+
+    /// Изменяет даступность и отображениие  кнопки входа
+    private func setAuthButtonAvalibilityTo(_ isEnabled: Bool) {
+        authButton.isEnabled = isEnabled
+        authButton.alpha = isEnabled ? 1 : 0.4
+    }
+
+    /// Обрабатывает нажания на кнопку скрытия пароля в passwordFieldView
+    @objc private func didTapHidePasswordButton(_ sender: UIButton) {
+        switchPasswordVisibilityTo(passwordFieldView.textField.isSecureTextEntry)
+    }
+
+    /// Обрабатывает введенные пользователем парол и логин. Путем передаыи их в модель валидатора данных
+    @objc private func editingChangedIn(_ sender: UITextField) {
+        switch sender {
+        case emailFieldView.textField:
+            dataValidator.login = sender.text
+        case passwordFieldView.textField:
+            dataValidator.password = sender.text
+        default:
+            break
+        }
+    }
+
     /// Для всех сабвью рассчитывает фреймы и размещает их соответственно
-    // В теле функции в именах иcпользуется сокращение V - View
+    /// В теле функции в именах иcпользуется сокращение V - View
     private func positionSubviews() {
         /// Рассчитывает Х коодинату исходя из ширины дочернего вью, для центрирования относительно self.view
         func centerInViewFor(_ width: CGFloat) -> CGFloat {
             (view.bounds.width - width) / 2
         }
         let viewWidth = view.bounds.width
-        
+
         let imageVSide: CGFloat = 125
         let imageVSize = CGSize(width: imageVSide, height: imageVSide)
         let imageVOrigin = CGPoint(x: centerInViewFor(imageVSide), y: 70)
@@ -176,5 +221,12 @@ extension SignInViewController: UITextFieldDelegate {
             break
         }
         return true
+    }
+}
+
+extension SignInViewController: UserDataValidationResultReceiver {
+    /// Обрабатывает результаты валидации пользовательских данных из модели
+    func loginAndPaswordValidationChangedTo(_ doConform: Bool) {
+        setAuthButtonAvalibilityTo(doConform)
     }
 }
