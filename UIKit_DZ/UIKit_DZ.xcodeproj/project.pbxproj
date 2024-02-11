@@ -9,21 +9,39 @@
 /* Begin PBXBuildFile section */
 		9DC0B3802B72AB990096CD39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B37F2B72AB990096CD39 /* AppDelegate.swift */; };
 		9DC0B3822B72AB990096CD39 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B3812B72AB990096CD39 /* SceneDelegate.swift */; };
-		9DC0B3842B72AB990096CD39 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B3832B72AB990096CD39 /* ViewController.swift */; };
+		9DC0B3842B72AB990096CD39 /* PlaylistViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B3832B72AB990096CD39 /* PlaylistViewController.swift */; };
 		9DC0B3872B72AB990096CD39 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC0B3852B72AB990096CD39 /* Main.storyboard */; };
-		9DC0B3892B72AB9A0096CD39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DC0B3882B72AB9A0096CD39 /* Assets.xcassets */; };
 		9DC0B38C2B72AB9A0096CD39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC0B38A2B72AB9A0096CD39 /* LaunchScreen.storyboard */; };
+		9DE446C62B79646B005B26EB /* Verdana-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DE446C52B79646B005B26EB /* Verdana-Bold.ttf */; };
+		9DE446C92B7968E3005B26EB /* Verdana.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DE446C82B7968E3005B26EB /* Verdana.ttf */; };
+		9DE446CB2B796BC2005B26EB /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446CA2B796BC2005B26EB /* Track.swift */; };
+		9DE446D32B796E51005B26EB /* Ghost In the Rain.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9DE446CD2B796E4E005B26EB /* Ghost In the Rain.mp3 */; };
+		9DE446D42B796E51005B26EB /* Long Road Out Of Eden.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9DE446CE2B796E4F005B26EB /* Long Road Out Of Eden.mp3 */; };
+		9DE446D52B796E51005B26EB /* Valley Of The Damned.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9DE446CF2B796E50005B26EB /* Valley Of The Damned.mp3 */; };
+		9DE446D62B796E51005B26EB /* Lithium Flower.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9DE446D02B796E50005B26EB /* Lithium Flower.mp3 */; };
+		9DE446D72B796E51005B26EB /* Novocaine For The Soul.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9DE446D12B796E50005B26EB /* Novocaine For The Soul.mp3 */; };
+		9DE446D82B796E51005B26EB /* The Magic of Friendship Grows.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9DE446D22B796E51005B26EB /* The Magic of Friendship Grows.mp3 */; };
+		9DE446DD2B797714005B26EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DE446DC2B797714005B26EB /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		9DC0B37C2B72AB990096CD39 /* UIKit_DZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKit_DZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DC0B37F2B72AB990096CD39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DC0B3812B72AB990096CD39 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9DC0B3832B72AB990096CD39 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9DC0B3832B72AB990096CD39 /* PlaylistViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistViewController.swift; sourceTree = "<group>"; };
 		9DC0B3862B72AB990096CD39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9DC0B3882B72AB9A0096CD39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DC0B38B2B72AB9A0096CD39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DC0B38D2B72AB9A0096CD39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9DE446C52B79646B005B26EB /* Verdana-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Verdana-Bold.ttf"; sourceTree = "<group>"; };
+		9DE446C82B7968E3005B26EB /* Verdana.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Verdana.ttf; sourceTree = "<group>"; };
+		9DE446CA2B796BC2005B26EB /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		9DE446CD2B796E4E005B26EB /* Ghost In the Rain.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Ghost In the Rain.mp3"; sourceTree = "<group>"; };
+		9DE446CE2B796E4F005B26EB /* Long Road Out Of Eden.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Long Road Out Of Eden.mp3"; sourceTree = "<group>"; };
+		9DE446CF2B796E50005B26EB /* Valley Of The Damned.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Valley Of The Damned.mp3"; sourceTree = "<group>"; };
+		9DE446D02B796E50005B26EB /* Lithium Flower.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Lithium Flower.mp3"; sourceTree = "<group>"; };
+		9DE446D12B796E50005B26EB /* Novocaine For The Soul.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Novocaine For The Soul.mp3"; sourceTree = "<group>"; };
+		9DE446D22B796E51005B26EB /* The Magic of Friendship Grows.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Magic of Friendship Grows.mp3"; sourceTree = "<group>"; };
+		9DE446DC2B797714005B26EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,13 +76,38 @@
 			children = (
 				9DC0B37F2B72AB990096CD39 /* AppDelegate.swift */,
 				9DC0B3812B72AB990096CD39 /* SceneDelegate.swift */,
-				9DC0B3832B72AB990096CD39 /* ViewController.swift */,
+				9DC0B3832B72AB990096CD39 /* PlaylistViewController.swift */,
+				9DE446CA2B796BC2005B26EB /* Track.swift */,
 				9DC0B3852B72AB990096CD39 /* Main.storyboard */,
-				9DC0B3882B72AB9A0096CD39 /* Assets.xcassets */,
+				9DE446DC2B797714005B26EB /* Assets.xcassets */,
 				9DC0B38A2B72AB9A0096CD39 /* LaunchScreen.storyboard */,
 				9DC0B38D2B72AB9A0096CD39 /* Info.plist */,
+				9DE446CC2B796C9C005B26EB /* Music */,
+				9DE446C72B7968D1005B26EB /* Fonts */,
 			);
 			path = UIKit_DZ;
+			sourceTree = "<group>";
+		};
+		9DE446C72B7968D1005B26EB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9DE446C82B7968E3005B26EB /* Verdana.ttf */,
+				9DE446C52B79646B005B26EB /* Verdana-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9DE446CC2B796C9C005B26EB /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				9DE446CD2B796E4E005B26EB /* Ghost In the Rain.mp3 */,
+				9DE446D02B796E50005B26EB /* Lithium Flower.mp3 */,
+				9DE446CE2B796E4F005B26EB /* Long Road Out Of Eden.mp3 */,
+				9DE446D12B796E50005B26EB /* Novocaine For The Soul.mp3 */,
+				9DE446D22B796E51005B26EB /* The Magic of Friendship Grows.mp3 */,
+				9DE446CF2B796E50005B26EB /* Valley Of The Damned.mp3 */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,9 +170,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DE446C92B7968E3005B26EB /* Verdana.ttf in Resources */,
 				9DC0B38C2B72AB9A0096CD39 /* LaunchScreen.storyboard in Resources */,
-				9DC0B3892B72AB9A0096CD39 /* Assets.xcassets in Resources */,
+				9DE446D52B796E51005B26EB /* Valley Of The Damned.mp3 in Resources */,
+				9DE446D82B796E51005B26EB /* The Magic of Friendship Grows.mp3 in Resources */,
+				9DE446D32B796E51005B26EB /* Ghost In the Rain.mp3 in Resources */,
+				9DE446D42B796E51005B26EB /* Long Road Out Of Eden.mp3 in Resources */,
 				9DC0B3872B72AB990096CD39 /* Main.storyboard in Resources */,
+				9DE446D72B796E51005B26EB /* Novocaine For The Soul.mp3 in Resources */,
+				9DE446D62B796E51005B26EB /* Lithium Flower.mp3 in Resources */,
+				9DE446DD2B797714005B26EB /* Assets.xcassets in Resources */,
+				9DE446C62B79646B005B26EB /* Verdana-Bold.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -181,9 +232,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DC0B3842B72AB990096CD39 /* ViewController.swift in Sources */,
+				9DC0B3842B72AB990096CD39 /* PlaylistViewController.swift in Sources */,
 				9DC0B3802B72AB990096CD39 /* AppDelegate.swift in Sources */,
 				9DC0B3822B72AB990096CD39 /* SceneDelegate.swift in Sources */,
+				9DE446CB2B796BC2005B26EB /* Track.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
