@@ -98,8 +98,8 @@ final class SignInViewController: UIViewController {
         setUpUI()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         positionSubviews()
     }
 
@@ -126,7 +126,7 @@ final class SignInViewController: UIViewController {
         passwordFieldView.accessoryButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
         passwordFieldView.textField.delegate = self
 
-        setAuthButtonAvalibilityTo(true)
+        setAuthButtonAvalibilityTo(false)
         authButton.addTarget(self, action: #selector(didTapButton(_:)), for: .touchUpInside)
 
         view.addSubviews(headerImageView, titleLabel, signInLabel)
@@ -140,7 +140,7 @@ final class SignInViewController: UIViewController {
         passwordFieldView.accessoryButton.setImage(image, for: .normal)
     }
 
-    /// Изменяет даступность и отображение  кнопки входа
+    /// Изменяет доступность и отображение  кнопки входа
     private func setAuthButtonAvalibilityTo(_ isEnabled: Bool) {
         authButton.isEnabled = isEnabled
         authButton.alpha = isEnabled ? 1 : 0.4

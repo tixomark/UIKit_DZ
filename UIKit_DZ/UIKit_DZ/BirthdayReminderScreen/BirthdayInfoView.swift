@@ -73,7 +73,7 @@ final class BirthdayInfoView: UIView {
 
     // MARK: - Public Methods
 
-    /// Устанавливает изображения и тексты 
+    /// Устанавливает изображения и тексты
     func setUpWith(image: UIImage?, name: String, age: String, countdown: Int) {
         imageView.image = image
         nameLabel.text = name

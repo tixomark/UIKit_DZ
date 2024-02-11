@@ -24,6 +24,9 @@
 		9DE446B92B77E8B4005B26EB /* BirthdayInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446B82B77E8B4005B26EB /* BirthdayInfoView.swift */; };
 		9DE446BB2B77F2BB005B26EB /* PersonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446BA2B77F2BB005B26EB /* PersonData.swift */; };
 		9DE446BD2B77F39D005B26EB /* BirthdayCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446BC2B77F39D005B26EB /* BirthdayCalculator.swift */; };
+		9DE446C02B782727005B26EB /* AddUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446BF2B782727005B26EB /* AddUserViewController.swift */; };
+		9DE446C22B785780005B26EB /* UIAlertAction+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446C12B785780005B26EB /* UIAlertAction+Extension.swift */; };
+		9DE446C42B7857AD005B26EB /* UIAlertController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446C32B7857AD005B26EB /* UIAlertController+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +49,9 @@
 		9DE446B82B77E8B4005B26EB /* BirthdayInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayInfoView.swift; sourceTree = "<group>"; };
 		9DE446BA2B77F2BB005B26EB /* PersonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonData.swift; sourceTree = "<group>"; };
 		9DE446BC2B77F39D005B26EB /* BirthdayCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayCalculator.swift; sourceTree = "<group>"; };
+		9DE446BF2B782727005B26EB /* AddUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddUserViewController.swift; sourceTree = "<group>"; };
+		9DE446C12B785780005B26EB /* UIAlertAction+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertAction+Extension.swift"; sourceTree = "<group>"; };
+		9DE446C32B7857AD005B26EB /* UIAlertController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +88,7 @@
 				9DC0B3812B72AB990096CD39 /* SceneDelegate.swift */,
 				9DE446AF2B7793A9005B26EB /* SignInScreen */,
 				9DE446B42B77DF60005B26EB /* BirthdayReminderScreen */,
+				9DE446BE2B782705005B26EB /* AddUserScreen */,
 				9DE446B72B77DFA2005B26EB /* UniversalTemplates */,
 				9DE446A52B777CDA005B26EB /* Extensions */,
 				9DC0B3882B72AB9A0096CD39 /* Assets.xcassets */,
@@ -96,6 +103,8 @@
 			isa = PBXGroup;
 			children = (
 				9DE446B22B77DAFA005B26EB /* String+Extension.swift */,
+				9DE446C12B785780005B26EB /* UIAlertAction+Extension.swift */,
+				9DE446C32B7857AD005B26EB /* UIAlertController+Extension.swift */,
 				9DE446A32B777CCA005B26EB /* UIView+Extension.swift */,
 				9DE446A82B777DD1005B26EB /* UIImage+Extension.swift */,
 				9DE446AB2B777EAC005B26EB /* UIFont+Extension.swift */,
@@ -138,6 +147,14 @@
 				9DE446AD2B778096005B26EB /* FormFieldView.swift */,
 			);
 			path = UniversalTemplates;
+			sourceTree = "<group>";
+		};
+		9DE446BE2B782705005B26EB /* AddUserScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9DE446BF2B782727005B26EB /* AddUserViewController.swift */,
+			);
+			path = AddUserScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,7 +282,10 @@
 				9DE446A92B777DD1005B26EB /* UIImage+Extension.swift in Sources */,
 				9DE446A42B777CCA005B26EB /* UIView+Extension.swift in Sources */,
 				9DC0B3822B72AB990096CD39 /* SceneDelegate.swift in Sources */,
+				9DE446C42B7857AD005B26EB /* UIAlertController+Extension.swift in Sources */,
 				9DE446BD2B77F39D005B26EB /* BirthdayCalculator.swift in Sources */,
+				9DE446C22B785780005B26EB /* UIAlertAction+Extension.swift in Sources */,
+				9DE446C02B782727005B26EB /* AddUserViewController.swift in Sources */,
 				9DE446B62B77DF8F005B26EB /* BirthdayReminderViewController.swift in Sources */,
 				9DE446B92B77E8B4005B26EB /* BirthdayInfoView.swift in Sources */,
 			);

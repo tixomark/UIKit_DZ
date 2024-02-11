@@ -20,8 +20,10 @@ extension UIImage {
         case tom
         /// Изовражение alex из Assets
         case alex
-        /// Изображение торта 
+        /// Изображение торта
         case cake
+        /// Плейсходлер пока не выбрано изображение пользователя
+        case placeholderUserImage
     }
 
     /// Удобная инициализация UIImage без использования строкового литерала

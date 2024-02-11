@@ -32,8 +32,8 @@ final class BirthdayReminderViewController: UIViewController {
         reloadTable()
     }
 
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setUpTableElementsFrames()
     }
 
@@ -65,14 +65,17 @@ final class BirthdayReminderViewController: UIViewController {
     /// Расставляет ячейки с днями рождениями по порядку друг за другом
     private func setUpTableElementsFrames() {
         for (index, infoView) in birthdayInfoViews.enumerated() {
-            var origin = CGPoint(x: 19, y: 20 + view.safeAreaInsets.top)
+            var origin = CGPoint(x: 19, y: 100)
             if index != 0 {
                 origin.y += (75 + 20) * CGFloat(index)
             }
             var size = infoView.frame.size
             size.width = view.bounds.width - 19 * 2
             infoView.frame = CGRect(origin: origin, size: size)
-            infoView.isHidden = false
+
+            if infoView.isHidden {
+                infoView.isHidden = false
+            }
         }
     }
 
@@ -103,6 +106,8 @@ final class BirthdayReminderViewController: UIViewController {
     }
 
     @objc private func didTapAddButton() {
-        print("Add button tapped")
+        let addUserVC = AddUserViewController()
+        addUserVC.modalPresentationStyle = .pageSheet
+        present(addUserVC, animated: true)
     }
 }
