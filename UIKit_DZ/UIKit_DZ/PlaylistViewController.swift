@@ -5,6 +5,12 @@ import UIKit
 
 /// Констроллер содержащий список треков пользователя
 final class PlaylistViewController: UIViewController {
+    // MARK: - Constants
+
+    private enum Constants {
+        static let showPlayerSegueID = "showPayerSegueID"
+    }
+
     // MARK: - IBOutlets
 
     @IBOutlet private var albumCoverImageViews: [UIImageView]!
@@ -51,6 +57,17 @@ final class PlaylistViewController: UIViewController {
         setUpUI()
     }
 
+    // MARK: - Public Methods
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard segue.identifier == Constants.showPlayerSegueID,
+              let sender = sender as? UIButton
+        else { return }
+        let playerVC = segue.destination as? PlayerViewController
+        playerVC?.currentTrack = tracks[sender.tag]
+        playerVC?.dataSource = self
+    }
+
     // MARK: - Private Methods
 
     private func setUpUI() {
@@ -71,5 +88,21 @@ final class PlaylistViewController: UIViewController {
 
     // MARK: - IBActions
 
-    @IBAction func didSelectTrack(_ sender: UIButton) {}
+    @IBAction private func didSelectTrack(_ sender: UIButton) {
+        performSegue(withIdentifier: Constants.showPlayerSegueID, sender: sender)
+    }
+}
+
+extension PlaylistViewController: PlayerViewControllerDataSource {
+    func trackAfter(_ track: Track) -> Track {
+        let index = tracks.firstIndex { $0 == track } ?? 0
+        let nextTrackIndex = (index + 1) % tracks.count
+        return tracks[nextTrackIndex]
+    }
+
+    func trackBefore(_ track: Track) -> Track {
+        let index = tracks.firstIndex { $0 == track } ?? 0
+        let prevTrackIndex = (index - 1 + tracks.count) % tracks.count
+        return tracks[prevTrackIndex]
+    }
 }

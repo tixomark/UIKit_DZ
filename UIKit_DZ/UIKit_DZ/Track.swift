@@ -4,7 +4,7 @@
 import Foundation
 
 /// Описывает экземпляр музыкального трека
-struct Track {
+struct Track: Equatable {
     var albumCoverImage: String
     var name: String
     var artist: String

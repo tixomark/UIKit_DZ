@@ -22,6 +22,7 @@
 		9DE446D72B796E51005B26EB /* Novocaine For The Soul.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9DE446D12B796E50005B26EB /* Novocaine For The Soul.mp3 */; };
 		9DE446D82B796E51005B26EB /* The Magic of Friendship Grows.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9DE446D22B796E51005B26EB /* The Magic of Friendship Grows.mp3 */; };
 		9DE446DD2B797714005B26EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DE446DC2B797714005B26EB /* Assets.xcassets */; };
+		9DE446DF2B797B89005B26EB /* PayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446DE2B797B89005B26EB /* PayerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		9DE446D12B796E50005B26EB /* Novocaine For The Soul.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "Novocaine For The Soul.mp3"; sourceTree = "<group>"; };
 		9DE446D22B796E51005B26EB /* The Magic of Friendship Grows.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Magic of Friendship Grows.mp3"; sourceTree = "<group>"; };
 		9DE446DC2B797714005B26EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		9DE446DE2B797B89005B26EB /* PayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayerViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +79,7 @@
 				9DC0B37F2B72AB990096CD39 /* AppDelegate.swift */,
 				9DC0B3812B72AB990096CD39 /* SceneDelegate.swift */,
 				9DC0B3832B72AB990096CD39 /* PlaylistViewController.swift */,
+				9DE446DE2B797B89005B26EB /* PayerViewController.swift */,
 				9DE446CA2B796BC2005B26EB /* Track.swift */,
 				9DC0B3852B72AB990096CD39 /* Main.storyboard */,
 				9DE446DC2B797714005B26EB /* Assets.xcassets */,
@@ -236,6 +239,7 @@
 				9DC0B3802B72AB990096CD39 /* AppDelegate.swift in Sources */,
 				9DC0B3822B72AB990096CD39 /* SceneDelegate.swift in Sources */,
 				9DE446CB2B796BC2005B26EB /* Track.swift in Sources */,
+				9DE446DF2B797B89005B26EB /* PayerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
