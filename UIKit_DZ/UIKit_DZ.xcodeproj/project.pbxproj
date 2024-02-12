@@ -19,6 +19,11 @@
 		9DE446F22B7A3624005B26EB /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446F12B7A3624005B26EB /* OrderDetailsViewController.swift */; };
 		9DE446F42B7A365B005B26EB /* OrderConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446F32B7A365B005B26EB /* OrderConfirmationViewController.swift */; };
 		9DE446F62B7A369F005B26EB /* ThanksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446F52B7A369F005B26EB /* ThanksViewController.swift */; };
+		9DE446F92B7A8B4D005B26EB /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DE446F82B7A8B4D005B26EB /* AmaticSC-Bold.ttf */; };
+		9DE446FC2B7A8E86005B26EB /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446FB2B7A8E86005B26EB /* UIView+Extension.swift */; };
+		9DE446FE2B7A91A7005B26EB /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446FD2B7A91A7005B26EB /* LocationView.swift */; };
+		9DE447022B7A93FB005B26EB /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE447012B7A93FB005B26EB /* UIImage+Extension.swift */; };
+		9DE447042B7AA5FA005B26EB /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE447032B7AA5FA005B26EB /* MenuItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +41,11 @@
 		9DE446F12B7A3624005B26EB /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		9DE446F32B7A365B005B26EB /* OrderConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewController.swift; sourceTree = "<group>"; };
 		9DE446F52B7A369F005B26EB /* ThanksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksViewController.swift; sourceTree = "<group>"; };
+		9DE446F82B7A8B4D005B26EB /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
+		9DE446FB2B7A8E86005B26EB /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		9DE446FD2B7A91A7005B26EB /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
+		9DE447012B7A93FB005B26EB /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		9DE447032B7AA5FA005B26EB /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +63,7 @@
 			isa = PBXGroup;
 			children = (
 				9DC0B37E2B72AB990096CD39 /* UIKit_DZ */,
+				9DE446F72B7A8AD7005B26EB /* Fonts */,
 				9DC0B37D2B72AB990096CD39 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -74,6 +85,7 @@
 				9DE446EE2B7A35A3005B26EB /* MenuScreen */,
 				9DE446EF2B7A35AF005B26EB /* MenuItemConfigScreen */,
 				9DE446F02B7A3603005B26EB /* OrderScreen */,
+				9DE446FA2B7A8E6A005B26EB /* Extensions */,
 				9DC0B3882B72AB9A0096CD39 /* Assets.xcassets */,
 				9DC0B38A2B72AB9A0096CD39 /* LaunchScreen.storyboard */,
 				9DC0B38D2B72AB9A0096CD39 /* Info.plist */,
@@ -93,6 +105,8 @@
 			isa = PBXGroup;
 			children = (
 				9DE446E52B7A339F005B26EB /* MenuViewController.swift */,
+				9DE446FD2B7A91A7005B26EB /* LocationView.swift */,
+				9DE447032B7AA5FA005B26EB /* MenuItemView.swift */,
 			);
 			path = MenuScreen;
 			sourceTree = "<group>";
@@ -115,6 +129,23 @@
 				9DE446F52B7A369F005B26EB /* ThanksViewController.swift */,
 			);
 			path = OrderScreen;
+			sourceTree = "<group>";
+		};
+		9DE446F72B7A8AD7005B26EB /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				9DE446F82B7A8B4D005B26EB /* AmaticSC-Bold.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		9DE446FA2B7A8E6A005B26EB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9DE446FB2B7A8E86005B26EB /* UIView+Extension.swift */,
+				9DE447012B7A93FB005B26EB /* UIImage+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -178,6 +209,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DC0B38C2B72AB9A0096CD39 /* LaunchScreen.storyboard in Resources */,
+				9DE446F92B7A8B4D005B26EB /* AmaticSC-Bold.ttf in Resources */,
 				9DC0B3892B72AB9A0096CD39 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -230,16 +262,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DE447022B7A93FB005B26EB /* UIImage+Extension.swift in Sources */,
 				9DE446F22B7A3624005B26EB /* OrderDetailsViewController.swift in Sources */,
+				9DE446FE2B7A91A7005B26EB /* LocationView.swift in Sources */,
 				9DC0B3842B72AB990096CD39 /* AuthViewController.swift in Sources */,
 				9DC0B3802B72AB990096CD39 /* AppDelegate.swift in Sources */,
 				9DE446EA2B7A34F1005B26EB /* MenuItemModificationViewController.swift in Sources */,
+				9DE447042B7AA5FA005B26EB /* MenuItemView.swift in Sources */,
 				9DC0B3822B72AB990096CD39 /* SceneDelegate.swift in Sources */,
 				9DE446F62B7A369F005B26EB /* ThanksViewController.swift in Sources */,
 				9DE446F42B7A365B005B26EB /* OrderConfirmationViewController.swift in Sources */,
 				9DE446E82B7A3441005B26EB /* MenuItemCofigurationViewController.swift in Sources */,
 				9DE446EC2B7A353A005B26EB /* MenuItemIngridientsConfigurationViewController.swift in Sources */,
 				9DE446E62B7A339F005B26EB /* MenuViewController.swift in Sources */,
+				9DE446FC2B7A8E86005B26EB /* UIView+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
