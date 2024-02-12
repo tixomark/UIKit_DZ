@@ -24,6 +24,7 @@
 		9DE446FE2B7A91A7005B26EB /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446FD2B7A91A7005B26EB /* LocationView.swift */; };
 		9DE447022B7A93FB005B26EB /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE447012B7A93FB005B26EB /* UIImage+Extension.swift */; };
 		9DE447042B7AA5FA005B26EB /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE447032B7AA5FA005B26EB /* MenuItemView.swift */; };
+		9DE447082B7AB568005B26EB /* OneItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE447072B7AB568005B26EB /* OneItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		9DE446FD2B7A91A7005B26EB /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
 		9DE447012B7A93FB005B26EB /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		9DE447032B7AA5FA005B26EB /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
+		9DE447072B7AB568005B26EB /* OneItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,8 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				9DE446E52B7A339F005B26EB /* MenuViewController.swift */,
-				9DE446FD2B7A91A7005B26EB /* LocationView.swift */,
-				9DE447032B7AA5FA005B26EB /* MenuItemView.swift */,
+				9DE447062B7AB514005B26EB /* ReusableViews */,
 			);
 			path = MenuScreen;
 			sourceTree = "<group>";
@@ -117,6 +118,7 @@
 				9DE446E72B7A3441005B26EB /* MenuItemCofigurationViewController.swift */,
 				9DE446E92B7A34F1005B26EB /* MenuItemModificationViewController.swift */,
 				9DE446EB2B7A353A005B26EB /* MenuItemIngridientsConfigurationViewController.swift */,
+				9DE447052B7AB503005B26EB /* ReusableViews */,
 			);
 			path = MenuItemConfigScreen;
 			sourceTree = "<group>";
@@ -146,6 +148,23 @@
 				9DE447012B7A93FB005B26EB /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9DE447052B7AB503005B26EB /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				9DE447072B7AB568005B26EB /* OneItemView.swift */,
+			);
+			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+		9DE447062B7AB514005B26EB /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				9DE447032B7AA5FA005B26EB /* MenuItemView.swift */,
+				9DE446FD2B7A91A7005B26EB /* LocationView.swift */,
+			);
+			path = ReusableViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,6 +289,7 @@
 				9DE446EA2B7A34F1005B26EB /* MenuItemModificationViewController.swift in Sources */,
 				9DE447042B7AA5FA005B26EB /* MenuItemView.swift in Sources */,
 				9DC0B3822B72AB990096CD39 /* SceneDelegate.swift in Sources */,
+				9DE447082B7AB568005B26EB /* OneItemView.swift in Sources */,
 				9DE446F62B7A369F005B26EB /* ThanksViewController.swift in Sources */,
 				9DE446F42B7A365B005B26EB /* OrderConfirmationViewController.swift in Sources */,
 				9DE446E82B7A3441005B26EB /* MenuItemCofigurationViewController.swift in Sources */,

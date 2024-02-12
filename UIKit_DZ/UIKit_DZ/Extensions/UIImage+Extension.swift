@@ -16,6 +16,8 @@ extension UIImage {
         case cup
         /// Изображение кофе
         case coffee
+        /// Иконка креста
+        case xIcon
     }
 
     /// Удобная инициализация UIImage без использования строкового литерала
