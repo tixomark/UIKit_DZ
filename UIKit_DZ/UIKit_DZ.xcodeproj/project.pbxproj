@@ -23,6 +23,8 @@
 		9DE446D82B796E51005B26EB /* The Magic of Friendship Grows.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 9DE446D22B796E51005B26EB /* The Magic of Friendship Grows.mp3 */; };
 		9DE446DD2B797714005B26EB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DE446DC2B797714005B26EB /* Assets.xcassets */; };
 		9DE446DF2B797B89005B26EB /* PayerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446DE2B797B89005B26EB /* PayerViewController.swift */; };
+		9DE446E12B799B61005B26EB /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446E02B799B61005B26EB /* UIImage+Extension.swift */; };
+		9DE446E42B79AF66005B26EB /* CustomSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446E32B79AF66005B26EB /* CustomSlider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +46,8 @@
 		9DE446D22B796E51005B26EB /* The Magic of Friendship Grows.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "The Magic of Friendship Grows.mp3"; sourceTree = "<group>"; };
 		9DE446DC2B797714005B26EB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DE446DE2B797B89005B26EB /* PayerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayerViewController.swift; sourceTree = "<group>"; };
+		9DE446E02B799B61005B26EB /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		9DE446E32B79AF66005B26EB /* CustomSlider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSlider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +85,9 @@
 				9DC0B3832B72AB990096CD39 /* PlaylistViewController.swift */,
 				9DE446DE2B797B89005B26EB /* PayerViewController.swift */,
 				9DE446CA2B796BC2005B26EB /* Track.swift */,
+				9DE446E32B79AF66005B26EB /* CustomSlider.swift */,
 				9DC0B3852B72AB990096CD39 /* Main.storyboard */,
+				9DE446E22B799B8C005B26EB /* Extensions */,
 				9DE446DC2B797714005B26EB /* Assets.xcassets */,
 				9DC0B38A2B72AB9A0096CD39 /* LaunchScreen.storyboard */,
 				9DC0B38D2B72AB9A0096CD39 /* Info.plist */,
@@ -111,6 +117,14 @@
 				9DE446CF2B796E50005B26EB /* Valley Of The Damned.mp3 */,
 			);
 			path = Music;
+			sourceTree = "<group>";
+		};
+		9DE446E22B799B8C005B26EB /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9DE446E02B799B61005B26EB /* UIImage+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,8 +250,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DC0B3842B72AB990096CD39 /* PlaylistViewController.swift in Sources */,
+				9DE446E42B79AF66005B26EB /* CustomSlider.swift in Sources */,
 				9DC0B3802B72AB990096CD39 /* AppDelegate.swift in Sources */,
 				9DC0B3822B72AB990096CD39 /* SceneDelegate.swift in Sources */,
+				9DE446E12B799B61005B26EB /* UIImage+Extension.swift in Sources */,
 				9DE446CB2B796BC2005B26EB /* Track.swift in Sources */,
 				9DE446DF2B797B89005B26EB /* PayerViewController.swift in Sources */,
 			);

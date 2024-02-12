@@ -328,7 +328,7 @@
                                         <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="wzJ-VE-96v">
+                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="wzJ-VE-96v" customClass="CustomSlider" customModule="UIKit_DZ" customModuleProvider="target">
                                         <rect key="frame" x="18" y="113" width="290" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="minimumTrackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -373,6 +373,31 @@
                                 </subviews>
                                 <color key="backgroundColor" red="0.40784313729999999" green="0.20000000000000001" blue="0.78823529410000004" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="iTa-bH-YF5" customClass="CustomSlider" customModule="UIKit_DZ" customModuleProvider="target">
+                                <rect key="frame" x="25" y="163" width="100" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="minimumTrackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="maximumTrackTintColor" red="1" green="0.99215686270000003" blue="0.99215686270000003" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="thumbTintColor" red="1" green="0.99215686270000003" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="Rotate.z" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </slider>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BY0-oS-fwG">
+                                <rect key="frame" x="16" y="20" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="exitIcon"/>
+                                <connections>
+                                    <action selector="closeButtonTapped:" destination="K7J-bD-z14" eventType="touchUpInside" id="rTp-UB-g17"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2mU-u4-PZH">
+                                <rect key="frame" x="354" y="20" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="shareIcon"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Cz1-aj-bQO"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -384,9 +409,11 @@
                         <outlet property="albumCoverImageView" destination="0zu-7S-ucG" id="vjG-op-pJE"/>
                         <outlet property="bandNameLabel" destination="IBH-4j-dbX" id="28v-MX-GyS"/>
                         <outlet property="bottomView" destination="ulV-yK-MkC" id="TK6-cU-5oF"/>
+                        <outlet property="playPauseButton" destination="vlg-id-E5T" id="KTt-ro-eIa"/>
                         <outlet property="remainingDurationTitle" destination="DoY-EM-C7w" id="dJC-aH-ViJ"/>
                         <outlet property="songNameLabel" destination="rWQ-lA-l9Q" id="Hkh-Yr-Hmv"/>
                         <outlet property="trackProgresionSlider" destination="wzJ-VE-96v" id="bNo-21-L7K"/>
+                        <outlet property="volumeSlider" destination="iTa-bH-YF5" id="dp9-SC-tt6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sQz-As-YpN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -395,10 +422,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="exitIcon" width="14" height="14"/>
         <image name="next" width="24" height="24"/>
         <image name="pause" width="45" height="45"/>
         <image name="playerBackground" width="375" height="761"/>
         <image name="previous" width="24" height="24"/>
+        <image name="shareIcon" width="21" height="18"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
