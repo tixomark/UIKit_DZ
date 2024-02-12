@@ -3,6 +3,11 @@
 
 import UIKit
 
+protocol AddUserViewControllerDelegate: AnyObject {
+    /// Отдает только созданного человека на обработку своему делегату
+    func didSuccessfulyAddPerson(_ person: PersonData)
+}
+
 /// Контроллер для ввода информации о новом пользователе.
 final class AddUserViewController: UIViewController {
     // MARK: - Constants
@@ -19,6 +24,10 @@ final class AddUserViewController: UIViewController {
         ]
         static let genders = ["Male", "Female"]
     }
+
+    // MARK: - Public Properties
+
+    weak var delegate: AddUserViewControllerDelegate?
 
     // MARK: - Private Properties
 
@@ -131,7 +140,7 @@ final class AddUserViewController: UIViewController {
     }
 
     /// Создает пикер и прокидывает себя в далагат и датасурс
-    func createPicker() -> UIPickerView {
+    private func createPicker() -> UIPickerView {
         let picker = UIPickerView()
         picker.dataSource = self
         picker.delegate = self
@@ -196,7 +205,12 @@ final class AddUserViewController: UIViewController {
         case navigationBar.items?.first?.leftBarButtonItem:
             dismiss(animated: true)
         case navigationBar.items?.first?.rightBarButtonItem:
-            print("add")
+            let person = PersonData(
+                name: formFields[0].textField.text ?? "",
+                birthday: formFields[1].textField.text?.toDate() ?? Date()
+            )
+            delegate?.didSuccessfulyAddPerson(person)
+            dismiss(animated: true)
         default:
             break
         }

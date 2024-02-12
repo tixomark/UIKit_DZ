@@ -107,7 +107,22 @@ final class BirthdayReminderViewController: UIViewController {
 
     @objc private func didTapAddButton() {
         let addUserVC = AddUserViewController()
+        addUserVC.delegate = self
         addUserVC.modalPresentationStyle = .pageSheet
         present(addUserVC, animated: true)
+    }
+}
+
+extension BirthdayReminderViewController: AddUserViewControllerDelegate {
+    /// Получает созданного на экране создания человека. Добавляет кго в массив людей
+    func didSuccessfulyAddPerson(_ person: PersonData) {
+        people.append(person)
+
+        let infoView = BirthdayInfoView()
+        view.addSubview(infoView)
+        birthdayInfoViews.append(infoView)
+
+        setUpTableElementsFrames()
+        reloadTable()
     }
 }
