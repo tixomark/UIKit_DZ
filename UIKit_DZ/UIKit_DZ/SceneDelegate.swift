@@ -11,10 +11,10 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         options connectionOptions: UIScene.ConnectionOptions
     ) {
         guard let scene = (scene as? UIWindowScene) else { return }
-
+        UIBarButtonItem.appearance().tintColor = UIColor.black
         window = UIWindow(windowScene: scene)
         let authVC = AuthViewController()
-        window?.rootViewController = UINavigationController(rootViewController: authVC)
+        window?.rootViewController = authVC
         window?.makeKeyAndVisible()
     }
 }
