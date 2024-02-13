@@ -15,7 +15,7 @@ final class OneItemView: UIView {
         case normal
     }
 
-    // MARK: - Private Properties
+    // MARK: - Visual Components
 
     /// Содержит изображения элемента
     private let image: UIImageView = {

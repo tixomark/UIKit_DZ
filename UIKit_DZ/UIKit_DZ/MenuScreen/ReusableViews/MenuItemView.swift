@@ -5,7 +5,7 @@ import UIKit
 
 /// Описывает стандартный элемент меню с полем названия и изовражением
 final class MenuItemView: UIView {
-    // MARK: - Private Properties
+    // MARK: - Visual Components
 
     /// Содержит название элемента меню
     private let nameLabel: UILabel = {

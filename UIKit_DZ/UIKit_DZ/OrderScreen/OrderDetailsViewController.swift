@@ -15,19 +15,7 @@ final class OrderDetailsViewController: UIViewController {
         static let payText = "Оплатить"
     }
 
-    // MARK: - Public Properties
-
-    /// Обработчик срабатывающий при закрытии жкрана
-    var completion: (() -> ())?
-
-    /// Временная замена данных, которце должны прижодить с предудущего экрана
-    var model = [
-        (name: "Американо", cost: 100),
-        (name: "Молоко", cost: 50),
-        (name: "Эспрессо 50мл", cost: 50)
-    ]
-
-    // MARK: - Private Properties
+    // MARK: - Visual Components
 
     /// Кнопка закрытия экрана
     private let closeButton: UIButton = {
@@ -102,6 +90,18 @@ final class OrderDetailsViewController: UIViewController {
         button.setTitle(Constants.payText, for: .normal)
         return button
     }()
+
+    // MARK: - Public Properties
+
+    /// Обработчик срабатывающий при закрытии жкрана
+    var completion: (() -> ())?
+
+    /// Временная замена данных, которце должны прижодить с предудущего экрана
+    var model = [
+        (name: "Американо", cost: 100),
+        (name: "Молоко", cost: 50),
+        (name: "Эспрессо 50мл", cost: 50)
+    ]
 
     // MARK: - Life Cycle
 

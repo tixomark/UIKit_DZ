@@ -12,7 +12,7 @@ final class LocationView: UIView {
         static let infoText = "Разрѣшите доступъ къ ​геолокаціи для поиска ближайшей кофейни"
     }
 
-    // MARK: - Private Properties
+    // MARK: - Visual Components
 
     private let titleLabel: UILabel = {
         let label = UILabel()

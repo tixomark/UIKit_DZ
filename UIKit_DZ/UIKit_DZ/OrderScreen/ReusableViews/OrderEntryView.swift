@@ -5,7 +5,7 @@ import UIKit
 
 /// Описывает стандартный элемент позиции чека
 final class OrderEntryView: UIView {
-    // MARK: - Private Properties
+    // MARK: - Visual Components
 
     /// Содержит название позиции чека
     private let titleLabel: UILabel = {

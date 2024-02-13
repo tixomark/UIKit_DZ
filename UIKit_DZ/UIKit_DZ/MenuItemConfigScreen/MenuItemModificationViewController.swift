@@ -24,12 +24,7 @@ protocol MenuItemModificationDelegate: AnyObject {
 // tixomark
 /// Класс предоставляет визуальный интерфейс для выбора одного значения из множества
 final class MenuItemModificationViewController: UIViewController {
-    // MARK: - Public Properties
-
-    weak var datasource: MenuItemModificationDataSource?
-    weak var delegate: MenuItemModificationDelegate?
-
-    // MARK: - Private Properties
+    // MARK: - Visual Components
 
     /// Кнопка закрытия
     private let closeButton: UIButton = {
@@ -51,6 +46,13 @@ final class MenuItemModificationViewController: UIViewController {
         label.textAlignment = .center
         return label
     }()
+
+    // MARK: - Public Properties
+
+    weak var datasource: MenuItemModificationDataSource?
+    weak var delegate: MenuItemModificationDelegate?
+
+    // MARK: - Private Properties
 
     /// Индекс выбранного элемента
     private var selectedItemIndex: Int?
@@ -134,4 +136,6 @@ final class MenuItemModificationViewController: UIViewController {
     @objc private func didTapCloseButton(_ sender: UIButton) {
         dismiss(animated: true)
     }
+
+    // MARK: - IBActions
 }

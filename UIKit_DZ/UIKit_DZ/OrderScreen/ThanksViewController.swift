@@ -18,8 +18,8 @@ final class ThanksViewController: UIViewController {
             """
         static let buttonTitle = "Хорошо"
     }
-
-    // MARK: - Private Properties
+    
+    // MARK: - Visual Components
 
     /// Кнопка закрытия экрана
     private let closeButton: UIButton = {
@@ -97,6 +97,7 @@ final class ThanksViewController: UIViewController {
 
     /// Обработчик назатия кнопки закрытия
     @objc private func didTapCloseButton() {
+        dismiss(animated: true)
         navigationController?.popToRootViewController(animated: true)
     }
 }

@@ -19,7 +19,7 @@ final class MenuViewController: UIViewController {
         ]
     }
 
-    // MARK: - Private Properties
+    // MARK: - Visual Components
 
     /// Отображает заголовок экрана
     private let titleLabel: UILabel = {
@@ -104,6 +104,8 @@ final class MenuViewController: UIViewController {
         view.contentMode = .scaleAspectFit
         return view
     }()
+
+    // MARK: - Private Properties
 
     /// Содержит сыылки на все элементы меню данного экрана
     private var menuItemViews: [MenuItemView] = []
