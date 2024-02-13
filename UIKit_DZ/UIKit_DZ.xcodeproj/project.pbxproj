@@ -25,6 +25,7 @@
 		9DE447022B7A93FB005B26EB /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE447012B7A93FB005B26EB /* UIImage+Extension.swift */; };
 		9DE447042B7AA5FA005B26EB /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE447032B7AA5FA005B26EB /* MenuItemView.swift */; };
 		9DE447082B7AB568005B26EB /* OneItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE447072B7AB568005B26EB /* OneItemView.swift */; };
+		9DE4470B2B7AF286005B26EB /* OrderEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4470A2B7AF286005B26EB /* OrderEntryView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		9DE447012B7A93FB005B26EB /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		9DE447032B7AA5FA005B26EB /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
 		9DE447072B7AB568005B26EB /* OneItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneItemView.swift; sourceTree = "<group>"; };
+		9DE4470A2B7AF286005B26EB /* OrderEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderEntryView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 				9DE446F12B7A3624005B26EB /* OrderDetailsViewController.swift */,
 				9DE446F32B7A365B005B26EB /* OrderConfirmationViewController.swift */,
 				9DE446F52B7A369F005B26EB /* ThanksViewController.swift */,
+				9DE447092B7AF269005B26EB /* ReusableViews */,
 			);
 			path = OrderScreen;
 			sourceTree = "<group>";
@@ -163,6 +166,14 @@
 			children = (
 				9DE447032B7AA5FA005B26EB /* MenuItemView.swift */,
 				9DE446FD2B7A91A7005B26EB /* LocationView.swift */,
+			);
+			path = ReusableViews;
+			sourceTree = "<group>";
+		};
+		9DE447092B7AF269005B26EB /* ReusableViews */ = {
+			isa = PBXGroup;
+			children = (
+				9DE4470A2B7AF286005B26EB /* OrderEntryView.swift */,
 			);
 			path = ReusableViews;
 			sourceTree = "<group>";
@@ -289,6 +300,7 @@
 				9DE446EA2B7A34F1005B26EB /* MenuItemModificationViewController.swift in Sources */,
 				9DE447042B7AA5FA005B26EB /* MenuItemView.swift in Sources */,
 				9DC0B3822B72AB990096CD39 /* SceneDelegate.swift in Sources */,
+				9DE4470B2B7AF286005B26EB /* OrderEntryView.swift in Sources */,
 				9DE447082B7AB568005B26EB /* OneItemView.swift in Sources */,
 				9DE446F62B7A369F005B26EB /* ThanksViewController.swift in Sources */,
 				9DE446F42B7A365B005B26EB /* OrderConfirmationViewController.swift in Sources */,

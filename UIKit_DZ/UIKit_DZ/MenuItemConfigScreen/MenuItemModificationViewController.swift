@@ -49,7 +49,6 @@ final class MenuItemModificationViewController: UIViewController {
         label.textColor = .black
         label.font = UIFont(name: "Verdana-Bold", size: 18)
         label.textAlignment = .center
-        label.numberOfLines = 1
         return label
     }()
 
@@ -71,6 +70,11 @@ final class MenuItemModificationViewController: UIViewController {
     /// Устанавливает тайтл для данного контроллера
     func setTitle(_ title: String) {
         headerView.text = title
+    }
+
+    /// Устанавливает изначально выбранный элемент по индексу.
+    func setInitialSelectedItemIndex(_ index: Int) {
+        selectedItemIndex = index
     }
 
     // MARK: - Private Methods
@@ -105,6 +109,10 @@ final class MenuItemModificationViewController: UIViewController {
             items.append(view)
         }
         view.addSubviews(items)
+
+        if let selectedItemIndex {
+            items[selectedItemIndex].setState(to: .highlited)
+        }
     }
 
     /// При нажатии на вью констроллера проверяет куда попало нажатие.

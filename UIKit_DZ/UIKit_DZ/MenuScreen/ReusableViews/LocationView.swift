@@ -23,7 +23,6 @@ final class LocationView: UIView {
         label.textColor = .black
         label.font = UIFont(name: "Verdana-Bold", size: 12)
         label.textAlignment = .left
-        label.numberOfLines = 1
         return label
     }()
 

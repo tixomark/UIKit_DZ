@@ -30,7 +30,6 @@ final class MenuViewController: UIViewController {
         label.textColor = .menuTitle
         label.font = UIFont(name: "AmaticSC-Bold", size: 55)
         label.textAlignment = .center
-        label.numberOfLines = 1
         label.text = Constants.title
         return label
     }()
@@ -61,7 +60,6 @@ final class MenuViewController: UIViewController {
         label.textColor = .white
         label.font = UIFont(name: "Verdana-Bold", size: 16)
         label.textAlignment = .center
-        label.numberOfLines = 1
         return label
     }()
 
@@ -93,7 +91,6 @@ final class MenuViewController: UIViewController {
         label.textColor = .black
         label.font = UIFont(name: "AmaticSC-Bold", size: 25)
         label.textAlignment = .center
-        label.numberOfLines = 1
         label.text = Constants.menuTitle
         return label
     }()
