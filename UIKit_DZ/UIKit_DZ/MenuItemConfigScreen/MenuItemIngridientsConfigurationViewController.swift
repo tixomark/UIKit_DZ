@@ -6,7 +6,7 @@ import UIKit
 // Экран с добавление конфигураций напитка
 final class MenuItemIngridientsConfigurationViewController: UIViewController {
     // MARK: - visual components
-    
+
     /// кнопка закрыть экран
     private lazy var closeButton: UIButton = {
         let button = UIButton()
@@ -16,7 +16,7 @@ final class MenuItemIngridientsConfigurationViewController: UIViewController {
         button.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
         return button
     }()
-    
+
     /// задаем тайтл
     private lazy var titleLabel: UILabel = {
         let text = UILabel()
@@ -27,7 +27,7 @@ final class MenuItemIngridientsConfigurationViewController: UIViewController {
         text.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
         return text
     }()
-    
+
     /// индгридиент с моллоком
     private lazy var ingridientMilkTitle = ChekBoxSwitch()
     /// ингридиеннт с сироп
@@ -38,21 +38,21 @@ final class MenuItemIngridientsConfigurationViewController: UIViewController {
     private lazy var ingridientAlmondMilkTitle = ChekBoxSwitch()
     /// ингридиент с еспрессо
     private lazy var ingridientEspressoTitle = ChekBoxSwitch()
-    
+
     // MARK: - Public propities
-    
+
     /// кложура для передачи данных назад
     var closure: (([(name: String, coast: Int)]) -> ())?
-    
-    // MARK: - Life cicly
-    
+
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
-    
-    // MARK: - Private methods
-    
+
+    // MARK: - Private Methods
+
     /// кладем элементы на вью
     private func setupUI() {
         view.backgroundColor = .white
@@ -64,7 +64,7 @@ final class MenuItemIngridientsConfigurationViewController: UIViewController {
         createIngridients(chekbox: ingridientAlmondMilkTitle, title: "Молоко миндальное", price: 70, lineY: 274)
         createIngridients(chekbox: ingridientEspressoTitle, title: "Еспрессо 50мл", price: 50, lineY: 324)
     }
-    
+
     /// создаем ингридиенты
     private func createIngridients(chekbox: ChekBoxSwitch, title: String, price: Int, lineY: Int) {
         chekbox.title.text = title
@@ -73,7 +73,7 @@ final class MenuItemIngridientsConfigurationViewController: UIViewController {
         chekbox.setupChekbox()
         view.addSubview(chekbox)
     }
-    
+
     ///  метод для закрытие экрана
     @objc private func dismissVC() {
         let array = [
@@ -90,35 +90,5 @@ final class MenuItemIngridientsConfigurationViewController: UIViewController {
         }
         closure?(tupleOrder)
         dismiss(animated: true)
-    }
-}
-
-///  Вьюшка с ценами и свитчом
-final class ChekBoxSwitch: UIView {
-    lazy var nubmerPrice = 0
-    lazy var title = UILabel()
-    lazy var price = UILabel()
-    lazy var isActive = UISwitch()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-    }
-    
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    func setupChekbox() {
-        title.frame = .init(x: 20, y: 0, width: 200, height: 35)
-        title.sizeToFit()
-        price.frame = .init(x: title.frame.maxX, y: 0, width: 75, height: 35)
-        price.text = "  + \(nubmerPrice) руб"
-        price.textColor = .systemGreen
-        price.sizeToFit()
-        isActive.frame = .init(x: 301, y: 0, width: 0, height: 0)
-        addSubview(title)
-        addSubview(price)
-        addSubview(isActive)
     }
 }

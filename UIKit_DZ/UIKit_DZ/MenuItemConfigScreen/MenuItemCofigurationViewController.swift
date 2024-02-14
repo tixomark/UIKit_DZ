@@ -6,7 +6,7 @@ import UIKit
 /// Экран с конфигарцией напитка
 final class MenuItemCofigurationViewController: UIViewController {
     // MARK: - visual components
-    
+
     /// кастомная верхня белая вьюшка
     private lazy var topCustomView: UIView = {
         let customView = UIView()
@@ -16,7 +16,7 @@ final class MenuItemCofigurationViewController: UIViewController {
         customView.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
         return customView
     }()
-    
+
     /// круглая вьюшка для кнопки назад
     private lazy var backButtonBackgroundView: UIView = {
         let customView = UIView()
@@ -25,7 +25,7 @@ final class MenuItemCofigurationViewController: UIViewController {
         customView.layer.cornerRadius = 20
         return customView
     }()
-    
+
     /// изображение с выбором кофе
     private lazy var itemImage: UIImageView = {
         let product = UIImageView()
@@ -35,7 +35,7 @@ final class MenuItemCofigurationViewController: UIViewController {
         product.image = UIImage(named: "americano")
         return product
     }()
-    
+
     /// массив сс картинкамми для сегмента
     private lazy var imageArray = [
         UIImage(named: "americano"),
@@ -56,17 +56,17 @@ final class MenuItemCofigurationViewController: UIViewController {
     private lazy var orderButton = UniversalButton()
     /// дефоллтная цена кофе
     private var price = 100
-    
-    // MARK: - Life cicly
-    
+
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         configurationNavBar()
         setupUi()
     }
-    
-    // MARK: - private Methods
-    
+
+    // MARK: - Private Methods
+
     /// настройка навигейшина
     private func configurationNavBar() {
         UIBarButtonItem.appearance().tintColor = UIColor.black
@@ -81,10 +81,10 @@ final class MenuItemCofigurationViewController: UIViewController {
             image: UIImage(systemName: "paperplane.fill"),
             style: .done,
             target: self,
-            action: #selector(activityButton)
+            action: #selector(activityButtonTapped)
         )
     }
-    
+
     /// кладем элеменнты на экран
     private func setupUi() {
         view.backgroundColor = .white
@@ -97,7 +97,7 @@ final class MenuItemCofigurationViewController: UIViewController {
         emptyView(title: "Обжарка", lineX: 15)
         emptyView(title: "Дополнительные /n ингредіенты", lineX: 195)
     }
-    
+
     /// создание лейблов
     private func createLabel(label: UILabel, lineX: Int, lineY: Int, title: String, fontSize: CGFloat = 16) {
         label.frame = CGRect(x: lineX, y: lineY, width: 345, height: 31)
@@ -106,7 +106,7 @@ final class MenuItemCofigurationViewController: UIViewController {
         priceLabel.textAlignment = .right
         view.addSubview(label)
     }
-    
+
     /// создание сегмент контрала
     private func createSegmendControll() {
         segmentControl = UISegmentedControl(items: menyItem)
@@ -115,7 +115,7 @@ final class MenuItemCofigurationViewController: UIViewController {
         segmentControl.addTarget(self, action: #selector(selectedItemSegmentControl), for: .valueChanged)
         view.addSubview(segmentControl)
     }
-    
+
     /// создание кнопки
     private func orderMethod() {
         orderButton.center.x = view.center.x
@@ -123,7 +123,7 @@ final class MenuItemCofigurationViewController: UIViewController {
         orderButton.addTarget(self, action: #selector(tappedButton), for: .touchUpInside)
         view.addSubview(orderButton)
     }
-    
+
     /// Заглушки
     private func emptyView(title: String, lineX: Int) {
         let button = UIButton()
@@ -132,13 +132,13 @@ final class MenuItemCofigurationViewController: UIViewController {
         button.addTarget(self, action: #selector(orderDetailUp), for: .touchUpInside)
         view.addSubview(button)
     }
-    
+
     /// выбор селектора ссегмента
     @objc private func selectedItemSegmentControl() {
         let segmentIndex = segmentControl.selectedSegmentIndex
         itemImage.image = imageArray[segmentIndex]
     }
-    
+
     /// открываем экран с выбором дополнительных ингридиентов и кладем в нас масссив
     @objc private func orderDetailUp() {
         let orderVC = MenuItemIngridientsConfigurationViewController()
@@ -152,7 +152,7 @@ final class MenuItemCofigurationViewController: UIViewController {
         }
         present(orderVC, animated: true)
     }
-    
+
     /// метод дляя перехода на общий чек
     @objc private func tappedButton() {
         let itemCofe = (name: menyItem[segmentControl.numberOfSegments - 1], coast: 100)
@@ -160,8 +160,8 @@ final class MenuItemCofigurationViewController: UIViewController {
         let orderConfirmation = OrderConfirmationViewController()
         /// передаем orderCoast
     }
-    
-    @objc private func activityButton() {
+
+    @objc private func activityButtonTapped() {
         let shareContent = ["Лови промокод roadmaplove на 50 отжиманий"]
         let activityController = UIActivityViewController(
             activityItems: shareContent,

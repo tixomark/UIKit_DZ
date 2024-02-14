@@ -6,9 +6,9 @@ import UIKit
 /// Экран с проверкой кода из смс
 final class OrderConfirmationViewController: UIViewController {
     // MARK: - visual components
-    
+
     /// тайтл  верхний
-    private lazy var titleOrder: UILabel = {
+    private lazy var titleOrderLabel: UILabel = {
         let label = UILabel()
         label.text = "Введите кодъ изъ смс, чтобы подтвердить оплату"
         label.frame = .init(x: 35, y: 146, width: 315, height: 44)
@@ -16,7 +16,7 @@ final class OrderConfirmationViewController: UIViewController {
         label.textAlignment = .center
         return label
     }()
-    
+
     /// кнопка для подтверждениия заказа
     private lazy var doneButton: UniversalButton = {
         let button = UniversalButton()
@@ -26,7 +26,7 @@ final class OrderConfirmationViewController: UIViewController {
         button.center.x = view.center.x
         return button
     }()
-    
+
     /// текст филд с полем ввода кода из смс
     private lazy var codeTextField: UITextField = {
         let code = UITextField()
@@ -34,12 +34,13 @@ final class OrderConfirmationViewController: UIViewController {
         code.layer.cornerRadius = 10
         code.keyboardType = .numberPad
         code.borderStyle = .roundedRect
+        code.delegate = self
         code.addTarget(self, action: #selector(textFieldDidEndEditing), for: .editingChanged)
         return code
     }()
-    
+
     /// кнопка для отправки кода повторно
-    private lazy var replaceCode: UIButton = {
+    private lazy var resendCodeButton: UIButton = {
         let button = UIButton()
         button.frame = .init(x: 109, y: 288, width: 167, height: 36)
         button.backgroundColor = #colorLiteral(red: 0.9781246781, green: 0.9683033824, blue: 0.9684737325, alpha: 1)
@@ -48,17 +49,17 @@ final class OrderConfirmationViewController: UIViewController {
         button.setTitle("Отправить снова", for: .normal)
         return button
     }()
-    
-    // MARK: - Life cicly
-    
+
+    // MARK: - Life Cycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         createNavBar()
         setupUI()
     }
-    
-    // MARK: - private methods
-    
+
+    // MARK: - Private Methods
+
     /// настройки навиигейшн бара
     private func createNavBar() {
         view.backgroundColor = .white
@@ -71,15 +72,15 @@ final class OrderConfirmationViewController: UIViewController {
         )
         title = "Кодъ из СМС"
     }
-    
+
     /// кладем элементы на вью
     private func setupUI() {
-        view.addSubview(titleOrder)
+        view.addSubview(titleOrderLabel)
         view.addSubview(doneButton)
-        view.addSubview(replaceCode)
+        view.addSubview(resendCodeButton)
         view.addSubview(codeTextField)
     }
-    
+
     /// метод для возврата назад
     @objc private func popVC() {
         navigationController?.popViewController(animated: true)
