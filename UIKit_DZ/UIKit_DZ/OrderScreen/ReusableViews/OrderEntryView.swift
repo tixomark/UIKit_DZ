@@ -14,7 +14,7 @@ final class OrderEntryView: UIView {
         label.frame.origin = .zero
 
         label.textColor = .black
-        label.font = UIFont(name: "Verdana", size: 16)
+        label.font = .verdana?.withSize(16)
         label.textAlignment = .left
         return label
     }()
@@ -26,7 +26,7 @@ final class OrderEntryView: UIView {
         label.frame.origin = CGPoint(x: 185, y: 0)
 
         label.textColor = .black
-        label.font = UIFont(name: "Verdana", size: 16)
+        label.font = .verdana?.withSize(16)
         label.textAlignment = .right
         return label
     }()
@@ -37,32 +37,29 @@ final class OrderEntryView: UIView {
         var customFrame = frame
         customFrame.size = CGSize(width: 335, height: 30)
         super.init(frame: customFrame)
-        setUpUI()
+        configureUI()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        setUpUI()
+        configureUI()
     }
 
     // MARK: - Public Methods
 
-    /// Установка названия и стоимости позиции чека
     func configureUsing(_ title: String?, cost: String?) {
         titleLabel.text = title
         costLabel.text = cost
     }
 
-    /// Измененние шрифта на жирный.
     func switchToBoldFont() {
-        let boldFont = UIFont(name: "Verdana-Bold", size: 16)
-        titleLabel.font = boldFont
-        costLabel.font = boldFont
+        titleLabel.font = .verdanaBold?.withSize(16)
+        costLabel.font = .verdanaBold?.withSize(16)
     }
 
     // MARK: - Private Methods
 
-    private func setUpUI() {
+    private func configureUI() {
         addSubviews(titleLabel, costLabel)
     }
 }

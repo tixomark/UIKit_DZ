@@ -9,8 +9,8 @@ final class ThanksViewController: UIViewController {
     // MARK: - Constants
 
     private enum Constants {
-        static let title = "спасибо \n за заказъ"
-        static let info =
+        static let titleText = "спасибо \n за заказъ"
+        static let infoText =
             """
             Разскажи о насъ другу, отправь ему
             промокодъ
@@ -22,17 +22,6 @@ final class ThanksViewController: UIViewController {
 
     // MARK: - Visual Components
 
-    /// Кнопка закрытия экрана
-    private lazy var closeButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(.xIcon), for: .normal)
-        button.frame.size = CGSize(width: 14, height: 14)
-        button.frame.origin = CGPoint(x: 20, y: 26)
-        button.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
-        return button
-    }()
-
-    /// Хедер заголовка слева (завитушки)
     private let headerImageView: UIImageView = {
         let view = UIImageView()
         view.frame.size = CGSize(width: 200, height: 86)
@@ -42,35 +31,41 @@ final class ThanksViewController: UIViewController {
         return view
     }()
 
-    /// Отображает заголовок экрана
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.frame.size = CGSize(width: 235, height: 128)
         label.frame.origin = CGPoint(x: 70, y: 184)
 
         label.textColor = .black
-        label.font = UIFont(name: "AmaticSC-Bold", size: 50)
+        label.font = .amaticSCBold?.withSize(50)
         label.textAlignment = .center
         label.numberOfLines = 2
-        label.text = Constants.title
+        label.text = Constants.titleText
         return label
     }()
 
-    /// Отображает надпись о скидке
     private let infoLabel: UILabel = {
         let label = UILabel()
         label.frame.size = CGSize(width: 325, height: 89)
         label.frame.origin = CGPoint(x: 25, y: 362)
 
         label.textColor = #colorLiteral(red: 0.5294118524, green: 0.5294118524, blue: 0.5294118524, alpha: 1)
-        label.font = UIFont(name: "Verdana", size: 16)
+        label.font = .verdana?.withSize(16)
         label.textAlignment = .center
         label.numberOfLines = 4
-        label.text = Constants.info
+        label.text = Constants.infoText
         return label
     }()
 
-    /// Кнопка завершения
+    private lazy var closeButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(.xIcon), for: .normal)
+        button.frame.size = CGSize(width: 14, height: 14)
+        button.frame.origin = CGPoint(x: 20, y: 26)
+        button.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
+        return button
+    }()
+    
     private lazy var okButton: UIButton = {
         let button = UIButton()
         button.frame.size = CGSize(width: 345, height: 53)
@@ -85,12 +80,12 @@ final class ThanksViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpUI()
+        configureUI()
     }
 
     // MARK: - Private Methods
 
-    private func setUpUI() {
+    private func configureUI() {
         view.backgroundColor = .systemBackground
         view.addSubviews(closeButton, headerImageView, titleLabel, infoLabel, okButton)
     }

@@ -9,7 +9,7 @@ final class OrderDetailsViewController: UIViewController {
     // MARK: - Constants
 
     private enum Constants {
-        static let title = "Вашъ Заказъ"
+        static let titleText = "Вашъ Заказъ"
         static let totalSum = "Цѣна - "
         static let currency = " руб"
         static let payText = "Оплатить"
@@ -20,17 +20,6 @@ final class OrderDetailsViewController: UIViewController {
 
     // MARK: - Visual Components
 
-    /// Кнопка закрытия экрана
-    private lazy var closeButton: UIButton = {
-        let button = UIButton()
-        button.setImage(UIImage(.xIcon), for: .normal)
-        button.frame.size = CGSize(width: 14, height: 14)
-        button.frame.origin = CGPoint(x: 20, y: 26)
-        button.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
-        return button
-    }()
-
-    /// Хедер заголовка слева (завитушки)
     private let leftHeaderImageView: UIImageView = {
         let view = UIImageView()
         view.frame.size = CGSize(width: 100, height: 72)
@@ -40,7 +29,6 @@ final class OrderDetailsViewController: UIViewController {
         return view
     }()
 
-    /// Футер заголовка справа (завитушки)
     private let rightHeaderImageView: UIImageView = {
         let view = UIImageView()
         view.frame.size = CGSize(width: 100, height: 72)
@@ -50,32 +38,29 @@ final class OrderDetailsViewController: UIViewController {
         return view
     }()
 
-    /// Отображает заголовок экрана
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.frame.size = CGSize(width: 140, height: 30)
         label.frame.origin = CGPoint(x: 117.5, y: 100)
 
         label.textColor = .black
-        label.font = UIFont(name: "Verdana-Bold", size: 18)
+        label.font = .verdanaBold?.withSize(18)
         label.textAlignment = .center
-        label.text = Constants.title
+        label.text = Constants.titleText
         return label
     }()
 
-    /// Отображает суммарную чену чека
     private let totalSumLabel: UILabel = {
         let label = UILabel()
         label.frame.size = CGSize(width: 231, height: 30)
         label.frame.origin = CGPoint(x: 72, y: 443)
 
         label.textColor = .black
-        label.font = UIFont(name: "Verdana-Bold", size: 18)
+        label.font = .verdanaBold?.withSize(18)
         label.textAlignment = .center
         return label
     }()
 
-    /// Футер заголовка меню (завитушки)
     private let footerImageView: UIImageView = {
         let view = UIImageView()
         view.frame.size = CGSize(width: 100, height: 40)
@@ -85,7 +70,15 @@ final class OrderDetailsViewController: UIViewController {
         return view
     }()
 
-    /// Кнопка инициации оплаты
+    private lazy var closeButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(.xIcon), for: .normal)
+        button.frame.size = CGSize(width: 14, height: 14)
+        button.frame.origin = CGPoint(x: 20, y: 26)
+        button.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
+        return button
+    }()
+    
     private lazy var payButton: UIButton = {
         let button = UIButton()
         button.frame.size = CGSize(width: 345, height: 53)
@@ -102,18 +95,18 @@ final class OrderDetailsViewController: UIViewController {
     var completion: (() -> ())?
 
     /// Данные о позициях чека с экрана конфигурации позиции
-    var model = [(name: String, cost: Int)]()
+    var orderPositions = [(name: String, cost: Int)]()
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpUI()
+        configureUI()
     }
 
     // MARK: - Private Methods
 
-    private func setUpUI() {
+    private func configureUI() {
         view.backgroundColor = .systemBackground
         view.addSubviews(closeButton, leftHeaderImageView, rightHeaderImageView)
         view.addSubviews(titleLabel, totalSumLabel, footerImageView, payButton)
@@ -124,7 +117,7 @@ final class OrderDetailsViewController: UIViewController {
     private func setOrderEntriesList() {
         var totalSum = 0
 
-        for (index, entry) in model.enumerated() {
+        for (index, entry) in orderPositions.enumerated() {
             let view = OrderEntryView()
             view.frame.size = CGSize(width: 335, height: 30)
             let viewOriginY = Constants
@@ -143,12 +136,10 @@ final class OrderDetailsViewController: UIViewController {
         totalSumLabel.text = Constants.totalSum + "\(totalSum)" + Constants.currency
     }
 
-    /// Обработчик назатия на кнопку закрытия экрана
     @objc private func didTapCloseButton() {
         dismiss(animated: true)
     }
-
-    /// Обработчик нажатия на кнопку оплаты
+    
     @objc private func didTapPayButton() {
         dismiss(animated: true)
         completion?()

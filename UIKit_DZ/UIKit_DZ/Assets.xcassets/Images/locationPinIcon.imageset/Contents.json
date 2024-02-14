@@ -1,12 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "矢量 19-2.pdf",
+      "filename" : "locationPinIcon.pdf",
       "idiom" : "universal"
     }
   ],
   "info" : {
     "author" : "xcode",
     "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
   }
 }

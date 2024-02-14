@@ -6,21 +6,13 @@ import UIKit
 /// Протокол обьекта выступающего в качестве источника данных для данного контроллера
 protocol MenuItemModificationDataSource: AnyObject {
     /// Спрашвает сколько ячеек должно быть в представлении
-    /// - Parameter menuItemModification: Экземпляр который вызывает метод
-    /// - Returns: Количество ячеек.
-
     func numberOfItemsIn(_ menuItemModification: MenuItemModificationViewController) -> Int
-    /// Запрашивает текст для ячейки с определенным индексом
-    /// - Parameter menuItemModification: Экземпляр который вызывает метод
-    /// - Parameter titleForItemAt: Индекс элемента для которого запрашивается заголовок
-    /// - Returns: Заголовок элемента
 
+    /// Запрашивает текст для ячейки с определенным индексом
     func menuItemModification(_ menuItemModification: MenuItemModificationViewController, titleForItemAt index: Int)
         -> String?
+
     /// Запрашивает изображение для ячейки с определенным индексом
-    /// - Parameter menuItemModification: Экземпляр который вызывает метод
-    /// - Parameter imageForItemAt: Индекс элемента для которого запрашивается изображение
-    /// - Returns: Изображение  элемента
     func menuItemModification(_ menuItemModification: MenuItemModificationViewController, imageForItemAt index: Int)
         -> UIImage?
 }
@@ -28,8 +20,6 @@ protocol MenuItemModificationDataSource: AnyObject {
 /// Протокол обьекта выступающего в качестве делегата для данного контроллера
 protocol MenuItemModificationDelegate: AnyObject {
     /// Срабатывает при изменении выбора элемента и передает индекс выбранного элемента
-    /// - Parameter menuItemModification: Экземпляр который вызывает метод
-    /// - Parameter didSelectItemAt: Индекс элемента который был выделен
     func menuItemModification(_ menuItemModification: MenuItemModificationViewController, didSelectItemAt index: Int)
 }
 
@@ -42,12 +32,22 @@ final class MenuItemModificationViewController: UIViewController {
         static let xInsetForFirstColumn = 15
         static let xInsetForSecondColumn = 195
         static let insetFromTopOfScreen = 102
-        static let interItemSpaceing = 15
+        static let interItemSpacing = 15
     }
 
     // MARK: - Visual Components
 
-    /// Кнопка закрытия
+    private let headerLabel: UILabel = {
+        let label = UILabel()
+        label.frame.size = CGSize(width: 320, height: 30)
+        label.frame.origin = CGPoint(x: 20, y: 40)
+
+        label.textColor = .black
+        label.font = .verdanaBold?.withSize(18)
+        label.textAlignment = .center
+        return label
+    }()
+    
     private lazy var closeButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(.xIcon), for: .normal)
@@ -57,29 +57,14 @@ final class MenuItemModificationViewController: UIViewController {
         return button
     }()
 
-    /// Заголовок контроллера
-    private let headerLabel: UILabel = {
-        let label = UILabel()
-        label.frame.size = CGSize(width: 320, height: 30)
-        label.frame.origin = CGPoint(x: 20, y: 40)
-
-        label.textColor = .black
-        label.font = UIFont(name: "Verdana-Bold", size: 18)
-        label.textAlignment = .center
-        return label
-    }()
-
     // MARK: - Public Properties
 
     weak var datasource: MenuItemModificationDataSource?
     weak var delegate: MenuItemModificationDelegate?
 
     // MARK: - Private Properties
-
-    /// Индекс выбранного элемента
+    
     private var selectedItemIndex: Int?
-
-    /// Массив всех элементов контроллера
     private var items: [OneItemView] = []
 
     // MARK: - Life Cycle
@@ -91,12 +76,10 @@ final class MenuItemModificationViewController: UIViewController {
 
     // MARK: - Public Methods
 
-    /// Устанавливает тайтл для данного контроллера
     func setTitle(_ title: String) {
         headerLabel.text = title
     }
-
-    /// Устанавливает изначально выбранный элемент по индексу.
+    
     func setInitialSelectedItemIndex(_ index: Int) {
         selectedItemIndex = index
     }
@@ -128,7 +111,7 @@ final class MenuItemModificationViewController: UIViewController {
                 ? Constants.xInsetForFirstColumn
                 : Constants.xInsetForSecondColumn
             let originY = Constants
-                .insetFromTopOfScreen + (index / 2) * (Int(view.frame.height) + Constants.interItemSpaceing)
+                .insetFromTopOfScreen + (index / 2) * (Int(view.frame.height) + Constants.interItemSpacing)
             view.frame.origin = CGPoint(x: originX, y: originY)
 
             items.append(view)
@@ -142,7 +125,8 @@ final class MenuItemModificationViewController: UIViewController {
 
     /// При нажатии на вью контроллера, проверяет куда попало нажатие.
     @objc private func didTapOnView(_ sender: UITapGestureRecognizer) {
-        let touchLocation = sender.location(in: view)
+        let touchLocation = sender.location(in: self.view)
+        
         for (index, item) in items.enumerated() where index != selectedItemIndex {
             // Если нажатие попало в каой-то из айтемов, делает его выбранным и передает его индекс делегату
             if item.frame.contains(touchLocation) {
@@ -159,6 +143,4 @@ final class MenuItemModificationViewController: UIViewController {
     @objc private func didTapCloseButton(_ sender: UIButton) {
         dismiss(animated: true)
     }
-
-    // MARK: - IBActions
 }

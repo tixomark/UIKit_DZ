@@ -9,49 +9,46 @@ final class MenuViewController: UIViewController {
     // MARK: - Constants
 
     private enum Constants {
-        static let title = "КофеиновЪ"
-        static let greeting = "Добро пожаловать,\n"
-        static let menuTitle = "Минью"
+        static let titleText = "КофеиновЪ"
+        static let greetingText = "Добро пожаловать,\n"
+        static let menuTitleText = "Минью"
         static let menuItems = [
             (name: "Пти пате аля «РюсЪ»", image: UIImage(.pie)),
             (name: "Горячiя напитки", image: UIImage(.cup)),
             (name: "Кофий", image: UIImage(.coffee))
         ]
-        static let interMenuItemSpaceing = 20
+        static let interMenuItemSpacing = 20
         static let insetFromTopOfTheScreen = 44
         static let insetFromTopOfBackgroundView = 216
     }
 
     // MARK: - Visual Components
 
-    /// Содержит  заголовок экрана
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.frame.size = CGSize(width: 175, height: 76)
         label.frame.origin = CGPoint(x: 100, y: 5 + Constants.insetFromTopOfTheScreen)
 
         label.textColor = .menuTitle
-        label.font = UIFont(name: "AmaticSC-Bold", size: 55)
+        label.font = .amaticSCBold?.withSize(55)
         label.textAlignment = .center
-        label.text = Constants.title
+        label.text = Constants.titleText
         return label
     }()
 
-    /// Содержит приветствие пользователю
     private let greetingLabel: UILabel = {
         let label = UILabel()
         label.frame.size = CGSize(width: 185, height: 44)
         label.frame.origin = CGPoint(x: 20, y: 103 + Constants.insetFromTopOfTheScreen)
 
         label.textColor = .white.withAlphaComponent(0.8)
-        label.font = UIFont(name: "Verdana-Bold", size: 16)
+        label.font = .verdanaBold?.withSize(16)
         label.textAlignment = .left
         label.numberOfLines = 2
-        label.text = Constants.greeting
+        label.text = Constants.greetingText
         return label
     }()
 
-    /// Иконка пользователя справа от приветствия
     private let userIconLabel: UILabel = {
         let label = UILabel()
         label.frame.size = CGSize(width: 44, height: 44)
@@ -61,12 +58,11 @@ final class MenuViewController: UIViewController {
         label.backgroundColor = .torquoiseAccent
 
         label.textColor = .white
-        label.font = UIFont(name: "Verdana-Bold", size: 16)
+        label.font = .verdanaBold?.withSize(16)
         label.textAlignment = .center
         return label
     }()
-
-    /// Белая подложка
+    
     private let backgroundView: UIView = {
         let view = UIView()
         view.frame.size = CGSize(width: 375, height: 564)
@@ -77,7 +73,6 @@ final class MenuViewController: UIViewController {
         return view
     }()
 
-    /// Сообщение с просьбой о доступе к геолокации
     private let locationMessageView: LocationView = {
         let view = LocationView()
         view.frame.size = CGSize(width: 335, height: 70)
@@ -85,20 +80,18 @@ final class MenuViewController: UIViewController {
         return view
     }()
 
-    /// Заголовок меню
     private let menuLabel: UILabel = {
         let label = UILabel()
         label.frame.size = CGSize(width: 125, height: 40)
         label.frame.origin = CGPoint(x: 125, y: 122)
 
         label.textColor = .black
-        label.font = UIFont(name: "AmaticSC-Bold", size: 25)
+        label.font = .amaticSCBold?.withSize(25)
         label.textAlignment = .center
-        label.text = Constants.menuTitle
+        label.text = Constants.menuTitleText
         return label
     }()
 
-    /// Футер заголовка меню (завитушки)
     private let menuLabelFooterView: UIImageView = {
         let view = UIImageView()
         view.frame.size = CGSize(width: 100, height: 40)
@@ -109,34 +102,32 @@ final class MenuViewController: UIViewController {
     }()
 
     // MARK: - Private Properties
-
-    /// Хранит ссылки на все элементы меню данного экрана
+    
     private var menuItemViews: [MenuItemView] = []
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpUI()
+        configureUI()
     }
 
     // MARK: - Public Methods
 
-    /// Устанавливает имя пользователя для данного экрана
     func setUserName(_ username: String) {
-        greetingLabel.text = Constants.greeting + username
+        greetingLabel.text = Constants.greetingText + username
         userIconLabel.text = username.first?.uppercased()
     }
 
     // MARK: - Private Methods
 
-    private func setUpUI() {
+    private func configureUI() {
         view.backgroundColor = .brown
 
         backgroundView.addSubviews(locationMessageView, menuLabel, menuLabelFooterView)
         view.addSubviews(titleLabel, greetingLabel, userIconLabel, backgroundView)
 
-        /// Расставлят и кофигурирует элементы меню
+        // Расставлят и кофигурирует элементы меню
         let menuItemSize = CGSize(width: 335, height: 80)
         for (index, itemData) in Constants.menuItems.enumerated() {
             let view = MenuItemView()
@@ -144,16 +135,15 @@ final class MenuViewController: UIViewController {
             menuItemViews.append(view)
             view.frame.size = menuItemSize
             let viewOriginY = Constants
-                .insetFromTopOfBackgroundView + (Int(menuItemSize.height) + Constants.interMenuItemSpaceing) * index
+                .insetFromTopOfBackgroundView + (Int(menuItemSize.height) + Constants.interMenuItemSpacing) * index
             view.frame.origin = CGPoint(x: 20, y: viewOriginY)
-            view.configureUsing(itemData)
+            view.configure(with: itemData)
         }
 
         let menuItemTapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapMenuItem(_:)))
         menuItemViews[2].addGestureRecognizer(menuItemTapGesture)
     }
 
-    /// Отрабатывает нажатия пользователя на элементы меню
     @objc private func didTapMenuItem(_ sender: UITapGestureRecognizer) {
         let menuItemCofigurationVC = MenuItemCofigurationViewController()
         navigationController?.pushViewController(menuItemCofigurationVC, animated: true)

@@ -13,7 +13,7 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         guard let scene = (scene as? UIWindowScene) else { return }
 
         window = UIWindow(windowScene: scene)
-        let authVC = MenuViewController()
+        let authVC = AuthViewController()
         window?.rootViewController = UINavigationController(rootViewController: authVC)
         window?.makeKeyAndVisible()
     }
