@@ -62,7 +62,7 @@ final class OneItemView: UIView {
 
     /// Устанавливает главное изображение
     func setImage(_ image: UIImage?) {
-        self.mainImageView.image = image
+        mainImageView.image = image
     }
 
     /// Устанавливает состояние - выделенное или обычное

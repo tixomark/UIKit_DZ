@@ -8,13 +8,13 @@ protocol MenuItemModificationDataSource: AnyObject {
     /// Спрашвает сколько ячеек должно быть в представлении
     /// - Parameter menuItemModification: Экземпляр который вызывает метод
     /// - Returns: Количество ячеек.
-    
+
     func numberOfItemsIn(_ menuItemModification: MenuItemModificationViewController) -> Int
     /// Запрашивает текст для ячейки с определенным индексом
     /// - Parameter menuItemModification: Экземпляр который вызывает метод
     /// - Parameter titleForItemAt: Индекс элемента для которого запрашивается заголовок
     /// - Returns: Заголовок элемента
-    
+
     func menuItemModification(_ menuItemModification: MenuItemModificationViewController, titleForItemAt index: Int)
         -> String?
     /// Запрашивает изображение для ячейки с определенным индексом
@@ -36,6 +36,15 @@ protocol MenuItemModificationDelegate: AnyObject {
 // tixomark
 /// Предоставляет визуальный интерфейс для выбора одного значения из множества
 final class MenuItemModificationViewController: UIViewController {
+    // MARK: - Constants
+
+    private enum Constants {
+        static let xInsetForFirstColumn = 15
+        static let xInsetForSecondColumn = 195
+        static let insetFromTopOfScreen = 102
+        static let interItemSpaceing = 15
+    }
+
     // MARK: - Visual Components
 
     /// Кнопка закрытия
@@ -115,8 +124,10 @@ final class MenuItemModificationViewController: UIViewController {
             view.setTitle(title)
 
             let isEven = (index % 2 == 0)
-            let originX = isEven ? 15 : 195
-            let originY = 102 + (index / 2) * (165 + 15)
+            let originX = isEven
+                ? Constants.xInsetForFirstColumn
+                : Constants.xInsetForSecondColumn
+            let originY = Constants.insetFromTopOfScreen + (index / 2) * (Int(view.frame.height) + Constants.interItemSpaceing)
             view.frame.origin = CGPoint(x: originX, y: originY)
 
             items.append(view)

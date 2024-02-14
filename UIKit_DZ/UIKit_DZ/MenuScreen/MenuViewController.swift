@@ -17,6 +17,9 @@ final class MenuViewController: UIViewController {
             (name: "Горячiя напитки", image: UIImage(.cup)),
             (name: "Кофий", image: UIImage(.coffee))
         ]
+        static let interMenuItemSpaceing = 20
+        static let insetFromTopOfTheScreen = 44
+        static let insetFromTopOfBackgroundView = 216
     }
 
     // MARK: - Visual Components
@@ -25,7 +28,7 @@ final class MenuViewController: UIViewController {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.frame.size = CGSize(width: 175, height: 76)
-        label.frame.origin = CGPoint(x: 100, y: 5 + 44)
+        label.frame.origin = CGPoint(x: 100, y: 5 + Constants.insetFromTopOfTheScreen)
 
         label.textColor = .menuTitle
         label.font = UIFont(name: "AmaticSC-Bold", size: 55)
@@ -38,7 +41,7 @@ final class MenuViewController: UIViewController {
     private let greetingLabel: UILabel = {
         let label = UILabel()
         label.frame.size = CGSize(width: 185, height: 44)
-        label.frame.origin = CGPoint(x: 20, y: 103 + 44)
+        label.frame.origin = CGPoint(x: 20, y: 103 + Constants.insetFromTopOfTheScreen)
 
         label.textColor = .white.withAlphaComponent(0.8)
         label.font = UIFont(name: "Verdana-Bold", size: 16)
@@ -52,7 +55,7 @@ final class MenuViewController: UIViewController {
     private let userIconLabel: UILabel = {
         let label = UILabel()
         label.frame.size = CGSize(width: 44, height: 44)
-        label.frame.origin = CGPoint(x: 311, y: 103 + 44)
+        label.frame.origin = CGPoint(x: 311, y: 103 + Constants.insetFromTopOfTheScreen)
         label.layer.cornerRadius = 22
         label.layer.masksToBounds = true
         label.backgroundColor = .torquoiseAccent
@@ -67,7 +70,7 @@ final class MenuViewController: UIViewController {
     private let backgroundView: UIView = {
         let view = UIView()
         view.frame.size = CGSize(width: 375, height: 564)
-        view.frame.origin = CGPoint(x: 0, y: 204 + 44)
+        view.frame.origin = CGPoint(x: 0, y: 204 + Constants.insetFromTopOfTheScreen)
         view.backgroundColor = .systemBackground
         view.layer.cornerRadius = 20
         view.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -140,7 +143,9 @@ final class MenuViewController: UIViewController {
             backgroundView.addSubview(view)
             menuItemViews.append(view)
             view.frame.size = menuItemSize
-            view.frame.origin = CGPoint(x: 20, y: 216 + (Int(menuItemSize.height) + 20) * index)
+            let viewOriginY = Constants
+                .insetFromTopOfBackgroundView + (Int(menuItemSize.height) + Constants.interMenuItemSpaceing) * index
+            view.frame.origin = CGPoint(x: 20, y: viewOriginY)
             view.configureUsing(itemData)
         }
 

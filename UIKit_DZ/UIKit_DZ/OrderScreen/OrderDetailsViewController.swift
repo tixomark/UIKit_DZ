@@ -13,6 +13,9 @@ final class OrderDetailsViewController: UIViewController {
         static let totalSum = "Цѣна - "
         static let currency = " руб"
         static let payText = "Оплатить"
+        
+        static let insetFromTopOfScreen = 155
+        static let interItemSpaceing = 6
     }
 
     // MARK: - Visual Components
@@ -128,7 +131,8 @@ final class OrderDetailsViewController: UIViewController {
         for (index, entry) in model.enumerated() {
             let view = OrderEntryView()
             view.frame.size = CGSize(width: 335, height: 30)
-            view.frame.origin = CGPoint(x: 20, y: 155 + (30 + 6) * index)
+            let viewOriginY = Constants.insetFromTopOfScreen + (Int(view.frame.height) + Constants.interItemSpaceing) * index
+            view.frame.origin = CGPoint(x: 20, y: viewOriginY)
             self.view.addSubview(view)
             if index == 0 {
                 view.switchToBoldFont()
