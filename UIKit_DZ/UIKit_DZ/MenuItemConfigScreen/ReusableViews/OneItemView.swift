@@ -7,7 +7,7 @@ import UIKit
 final class OneItemView: UIView {
     // MARK: - Types
 
-    /// Описывает визуальное состояние представления
+    /// Определяет визуальные состояния представления
     enum State {
         /// Представление выделено рамко шириной в 1 поитн
         case highlited
@@ -17,7 +17,7 @@ final class OneItemView: UIView {
 
     // MARK: - Visual Components
 
-    /// Содержит изображения элемента
+    /// Главное изображение по центру
     private let image: UIImageView = {
         let view = UIImageView()
         view.frame.size = CGSize(width: 100, height: 100)
@@ -55,17 +55,17 @@ final class OneItemView: UIView {
 
     // MARK: - Public Methods
 
-    /// Устанавливает текст отображения
+    /// Устанавливает название элемента
     func setTitle(_ title: String?) {
         label.text = title
     }
 
-    /// Устанавливает изображение отображения
+    /// Устанавливает главное изображение
     func setImage(_ image: UIImage?) {
         self.image.image = image
     }
 
-    /// Устанавливает выделение отображения
+    /// Устанавливает состояние - выделенное или обычное
     func setState(to newState: State) {
         layer.borderWidth = (newState == .highlited) ? 1 : 0
     }

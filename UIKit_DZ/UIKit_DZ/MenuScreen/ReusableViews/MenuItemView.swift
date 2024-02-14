@@ -7,7 +7,7 @@ import UIKit
 final class MenuItemView: UIView {
     // MARK: - Visual Components
 
-    /// Содержит название элемента меню
+    /// Название элемента меню
     private let nameLabel: UILabel = {
         let label = UILabel()
         label.frame.size = CGSize(width: 220, height: 19)
@@ -20,7 +20,7 @@ final class MenuItemView: UIView {
         return label
     }()
 
-    /// Содержит изобразение элеметна меню
+    /// Изобразение элеметна меню
     private let itemImage: UIImageView = {
         let view = UIImageView()
         view.frame.size = CGSize(width: 70, height: 70)
@@ -43,7 +43,7 @@ final class MenuItemView: UIView {
 
     // MARK: - Public Methods
 
-    /// Конфигурирует отображения заполяя его данными
+    /// Конфигурирует отображение заполяя его данными
     func configureUsing(_ data: (String, UIImage?)) {
         nameLabel.text = data.0
         itemImage.image = data.1

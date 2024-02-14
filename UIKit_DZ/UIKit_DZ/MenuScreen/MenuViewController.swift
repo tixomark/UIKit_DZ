@@ -21,7 +21,7 @@ final class MenuViewController: UIViewController {
 
     // MARK: - Visual Components
 
-    /// Отображает заголовок экрана
+    /// Содержит  заголовок экрана
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.frame.size = CGSize(width: 175, height: 76)

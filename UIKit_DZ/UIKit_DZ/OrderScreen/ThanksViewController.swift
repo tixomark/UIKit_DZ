@@ -4,6 +4,7 @@
 import UIKit
 
 // tixomark
+/// Экран благодарности за совершение заказа
 final class ThanksViewController: UIViewController {
     // MARK: - Constants
 
@@ -18,7 +19,7 @@ final class ThanksViewController: UIViewController {
             """
         static let buttonTitle = "Хорошо"
     }
-    
+
     // MARK: - Visual Components
 
     /// Кнопка закрытия экрана
@@ -95,7 +96,7 @@ final class ThanksViewController: UIViewController {
         okButton.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
     }
 
-    /// Обработчик назатия кнопки закрытия
+    /// Обработчик назатия на кнопку закрытия экрана
     @objc private func didTapCloseButton() {
         dismiss(animated: true)
         navigationController?.popToRootViewController(animated: true)

@@ -3,11 +3,11 @@
 
 import UIKit
 
-/// Описывает стандартный элемент позиции чека
+/// Описывает элемент позиции чека
 final class OrderEntryView: UIView {
     // MARK: - Visual Components
 
-    /// Содержит название позиции чека
+    /// Название позиции чека
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.frame.size = CGSize(width: 200, height: 30)
@@ -19,7 +19,7 @@ final class OrderEntryView: UIView {
         return label
     }()
 
-    /// Содержит стоимость позиции чека
+    /// Стоимость позиции чека
     private let costLabel: UILabel = {
         let label = UILabel()
         label.frame.size = CGSize(width: 150, height: 30)
@@ -47,13 +47,13 @@ final class OrderEntryView: UIView {
 
     // MARK: - Public Methods
 
-    /// Устанавливает текстовые значения в лейблы
+    /// Установка названия и стоимости позиции чека
     func configureUsing(_ title: String?, cost: String?) {
         titleLabel.text = title
         costLabel.text = cost
     }
 
-    /// Меняет стиль шрифта на жирный
+    /// Измененние шрифта на жирный.
     func switchToBoldFont() {
         let boldFont = UIFont(name: "Verdana-Bold", size: 16)
         titleLabel.font = boldFont

@@ -4,7 +4,7 @@
 import UIKit
 
 // tixomark
-/// Класс предоставляет
+/// Экран показывет сводку по созданному заказу с предложением оплатить его
 final class OrderDetailsViewController: UIViewController {
     // MARK: - Constants
 
@@ -143,12 +143,12 @@ final class OrderDetailsViewController: UIViewController {
         totalSumLabel.text = Constants.totalSum + "\(totalSum)" + Constants.currency
     }
 
-    /// Обработчик назатия кнопки закрытия
+    /// Обработчик назатия на кнопку закрытия экрана
     @objc private func didTapCloseButton() {
         dismiss(animated: true)
     }
 
-    /// Обработчик нажатия кнопки оплаты
+    /// Обработчик нажатия на кнопку оплаты
     @objc private func didTapPayButton() {
         dismiss(animated: true)
         completion?()

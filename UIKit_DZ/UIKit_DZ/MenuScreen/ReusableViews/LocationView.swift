@@ -14,6 +14,7 @@ final class LocationView: UIView {
 
     // MARK: - Visual Components
 
+    /// Заголовок
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.frame.size = CGSize(width: 150, height: 15)
@@ -26,6 +27,7 @@ final class LocationView: UIView {
         return label
     }()
 
+    /// Информационнная подпись под заголовком
     private let infoLabel: UILabel = {
         let label = UILabel()
         label.frame.size = CGSize(width: 260, height: 30)
@@ -39,6 +41,7 @@ final class LocationView: UIView {
         return label
     }()
 
+    /// Иконка пина локации в парвой части вью
     private let locationImageView: UIImageView = {
         let view = UIImageView()
         view.frame.size = CGSize(width: 21, height: 29)
