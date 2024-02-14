@@ -3,6 +3,7 @@
 
 import UIKit
 
+/// Расширение для удобной инициализации пользовательских картинок 
 extension UIImage {
     /// Перечисление содержащее названия изображений из Assets
     enum ImageNameFromProjectAssets: String {

@@ -49,7 +49,7 @@ final class MenuViewController: UIViewController {
     }()
 
     /// Иконка пользователя справа от приветствия
-    private let userIcon: UILabel = {
+    private let userIconLabel: UILabel = {
         let label = UILabel()
         label.frame.size = CGSize(width: 44, height: 44)
         label.frame.origin = CGPoint(x: 311, y: 103 + 44)
@@ -122,7 +122,7 @@ final class MenuViewController: UIViewController {
     /// Устанавливает имя пользователя для данного экрана
     func setUserName(_ username: String) {
         greetingLabel.text = Constants.greeting + username
-        userIcon.text = username.first?.uppercased()
+        userIconLabel.text = username.first?.uppercased()
     }
 
     // MARK: - Private Methods
@@ -131,7 +131,7 @@ final class MenuViewController: UIViewController {
         view.backgroundColor = .brown
 
         backgroundView.addSubviews(locationMessageView, menuLabel, menuLabelFooterView)
-        view.addSubviews(titleLabel, greetingLabel, userIcon, backgroundView)
+        view.addSubviews(titleLabel, greetingLabel, userIconLabel, backgroundView)
 
         /// Расставляю и кофигурирую элементы меню
         let menuItemSize = CGSize(width: 335, height: 80)

@@ -21,7 +21,7 @@ final class MenuItemView: UIView {
     }()
 
     /// Изобразение элеметна меню
-    private let itemImage: UIImageView = {
+    private let itemImageView: UIImageView = {
         let view = UIImageView()
         view.frame.size = CGSize(width: 70, height: 70)
         view.frame.origin = CGPoint(x: 252, y: 5)
@@ -46,7 +46,7 @@ final class MenuItemView: UIView {
     /// Конфигурирует отображение заполяя его данными
     func configureUsing(_ data: (String, UIImage?)) {
         nameLabel.text = data.0
-        itemImage.image = data.1
+        itemImageView.image = data.1
     }
 
     // MARK: - Private Methods
@@ -54,6 +54,6 @@ final class MenuItemView: UIView {
     private func setUpUI() {
         layer.cornerRadius = 16
         backgroundColor = .menuItemBackground
-        addSubviews(nameLabel, itemImage)
+        addSubviews(nameLabel, itemImageView)
     }
 }

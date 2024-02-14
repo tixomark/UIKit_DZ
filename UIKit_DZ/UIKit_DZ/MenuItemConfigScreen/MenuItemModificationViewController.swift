@@ -37,7 +37,7 @@ final class MenuItemModificationViewController: UIViewController {
     }()
 
     /// Заголовок контроллера
-    private let headerView: UILabel = {
+    private let headerLabel: UILabel = {
         let label = UILabel()
         label.frame.size = CGSize(width: 320, height: 30)
         label.frame.origin = CGPoint(x: 20, y: 40)
@@ -72,7 +72,7 @@ final class MenuItemModificationViewController: UIViewController {
 
     /// Устанавливает тайтл для данного контроллера
     func setTitle(_ title: String) {
-        headerView.text = title
+        headerLabel.text = title
     }
 
     /// Устанавливает изначально выбранный элемент по индексу.
@@ -85,7 +85,7 @@ final class MenuItemModificationViewController: UIViewController {
     private func setUpUI() {
         loadItems()
         view.backgroundColor = .systemBackground
-        view.addSubviews(headerView, closeButton)
+        view.addSubviews(headerLabel, closeButton)
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapOnView(_:)))
         view.addGestureRecognizer(tapGesture)

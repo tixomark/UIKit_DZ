@@ -33,7 +33,7 @@ final class ThanksViewController: UIViewController {
     }()
 
     /// Хедер заголовка слева (завитушки)
-    private let headerView: UIImageView = {
+    private let headerImageView: UIImageView = {
         let view = UIImageView()
         view.frame.size = CGSize(width: 200, height: 86)
         view.frame.origin = CGPoint(x: 87.5, y: 58)
@@ -92,7 +92,7 @@ final class ThanksViewController: UIViewController {
 
     private func setUpUI() {
         view.backgroundColor = .systemBackground
-        view.addSubviews(closeButton, headerView, titleLabel, infoLabel, okButton)
+        view.addSubviews(closeButton, headerImageView, titleLabel, infoLabel, okButton)
     }
 
     /// Обработчик назатия на кнопку закрытия экрана

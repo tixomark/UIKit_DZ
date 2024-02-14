@@ -18,7 +18,7 @@ final class OneItemView: UIView {
     // MARK: - Visual Components
 
     /// Главное изображение по центру
-    private let image: UIImageView = {
+    private let mainImageView: UIImageView = {
         let view = UIImageView()
         view.frame.size = CGSize(width: 100, height: 100)
         view.frame.origin = CGPoint(x: 31, y: 17)
@@ -27,7 +27,7 @@ final class OneItemView: UIView {
     }()
 
     /// Содержит название элемента
-    private let label: UILabel = {
+    private let nameLabel: UILabel = {
         let label = UILabel()
         label.frame.size = CGSize(width: 165, height: 34)
         label.frame.origin = CGPoint(x: 0, y: 117)
@@ -57,12 +57,12 @@ final class OneItemView: UIView {
 
     /// Устанавливает название элемента
     func setTitle(_ title: String?) {
-        label.text = title
+        nameLabel.text = title
     }
 
     /// Устанавливает главное изображение
     func setImage(_ image: UIImage?) {
-        self.image.image = image
+        self.mainImageView.image = image
     }
 
     /// Устанавливает состояние - выделенное или обычное
@@ -77,6 +77,6 @@ final class OneItemView: UIView {
         layer.borderColor = UIColor.torquoiseAccent.cgColor
         backgroundColor = .secondarySystemFill
         layer.cornerCurve = .continuous
-        addSubviews(label, image)
+        addSubviews(nameLabel, mainImageView)
     }
 }

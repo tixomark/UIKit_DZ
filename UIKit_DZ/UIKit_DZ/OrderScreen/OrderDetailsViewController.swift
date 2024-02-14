@@ -28,7 +28,7 @@ final class OrderDetailsViewController: UIViewController {
     }()
 
     /// Хедер заголовка слева (завитушки)
-    private let leftHeaderView: UIImageView = {
+    private let leftHeaderImageView: UIImageView = {
         let view = UIImageView()
         view.frame.size = CGSize(width: 100, height: 72)
         view.frame.origin = CGPoint(x: 20, y: 47)
@@ -38,7 +38,7 @@ final class OrderDetailsViewController: UIViewController {
     }()
 
     /// Футер заголовка справа (завитушки)
-    private let rightHeaderView: UIImageView = {
+    private let rightHeaderImageView: UIImageView = {
         let view = UIImageView()
         view.frame.size = CGSize(width: 100, height: 72)
         view.frame.origin = CGPoint(x: 255, y: 47)
@@ -73,7 +73,7 @@ final class OrderDetailsViewController: UIViewController {
     }()
 
     /// Футер заголовка меню (завитушки)
-    private let footerView: UIImageView = {
+    private let footerImageView: UIImageView = {
         let view = UIImageView()
         view.frame.size = CGSize(width: 100, height: 40)
         view.frame.origin = CGPoint(x: 137.5, y: 472)
@@ -116,8 +116,8 @@ final class OrderDetailsViewController: UIViewController {
 
     private func setUpUI() {
         view.backgroundColor = .systemBackground
-        view.addSubviews(closeButton, leftHeaderView, rightHeaderView)
-        view.addSubviews(titleLabel, totalSumLabel, footerView, payButton)
+        view.addSubviews(closeButton, leftHeaderImageView, rightHeaderImageView)
+        view.addSubviews(titleLabel, totalSumLabel, footerImageView, payButton)
         setOrderEntriesList()
     }
 
