@@ -10,12 +10,13 @@ final class MenuItemCofigurationViewController: UIViewController {
     private enum Constants {
         static let modifireLabel = "Модификация"
         static let promoCode = "Лови промокод roadmaplove на 50 отжиманий"
+        static let orderButtonTitle = "Заказать"
         static let menuItems = ["Американо", "Капучино", "Латте"]
+        static let images: [UIImage] = [.americano, .capuchino, .latte]
     }
 
     // MARK: - visual components
 
-    /// кастомная верхня белая вьюшка
     private lazy var topCustomView: UIView = {
         let customView = UIView()
         customView.frame = .init(x: 0, y: 0, width: view.frame.width, height: 346)
@@ -25,7 +26,6 @@ final class MenuItemCofigurationViewController: UIViewController {
         return customView
     }()
 
-    /// круглая вьюшка для кнопки назад
     private lazy var backButtonBackgroundView: UIView = {
         let customView = UIView()
         customView.frame = .init(x: 7, y: 50, width: 44, height: 44)
@@ -34,7 +34,6 @@ final class MenuItemCofigurationViewController: UIViewController {
         return customView
     }()
 
-    /// изображение с выбором кофе
     private lazy var itemImage: UIImageView = {
         let product = UIImageView()
         product.frame = .init(x: 0, y: 0, width: 150, height: 150)
@@ -44,36 +43,26 @@ final class MenuItemCofigurationViewController: UIViewController {
         return product
     }()
 
-    /// массив сс картинкамми для сегмента
-    private lazy var imageArray = [
-        UIImage(named: "americano"),
-        UIImage(named: "capuchino"),
-        UIImage(named: "latte")
-    ]
-    /// массив с тюплами нашего заказа
-    var orderCoast = [(name: String, coast: Int)]()
-    ///  ссегментед контрол
     private lazy var segmentControl = UISegmentedControl()
-    /// лейбл - модификация
     private lazy var modifireLabel = UILabel()
-    /// лейбл - цена
     private lazy var priceLabel = UILabel()
-    /// кнопка переход на следующий экран
-    private lazy var orderButton = UniversalButton()
-    /// дефоллтная цена кофе
+    private lazy var orderButton = SubmissionButton()
+
+    // MARK: - Public Properties
+
     private var price = 100
+    private var orderCoast = [(name: String, coast: Int)]()
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configurationNavBar()
-        setupUi()
+        configureUi()
     }
 
     // MARK: - Private Methods
 
-    /// настройка навигейшина
     private func configurationNavBar() {
         UIBarButtonItem.appearance().tintColor = UIColor.black
         view.addSubview(topCustomView)
@@ -91,21 +80,19 @@ final class MenuItemCofigurationViewController: UIViewController {
         )
     }
 
-    /// кладем элементы на экран
-    private func setupUi() {
+    private func configureUi() {
         view.backgroundColor = .white
         topCustomView.addSubview(backButtonBackgroundView)
         topCustomView.addSubview(itemImage)
-        createLabel(label: modifireLabel, lineX: 16, lineY: 432, title: Constants.modifireLabel)
-        createLabel(label: priceLabel, lineX: 16, lineY: 669, title: "Цѣна - \(price) руб")
-        orderMethod()
-        createSegmendControll()
+        makeLabel(label: modifireLabel, lineX: 16, lineY: 432, title: Constants.modifireLabel)
+        makeLabel(label: priceLabel, lineX: 16, lineY: 669, title: "Цѣна - \(price) руб")
+        makeOrderMethod()
+        makeSegmendControll()
         emptyView(title: "Обжарка", lineX: 15)
         emptyView(title: "Дополнительные /n ингредіенты", lineX: 195)
     }
 
-    /// создание лейблов
-    private func createLabel(label: UILabel, lineX: Int, lineY: Int, title: String, fontSize: CGFloat = 16) {
+    private func makeLabel(label: UILabel, lineX: Int, lineY: Int, title: String, fontSize: CGFloat = 16) {
         label.frame = CGRect(x: lineX, y: lineY, width: 345, height: 31)
         label.text = title
         label.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize)
@@ -113,20 +100,18 @@ final class MenuItemCofigurationViewController: UIViewController {
         view.addSubview(label)
     }
 
-    /// создание сегмент контрала
-    private func createSegmendControll() {
+    private func makeSegmendControll() {
         segmentControl = UISegmentedControl(items: Constants.menuItems)
         segmentControl.frame = .init(x: 16, y: 368, width: view.frame.width - 32, height: 44)
         segmentControl.selectedSegmentIndex = 0
-        segmentControl.addTarget(self, action: #selector(selectedItemSegmentControl), for: .valueChanged)
+        segmentControl.addTarget(self, action: #selector(segmentedControlDidChangeSelection), for: .valueChanged)
         view.addSubview(segmentControl)
     }
 
-    /// создание кнопки
-    private func orderMethod() {
+    private func makeOrderMethod() {
         orderButton.center.x = view.center.x
-        orderButton.setTitle("Заказать", for: .normal)
-        orderButton.addTarget(self, action: #selector(tappedButton), for: .touchUpInside)
+        orderButton.setTitle(Constants.orderButtonTitle, for: .normal)
+        orderButton.addTarget(self, action: #selector(orderButtonTapped), for: .touchUpInside)
         view.addSubview(orderButton)
     }
 
@@ -135,20 +120,18 @@ final class MenuItemCofigurationViewController: UIViewController {
         let button = UIButton()
         button.frame = .init(x: lineX, y: 482, width: 165, height: 165)
         button.backgroundColor = #colorLiteral(red: 0.9686273932, green: 0.9686273932, blue: 0.9686273932, alpha: 1)
-        button.addTarget(self, action: #selector(orderDetailUp), for: .touchUpInside)
+        button.addTarget(self, action: #selector(presentOrderDetailViewController), for: .touchUpInside)
         view.addSubview(button)
     }
 
-    /// выбор селектора ссегмента
-    @objc private func selectedItemSegmentControl() {
+    @objc private func segmentedControlDidChangeSelection() {
         let segmentIndex = segmentControl.selectedSegmentIndex
-        itemImage.image = imageArray[segmentIndex]
+        itemImage.image = Constants.images[segmentIndex]
     }
 
-    /// открываем экран с выбором дополнительных ингридиентов и кладем в нас масссив
-    @objc private func orderDetailUp() {
-        let orderVC = MenuItemIngridientsConfigurationViewController()
-        orderVC.closure = { [weak self] item in
+    @objc private func presentOrderDetailViewController() {
+        let orderViewController = MenuItemIngridientsConfigurationViewController()
+        orderViewController.closure = { [weak self] item in
             self?.orderCoast = item
             self?.orderCoast.forEach { _, coast in
                 self?.price += coast
@@ -156,11 +139,10 @@ final class MenuItemCofigurationViewController: UIViewController {
             guard let coast = self?.price else { return }
             self?.priceLabel.text = "Цѣна - \(coast) руб"
         }
-        present(orderVC, animated: true)
+        present(orderViewController, animated: true)
     }
 
-    /// метод дляя перехода на общий чек
-    @objc private func tappedButton() {
+    @objc private func orderButtonTapped() {
         let itemCofe = (name: Constants.menuItems[segmentControl.numberOfSegments - 1], coast: 100)
         orderCoast.insert(itemCofe, at: 0)
         let orderConfirmation = OrderConfirmationViewController()

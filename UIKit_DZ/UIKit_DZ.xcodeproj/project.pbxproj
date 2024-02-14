@@ -20,6 +20,7 @@
 		9DE446F42B7A365B005B26EB /* OrderConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446F32B7A365B005B26EB /* OrderConfirmationViewController.swift */; };
 		9DE446F62B7A369F005B26EB /* ThanksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446F52B7A369F005B26EB /* ThanksViewController.swift */; };
 		D51898222B7CBFE40081FEFD /* ChekBoxSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51898212B7CBFE40081FEFD /* ChekBoxSwitch.swift */; };
+		D5CA5E7E2B7D659C0030D836 /* SubmissionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CA5E7D2B7D659C0030D836 /* SubmissionButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		9DE446F32B7A365B005B26EB /* OrderConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewController.swift; sourceTree = "<group>"; };
 		9DE446F52B7A369F005B26EB /* ThanksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksViewController.swift; sourceTree = "<group>"; };
 		D51898212B7CBFE40081FEFD /* ChekBoxSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChekBoxSwitch.swift; sourceTree = "<group>"; };
+		D5CA5E7D2B7D659C0030D836 /* SubmissionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,7 +72,7 @@
 		9DC0B37E2B72AB990096CD39 /* UIKit_DZ */ = {
 			isa = PBXGroup;
 			children = (
-				D51898232B7CBFE90081FEFD /* CustomView */,
+				D51898232B7CBFE90081FEFD /* ReausableView */,
 				9DC0B37F2B72AB990096CD39 /* AppDelegate.swift */,
 				9DC0B3812B72AB990096CD39 /* SceneDelegate.swift */,
 				9DE446ED2B7A3573005B26EB /* AuthScreen */,
@@ -120,12 +122,13 @@
 			path = OrderScreen;
 			sourceTree = "<group>";
 		};
-		D51898232B7CBFE90081FEFD /* CustomView */ = {
+		D51898232B7CBFE90081FEFD /* ReausableView */ = {
 			isa = PBXGroup;
 			children = (
 				D51898212B7CBFE40081FEFD /* ChekBoxSwitch.swift */,
+				D5CA5E7D2B7D659C0030D836 /* SubmissionButton.swift */,
 			);
-			path = CustomView;
+			path = ReausableView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -246,6 +249,7 @@
 				9DC0B3802B72AB990096CD39 /* AppDelegate.swift in Sources */,
 				9DE446EA2B7A34F1005B26EB /* MenuItemModificationViewController.swift in Sources */,
 				9DC0B3822B72AB990096CD39 /* SceneDelegate.swift in Sources */,
+				D5CA5E7E2B7D659C0030D836 /* SubmissionButton.swift in Sources */,
 				9DE446F62B7A369F005B26EB /* ThanksViewController.swift in Sources */,
 				9DE446F42B7A365B005B26EB /* OrderConfirmationViewController.swift in Sources */,
 				D51898222B7CBFE40081FEFD /* ChekBoxSwitch.swift in Sources */,
@@ -395,7 +399,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V54S3A3W4Z;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UIKit_DZ/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -423,7 +427,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V54S3A3W4Z;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UIKit_DZ/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

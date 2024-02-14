@@ -8,24 +8,24 @@ final class AuthViewController: UIViewController {
     // MARK: - Constants
 
     private enum Constants {
-        static let authLabel = "Авторизация"
-        static let loginLabel = "Логин"
-        static let passwordLabel = "Пароль"
-        static let loginTextField = "Введите почту"
-        static let passwordTextField = "Введите пароль"
+        static let authLabelName = "Авторизация"
+        static let loginLabelName = "Логин"
+        static let passwordLabelName = "Пароль"
+        static let loginTextFieldName = "Введите почту"
+        static let passwordTextFieldName = "Введите пароль"
+        static let singUpButtonTitle = "Войти"
+        static let nameCafeImage = "piconLabel"
     }
 
     // MARK: - Visual Components
 
-    /// лейбл с именем кафе
     private lazy var nameCafeLabel: UIImageView = {
         let image = UIImageView()
-        image.image = UIImage(named: "piconLabel")
+        image.image = UIImage(named: Constants.nameCafeImage)
         image.frame = CGRect(x: 100, y: 103, width: 175, height: 76)
         return image
     }()
 
-    /// белая вьюшка нижняя
     private lazy var whiteView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -35,63 +35,58 @@ final class AuthViewController: UIViewController {
         return view
     }()
 
-    /// Лейбл авторизации
-    private lazy var authLabel = UILabel()
-    /// ллейбл логин
-    private lazy var loginLabel = UILabel()
-    /// лейбл пароля
-    private lazy var passwordLabel = UILabel()
-    /// текст фиилд с вводом логина
+    private var authLabel = UILabel()
+    private var loginLabel = UILabel()
+    private var passwordLabel = UILabel()
     private var loginTextField = UITextField()
     private var passwordTextField = UITextField()
-    /// кнопка показать скрыть пароль
     private var showPasswordButton = UIButton()
-    /// кнопка для перехода на следующую вью
-    private var sigUpButton = UniversalButton()
+    private var sigUpButton = SubmissionButton()
 
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUpUI()
+        configureUI()
     }
 
     // MARK: - Private Methods
 
-    /// заполнение вью элементами
-    private func setUpUI() {
-        view.backgroundColor = #colorLiteral(red: 0.4704148769, green: 0.3292115331, blue: 0.1944105923, alpha: 1)
+    private func configureUI() {
+        view.backgroundColor = .brown
         view.addSubview(nameCafeLabel)
         view.addSubview(whiteView)
-        view.addSubview(ccreateDividerView(lineY: 386))
-        view.addSubview(ccreateDividerView(lineY: 462))
-        createLabel(label: authLabel, lineY: 35, title: Constants.authLabel, fontSize: 26)
-        createLabel(label: loginLabel, lineY: 84, title: Constants.loginLabel)
-        createLabel(label: passwordLabel, lineY: 159, title: Constants.passwordLabel)
-        createTextFields(textField: loginTextField, placeholder: Constants.loginTextField, lineY: 113, isSecure: false)
-        createTextFields(textField: passwordTextField, placeholder: Constants.passwordTextField, lineY: 188)
-        createShowPasswordButton()
-        createSignUpButton()
+        view.addSubview(makeDividerView(lineY: 386))
+        view.addSubview(makeDividerView(lineY: 462))
+        makeLabel(label: authLabel, lineY: 35, title: Constants.authLabelName, fontSize: 26)
+        makeLabel(label: loginLabel, lineY: 84, title: Constants.loginLabelName)
+        makeLabel(label: passwordLabel, lineY: 159, title: Constants.passwordLabelName)
+        makeTextFields(
+            textField: loginTextField,
+            placeholder: Constants.loginTextFieldName,
+            lineY: 113,
+            isSecure: false
+        )
+        makeTextFields(textField: passwordTextField, placeholder: Constants.passwordTextFieldName, lineY: 188)
+        makeShowPasswordButton()
+        makeSignUpButton()
     }
 
-    /// создание загголовков для текстфилда
-    private func createLabel(label: UILabel, lineY: Int, title: String, fontSize: CGFloat = 16) {
+    private func makeLabel(label: UILabel, lineY: Int, title: String, fontSize: CGFloat = 16) {
         label.frame = CGRect(x: 16, y: lineY, width: 195, height: 31)
         label.text = title
         label.font = UIFont(name: "HelveticaNeue-Bold", size: fontSize)
         whiteView.addSubview(label)
     }
 
-    /// разделитель вюшка
-    private func ccreateDividerView(lineY: Int) -> UIView {
+    private func makeDividerView(lineY: Int) -> UIView {
         let divider = UIView()
         divider.backgroundColor = .gray
         divider.frame = CGRect(x: 16, y: lineY, width: 335, height: 1)
         return divider
     }
 
-    /// создание textFields
-    private func createTextFields(
+    private func makeTextFields(
         textField: UITextField, placeholder: String, lineY: Int, isSecure: Bool = false
     ) {
         textField.placeholder = placeholder
@@ -102,8 +97,7 @@ final class AuthViewController: UIViewController {
         whiteView.addSubview(textField)
     }
 
-    /// метод для кнопки показывать или сскрывать пароль
-    private func createShowPasswordButton() {
+    private func makeShowPasswordButton() {
         showPasswordButton.setImage(UIImage(systemName: "eye.slash.fill"), for: .normal)
         showPasswordButton.frame = CGRect(x: 332, y: 185, width: 22, height: 19)
         showPasswordButton.addTarget(self, action: #selector(showPassword), for: .touchUpInside)
@@ -111,17 +105,15 @@ final class AuthViewController: UIViewController {
         whiteView.addSubview(showPasswordButton)
     }
 
-    /// кнопка присоединиться
-    private func createSignUpButton() {
+    private func makeSignUpButton() {
         sigUpButton.center.x = view.center.x
         sigUpButton.backgroundColor = #colorLiteral(red: 0.80188936, green: 0.9210196137, blue: 0.9322513938, alpha: 1)
-        sigUpButton.setTitle("Войти", for: .normal)
+        sigUpButton.setTitle(Constants.singUpButtonTitle, for: .normal)
         sigUpButton.isEnabled = false
-        sigUpButton.addTarget(self, action: #selector(presentSecondVC), for: .touchUpInside)
+        sigUpButton.addTarget(self, action: #selector(presentMenuViewController), for: .touchUpInside)
         view.addSubview(sigUpButton)
     }
 
-    /// кнопка показать/скрыть пароль
     @objc private func showPassword() {
         passwordTextField.isSecureTextEntry.toggle()
         showPasswordButton.setImage(
@@ -130,8 +122,7 @@ final class AuthViewController: UIViewController {
         )
     }
 
-    /// пушим следующий экран
-    @objc private func presentSecondVC() {
+    @objc private func presentMenuViewController() {
         let menuVC = MenuViewController()
         let navigationVC = UINavigationController(rootViewController: menuVC)
         navigationVC.modalPresentationStyle = .fullScreen
@@ -139,35 +130,17 @@ final class AuthViewController: UIViewController {
     }
 }
 
-/// Расширение
+/// Расширение( UITextFieldDelegate )
 extension AuthViewController: UITextFieldDelegate {
     @objc func textFieldDidEndEditing(_ textField: UITextField) {
         let textPassword = passwordTextField.text ?? ""
         let textLogIn = loginTextField.text ?? ""
         if !textPassword.isEmpty, !textLogIn.isEmpty {
-            sigUpButton.backgroundColor = #colorLiteral(red: 0.3460897207, green: 0.7455198169, blue: 0.7799417377, alpha: 1)
+            sigUpButton.backgroundColor = .enabled
             sigUpButton.isEnabled = true
         } else {
-            sigUpButton.backgroundColor = #colorLiteral(red: 0.80188936, green: 0.9210196137, blue: 0.9322513938, alpha: 1)
+            sigUpButton.backgroundColor = .disable
             sigUpButton.isEnabled = false
         }
-    }
-}
-
-final class UniversalButton: UIButton {
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupButton()
-    }
-
-    @available(*, unavailable)
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-
-    func setupButton() {
-        layer.cornerRadius = 12
-        frame = CGRect(x: 0, y: 700, width: 335, height: 44)
-        backgroundColor = #colorLiteral(red: 0.3460897207, green: 0.7455198169, blue: 0.7799417377, alpha: 1)
     }
 }

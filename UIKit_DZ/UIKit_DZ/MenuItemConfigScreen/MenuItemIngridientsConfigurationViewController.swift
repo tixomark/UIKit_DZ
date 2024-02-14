@@ -8,47 +8,40 @@ final class MenuItemIngridientsConfigurationViewController: UIViewController {
     // MARK: - Constants
 
     private enum Constants {
-        static let titleLabel = "Выберите дополнительные ингредіенты"
-        static let ingridientMilkTitle = "Молоко"
-        static let ingridientSiropTitle = "Сироп"
-        static let ingridientSoyMilkTitle = "Молоко соевое"
-        static let ingridientAlmondMilkTitle = "Молоко миндальное"
-        static let ingridientEspressoTitle = "Еспрессо 50мл"
+        static let titleLabelName = "Выберите дополнительные ингредіенты"
+        static let ingridientMilkTitleName = "Молоко"
+        static let ingridientSiropTitleName = "Сироп"
+        static let ingridientSoyMilkTitleName = "Молоко соевое"
+        static let ingridientAlmondMilkTitleName = "Молоко миндальное"
+        static let ingridientEspressoTitleName = "Еспрессо 50мл"
     }
 
     // MARK: - visual components
 
-    /// кнопка закрыть экран
     private lazy var closeButton: UIButton = {
         let button = UIButton()
         button.frame = .init(x: 20, y: 26, width: 14, height: 14)
         button.setImage(UIImage(systemName: "xmark"), for: .normal)
         button.tintColor = .black
-        button.addTarget(self, action: #selector(dismissVC), for: .touchUpInside)
+        button.addTarget(self, action: #selector(dismissViewController), for: .touchUpInside)
         return button
     }()
 
-    /// задаем тайтл
     private lazy var titleLabel: UILabel = {
         let text = UILabel()
         text.frame = CGRect(x: 40, y: 53, width: 294, height: 44)
         text.numberOfLines = 2
-        text.text = Constants.titleLabel
+        text.text = Constants.titleLabelName
         text.textAlignment = .center
         text.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
         return text
     }()
 
-    /// индгридиент с моллоком
-    private lazy var ingridientMilkTitle = ChekBoxSwitch()
-    /// ингридиеннт с сироп
-    private lazy var ingridientSiropTitle = ChekBoxSwitch()
-    /// ингридиент с соевым молоком
-    private lazy var ingridientSoyMilkTitle = ChekBoxSwitch()
-    /// ингридиент с молоком индивидуалльным
-    private lazy var ingridientAlmondMilkTitle = ChekBoxSwitch()
-    /// ингридиент с еспрессо
-    private lazy var ingridientEspressoTitle = ChekBoxSwitch()
+    private lazy var ingridientMilkTitle = ChekBoxView()
+    private lazy var ingridientSiropTitle = ChekBoxView()
+    private lazy var ingridientSoyMilkTitle = ChekBoxView()
+    private lazy var ingridientAlmondMilkTitle = ChekBoxView()
+    private lazy var ingridientEspressoTitle = ChekBoxView()
 
     // MARK: - Public propities
 
@@ -59,40 +52,38 @@ final class MenuItemIngridientsConfigurationViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+        configureUI()
     }
 
     // MARK: - Private Methods
 
-    /// кладем элементы на вью
-    private func setupUI() {
+    private func configureUI() {
         view.backgroundColor = .white
         view.addSubview(closeButton)
         view.addSubview(titleLabel)
-        createIngridients(chekbox: ingridientMilkTitle, title: Constants.ingridientMilkTitle, price: 50, lineY: 124)
-        createIngridients(chekbox: ingridientSiropTitle, title: Constants.ingridientSiropTitle, price: 20, lineY: 174)
-        createIngridients(
+        makeIngridients(chekbox: ingridientMilkTitle, title: Constants.ingridientMilkTitleName, price: 50, lineY: 124)
+        makeIngridients(chekbox: ingridientSiropTitle, title: Constants.ingridientSiropTitleName, price: 20, lineY: 174)
+        makeIngridients(
             chekbox: ingridientSoyMilkTitle,
-            title: Constants.ingridientSoyMilkTitle,
+            title: Constants.ingridientSoyMilkTitleName,
             price: 50,
             lineY: 224
         )
-        createIngridients(
+        makeIngridients(
             chekbox: ingridientAlmondMilkTitle,
-            title: Constants.ingridientAlmondMilkTitle,
+            title: Constants.ingridientAlmondMilkTitleName,
             price: 70,
             lineY: 274
         )
-        createIngridients(
+        makeIngridients(
             chekbox: ingridientEspressoTitle,
-            title: Constants.ingridientEspressoTitle,
+            title: Constants.ingridientEspressoTitleName,
             price: 50,
             lineY: 324
         )
     }
 
-    /// создаем ингридиенты
-    private func createIngridients(chekbox: ChekBoxSwitch, title: String, price: Int, lineY: Int) {
+    private func makeIngridients(chekbox: ChekBoxView, title: String, price: Int, lineY: Int) {
         chekbox.title.text = title
         chekbox.frame = .init(x: 0, y: lineY, width: Int(view.frame.width), height: 30)
         chekbox.nubmerPrice = price
@@ -100,8 +91,7 @@ final class MenuItemIngridientsConfigurationViewController: UIViewController {
         view.addSubview(chekbox)
     }
 
-    ///  метод для закрытие экрана
-    @objc private func dismissVC() {
+    @objc private func dismissViewController() {
         let array = [
             ingridientMilkTitle,
             ingridientSiropTitle,
@@ -109,12 +99,12 @@ final class MenuItemIngridientsConfigurationViewController: UIViewController {
             ingridientAlmondMilkTitle,
             ingridientEspressoTitle
         ]
-        var tupleOrder = [(name: String, coast: Int)]()
+        var order = [(name: String, coast: Int)]()
         for value in array where value.isActive.isOn {
             guard let title = value.title.text else { return }
-            tupleOrder.append((name: title, coast: value.nubmerPrice))
+            order.append((name: title, coast: value.nubmerPrice))
         }
-        closure?(tupleOrder)
+        closure?(order)
         dismiss(animated: true)
     }
 }
