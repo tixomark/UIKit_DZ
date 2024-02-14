@@ -20,6 +20,8 @@
 		9DE446F22B7A3624005B26EB /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446F12B7A3624005B26EB /* OrderDetailsViewController.swift */; };
 		9DE446F42B7A365B005B26EB /* OrderConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446F32B7A365B005B26EB /* OrderConfirmationViewController.swift */; };
 		9DE446F62B7A369F005B26EB /* ThanksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446F52B7A369F005B26EB /* ThanksViewController.swift */; };
+		D51898222B7CBFE40081FEFD /* ChekBoxSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51898212B7CBFE40081FEFD /* ChekBoxSwitch.swift */; };
+		D5CA5E7E2B7D659C0030D836 /* SubmissionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5CA5E7D2B7D659C0030D836 /* SubmissionButton.swift */; };
 		9DE446F92B7A8B4D005B26EB /* AmaticSC-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9DE446F82B7A8B4D005B26EB /* AmaticSC-Bold.ttf */; };
 		9DE446FC2B7A8E86005B26EB /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446FB2B7A8E86005B26EB /* UIView+Extension.swift */; };
 		9DE446FE2B7A91A7005B26EB /* LocationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446FD2B7A91A7005B26EB /* LocationView.swift */; };
@@ -45,6 +47,8 @@
 		9DE446F12B7A3624005B26EB /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		9DE446F32B7A365B005B26EB /* OrderConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewController.swift; sourceTree = "<group>"; };
 		9DE446F52B7A369F005B26EB /* ThanksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksViewController.swift; sourceTree = "<group>"; };
+		D51898212B7CBFE40081FEFD /* ChekBoxSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChekBoxSwitch.swift; sourceTree = "<group>"; };
+		D5CA5E7D2B7D659C0030D836 /* SubmissionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionButton.swift; sourceTree = "<group>"; };
 		9DE446F82B7A8B4D005B26EB /* AmaticSC-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AmaticSC-Bold.ttf"; sourceTree = "<group>"; };
 		9DE446FB2B7A8E86005B26EB /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		9DE446FD2B7A91A7005B26EB /* LocationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationView.swift; sourceTree = "<group>"; };
@@ -85,6 +89,7 @@
 		9DC0B37E2B72AB990096CD39 /* UIKit_DZ */ = {
 			isa = PBXGroup;
 			children = (
+				D51898232B7CBFE90081FEFD /* ReausableView */,
 				9DC0B37F2B72AB990096CD39 /* AppDelegate.swift */,
 				9DC0B3812B72AB990096CD39 /* SceneDelegate.swift */,
 				9DE446ED2B7A3573005B26EB /* AuthScreen */,
@@ -138,6 +143,13 @@
 			path = OrderScreen;
 			sourceTree = "<group>";
 		};
+		D51898232B7CBFE90081FEFD /* ReausableView */ = {
+			isa = PBXGroup;
+			children = (
+				D51898212B7CBFE40081FEFD /* ChekBoxSwitch.swift */,
+				D5CA5E7D2B7D659C0030D836 /* SubmissionButton.swift */,
+			);
+			path = ReausableView;
 		9DE446F72B7A8AD7005B26EB /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,11 +315,13 @@
 				9DE446EA2B7A34F1005B26EB /* MenuItemModificationViewController.swift in Sources */,
 				9DE447042B7AA5FA005B26EB /* MenuItemView.swift in Sources */,
 				9DC0B3822B72AB990096CD39 /* SceneDelegate.swift in Sources */,
+				D5CA5E7E2B7D659C0030D836 /* SubmissionButton.swift in Sources */,
 				9DE4470B2B7AF286005B26EB /* OrderEntryView.swift in Sources */,
 				9DE447082B7AB568005B26EB /* OneItemView.swift in Sources */,
 				9DA0903A2B7CF4700064139F /* UIFont+Extension.swift in Sources */,
 				9DE446F62B7A369F005B26EB /* ThanksViewController.swift in Sources */,
 				9DE446F42B7A365B005B26EB /* OrderConfirmationViewController.swift in Sources */,
+				D51898222B7CBFE40081FEFD /* ChekBoxSwitch.swift in Sources */,
 				9DE446E82B7A3441005B26EB /* MenuItemCofigurationViewController.swift in Sources */,
 				9DE446EC2B7A353A005B26EB /* MenuItemIngridientsConfigurationViewController.swift in Sources */,
 				9DE446E62B7A339F005B26EB /* MenuViewController.swift in Sources */,
@@ -455,13 +469,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KV44Y72Q9R;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UIKit_DZ/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -482,13 +497,14 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = KV44Y72Q9R;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = UIKit_DZ/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
