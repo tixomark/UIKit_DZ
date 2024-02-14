@@ -18,11 +18,12 @@ final class OrderDetailsViewController: UIViewController {
     // MARK: - Visual Components
 
     /// Кнопка закрытия экрана
-    private let closeButton: UIButton = {
+    private lazy var closeButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(.xIcon), for: .normal)
         button.frame.size = CGSize(width: 14, height: 14)
         button.frame.origin = CGPoint(x: 20, y: 26)
+        button.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
         return button
     }()
 
@@ -82,12 +83,13 @@ final class OrderDetailsViewController: UIViewController {
     }()
 
     /// Кнопка инициации оплаты
-    private let payButton: UIButton = {
+    private lazy var payButton: UIButton = {
         let button = UIButton()
         button.frame.size = CGSize(width: 345, height: 53)
         button.frame.origin = CGPoint(x: 15, y: 632)
         button.backgroundColor = .torquoiseAccent
         button.setTitle(Constants.payText, for: .normal)
+        button.addTarget(self, action: #selector(didTapPayButton), for: .touchUpInside)
         return button
     }()
 
@@ -117,9 +119,6 @@ final class OrderDetailsViewController: UIViewController {
         view.addSubviews(closeButton, leftHeaderView, rightHeaderView)
         view.addSubviews(titleLabel, totalSumLabel, footerView, payButton)
         setOrderEntriesList()
-
-        closeButton.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
-        payButton.addTarget(self, action: #selector(didTapPayButton), for: .touchUpInside)
     }
 
     /// Создает, заполняет и расставляет вью с позициями чека

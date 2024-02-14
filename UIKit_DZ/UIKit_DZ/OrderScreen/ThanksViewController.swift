@@ -23,11 +23,12 @@ final class ThanksViewController: UIViewController {
     // MARK: - Visual Components
 
     /// Кнопка закрытия экрана
-    private let closeButton: UIButton = {
+    private lazy var closeButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(.xIcon), for: .normal)
         button.frame.size = CGSize(width: 14, height: 14)
         button.frame.origin = CGPoint(x: 20, y: 26)
+        button.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
         return button
     }()
 
@@ -70,12 +71,13 @@ final class ThanksViewController: UIViewController {
     }()
 
     /// Кнопка завершения
-    private let okButton: UIButton = {
+    private lazy var okButton: UIButton = {
         let button = UIButton()
         button.frame.size = CGSize(width: 345, height: 53)
         button.frame.origin = CGPoint(x: 15, y: 632)
         button.setTitle(Constants.buttonTitle, for: .normal)
         button.backgroundColor = .torquoiseAccent
+        button.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
         return button
     }()
 
@@ -91,9 +93,6 @@ final class ThanksViewController: UIViewController {
     private func setUpUI() {
         view.backgroundColor = .systemBackground
         view.addSubviews(closeButton, headerView, titleLabel, infoLabel, okButton)
-
-        closeButton.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
-        okButton.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
     }
 
     /// Обработчик назатия на кнопку закрытия экрана

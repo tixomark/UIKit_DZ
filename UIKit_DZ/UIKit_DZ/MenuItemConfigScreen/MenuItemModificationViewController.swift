@@ -27,11 +27,12 @@ final class MenuItemModificationViewController: UIViewController {
     // MARK: - Visual Components
 
     /// Кнопка закрытия
-    private let closeButton: UIButton = {
+    private lazy var closeButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(.xIcon), for: .normal)
         button.frame.size = CGSize(width: 14, height: 14)
         button.frame.origin = CGPoint(x: 20, y: 26)
+        button.addTarget(self, action: #selector(didTapCloseButton(_:)), for: .touchUpInside)
         return button
     }()
 
@@ -88,8 +89,6 @@ final class MenuItemModificationViewController: UIViewController {
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTapOnView(_:)))
         view.addGestureRecognizer(tapGesture)
-
-        closeButton.addTarget(self, action: #selector(didTapCloseButton(_:)), for: .touchUpInside)
     }
 
     /// На основе данных из датасурса строит и заполняет сетку представлений.
