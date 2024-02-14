@@ -78,7 +78,7 @@ final class OrderDetailsViewController: UIViewController {
         button.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
         return button
     }()
-    
+
     private lazy var payButton: UIButton = {
         let button = UIButton()
         button.frame.size = CGSize(width: 345, height: 53)
@@ -139,7 +139,7 @@ final class OrderDetailsViewController: UIViewController {
     @objc private func didTapCloseButton() {
         dismiss(animated: true)
     }
-    
+
     @objc private func didTapPayButton() {
         dismiss(animated: true)
         completion?()

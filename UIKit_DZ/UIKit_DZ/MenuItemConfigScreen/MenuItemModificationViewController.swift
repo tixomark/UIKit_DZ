@@ -47,7 +47,7 @@ final class MenuItemModificationViewController: UIViewController {
         label.textAlignment = .center
         return label
     }()
-    
+
     private lazy var closeButton: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(.xIcon), for: .normal)
@@ -63,7 +63,7 @@ final class MenuItemModificationViewController: UIViewController {
     weak var delegate: MenuItemModificationDelegate?
 
     // MARK: - Private Properties
-    
+
     private var selectedItemIndex: Int?
     private var items: [OneItemView] = []
 
@@ -79,7 +79,7 @@ final class MenuItemModificationViewController: UIViewController {
     func setTitle(_ title: String) {
         headerLabel.text = title
     }
-    
+
     func setInitialSelectedItemIndex(_ index: Int) {
         selectedItemIndex = index
     }
@@ -125,8 +125,8 @@ final class MenuItemModificationViewController: UIViewController {
 
     /// При нажатии на вью контроллера, проверяет куда попало нажатие.
     @objc private func didTapOnView(_ sender: UITapGestureRecognizer) {
-        let touchLocation = sender.location(in: self.view)
-        
+        let touchLocation = sender.location(in: view)
+
         for (index, item) in items.enumerated() where index != selectedItemIndex {
             // Если нажатие попало в каой-то из айтемов, делает его выбранным и передает его индекс делегату
             if item.frame.contains(touchLocation) {

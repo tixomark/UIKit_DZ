@@ -65,7 +65,7 @@ final class ThanksViewController: UIViewController {
         button.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
         return button
     }()
-    
+
     private lazy var okButton: UIButton = {
         let button = UIButton()
         button.frame.size = CGSize(width: 345, height: 53)

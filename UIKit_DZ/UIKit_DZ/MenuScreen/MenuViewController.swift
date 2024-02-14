@@ -62,7 +62,7 @@ final class MenuViewController: UIViewController {
         label.textAlignment = .center
         return label
     }()
-    
+
     private let backgroundView: UIView = {
         let view = UIView()
         view.frame.size = CGSize(width: 375, height: 564)
@@ -102,7 +102,7 @@ final class MenuViewController: UIViewController {
     }()
 
     // MARK: - Private Properties
-    
+
     private var menuItemViews: [MenuItemView] = []
 
     // MARK: - Life Cycle
