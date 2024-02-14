@@ -127,7 +127,8 @@ final class MenuItemModificationViewController: UIViewController {
             let originX = isEven
                 ? Constants.xInsetForFirstColumn
                 : Constants.xInsetForSecondColumn
-            let originY = Constants.insetFromTopOfScreen + (index / 2) * (Int(view.frame.height) + Constants.interItemSpaceing)
+            let originY = Constants
+                .insetFromTopOfScreen + (index / 2) * (Int(view.frame.height) + Constants.interItemSpaceing)
             view.frame.origin = CGPoint(x: originX, y: originY)
 
             items.append(view)
@@ -139,7 +140,7 @@ final class MenuItemModificationViewController: UIViewController {
         }
     }
 
-    /// При нажатии на вью констроллера проверяет куда попало нажатие.
+    /// При нажатии на вью контроллера, проверяет куда попало нажатие.
     @objc private func didTapOnView(_ sender: UITapGestureRecognizer) {
         let touchLocation = sender.location(in: view)
         for (index, item) in items.enumerated() where index != selectedItemIndex {

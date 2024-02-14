@@ -20,7 +20,7 @@ final class MenuItemView: UIView {
         return label
     }()
 
-    /// Изобразение элеметна меню
+    /// Изображение элемента меню
     private let itemImageView: UIImageView = {
         let view = UIImageView()
         view.frame.size = CGSize(width: 70, height: 70)

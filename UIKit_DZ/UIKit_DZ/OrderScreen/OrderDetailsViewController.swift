@@ -13,7 +13,7 @@ final class OrderDetailsViewController: UIViewController {
         static let totalSum = "Цѣна - "
         static let currency = " руб"
         static let payText = "Оплатить"
-        
+
         static let insetFromTopOfScreen = 155
         static let interItemSpaceing = 6
     }
@@ -98,15 +98,11 @@ final class OrderDetailsViewController: UIViewController {
 
     // MARK: - Public Properties
 
-    /// Обработчик срабатывающий при закрытии жкрана
+    /// Обработчик срабатывающий при закрытии экрана
     var completion: (() -> ())?
 
-    /// Временная замена данных, которце должны прижодить с предудущего экрана
-    var model = [
-        (name: "Американо", cost: 100),
-        (name: "Молоко", cost: 50),
-        (name: "Эспрессо 50мл", cost: 50)
-    ]
+    /// Данные о позициях чека с экрана конфигурации позиции
+    var model = [(name: String, cost: Int)]()
 
     // MARK: - Life Cycle
 
@@ -131,7 +127,8 @@ final class OrderDetailsViewController: UIViewController {
         for (index, entry) in model.enumerated() {
             let view = OrderEntryView()
             view.frame.size = CGSize(width: 335, height: 30)
-            let viewOriginY = Constants.insetFromTopOfScreen + (Int(view.frame.height) + Constants.interItemSpaceing) * index
+            let viewOriginY = Constants
+                .insetFromTopOfScreen + (Int(view.frame.height) + Constants.interItemSpaceing) * index
             view.frame.origin = CGPoint(x: 20, y: viewOriginY)
             self.view.addSubview(view)
             if index == 0 {

@@ -95,7 +95,7 @@ final class ThanksViewController: UIViewController {
         view.addSubviews(closeButton, headerImageView, titleLabel, infoLabel, okButton)
     }
 
-    /// Обработчик назатия на кнопку закрытия экрана
+    /// Обработчик нажатия на кнопку закрытия экрана
     @objc private func didTapCloseButton() {
         dismiss(animated: true)
         navigationController?.popToRootViewController(animated: true)

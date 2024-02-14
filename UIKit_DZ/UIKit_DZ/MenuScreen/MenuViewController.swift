@@ -110,7 +110,7 @@ final class MenuViewController: UIViewController {
 
     // MARK: - Private Properties
 
-    /// Содержит сыылки на все элементы меню данного экрана
+    /// Хранит ссылки на все элементы меню данного экрана
     private var menuItemViews: [MenuItemView] = []
 
     // MARK: - Life Cycle
@@ -136,7 +136,7 @@ final class MenuViewController: UIViewController {
         backgroundView.addSubviews(locationMessageView, menuLabel, menuLabelFooterView)
         view.addSubviews(titleLabel, greetingLabel, userIconLabel, backgroundView)
 
-        /// Расставляю и кофигурирую элементы меню
+        /// Расставлят и кофигурирует элементы меню
         let menuItemSize = CGSize(width: 335, height: 80)
         for (index, itemData) in Constants.menuItems.enumerated() {
             let view = MenuItemView()
@@ -153,7 +153,7 @@ final class MenuViewController: UIViewController {
         menuItemViews[2].addGestureRecognizer(menuItemTapGesture)
     }
 
-    /// Отрабатывает назатия ползователя на элементы меню
+    /// Отрабатывает нажатия пользователя на элементы меню
     @objc private func didTapMenuItem(_ sender: UITapGestureRecognizer) {
         let menuItemCofigurationVC = MenuItemCofigurationViewController()
         navigationController?.pushViewController(menuItemCofigurationVC, animated: true)
