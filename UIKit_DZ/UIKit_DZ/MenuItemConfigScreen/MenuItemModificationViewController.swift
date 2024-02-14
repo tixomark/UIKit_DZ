@@ -6,11 +6,21 @@ import UIKit
 /// Протокол обьекта выступающего в качестве источника данных для данного контроллера
 protocol MenuItemModificationDataSource: AnyObject {
     /// Спрашвает сколько ячеек должно быть в представлении
+    /// - Parameter menuItemModification: Экземпляр который вызывает метод
+    /// - Returns: Количество ячеек.
+    
     func numberOfItemsIn(_ menuItemModification: MenuItemModificationViewController) -> Int
     /// Запрашивает текст для ячейки с определенным индексом
+    /// - Parameter menuItemModification: Экземпляр который вызывает метод
+    /// - Parameter titleForItemAt: Индекс элемента для которого запрашивается заголовок
+    /// - Returns: Заголовок элемента
+    
     func menuItemModification(_ menuItemModification: MenuItemModificationViewController, titleForItemAt index: Int)
         -> String?
     /// Запрашивает изображение для ячейки с определенным индексом
+    /// - Parameter menuItemModification: Экземпляр который вызывает метод
+    /// - Parameter imageForItemAt: Индекс элемента для которого запрашивается изображение
+    /// - Returns: Изображение  элемента
     func menuItemModification(_ menuItemModification: MenuItemModificationViewController, imageForItemAt index: Int)
         -> UIImage?
 }
@@ -18,11 +28,13 @@ protocol MenuItemModificationDataSource: AnyObject {
 /// Протокол обьекта выступающего в качестве делегата для данного контроллера
 protocol MenuItemModificationDelegate: AnyObject {
     /// Срабатывает при изменении выбора элемента и передает индекс выбранного элемента
+    /// - Parameter menuItemModification: Экземпляр который вызывает метод
+    /// - Parameter didSelectItemAt: Индекс элемента который был выделен
     func menuItemModification(_ menuItemModification: MenuItemModificationViewController, didSelectItemAt index: Int)
 }
 
 // tixomark
-/// Класс предоставляет визуальный интерфейс для выбора одного значения из множества
+/// Предоставляет визуальный интерфейс для выбора одного значения из множества
 final class MenuItemModificationViewController: UIViewController {
     // MARK: - Visual Components
 
