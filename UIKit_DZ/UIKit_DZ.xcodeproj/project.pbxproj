@@ -19,7 +19,7 @@
 		9DE446F22B7A3624005B26EB /* OrderDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446F12B7A3624005B26EB /* OrderDetailsViewController.swift */; };
 		9DE446F42B7A365B005B26EB /* OrderConfirmationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446F32B7A365B005B26EB /* OrderConfirmationViewController.swift */; };
 		9DE446F62B7A369F005B26EB /* ThanksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE446F52B7A369F005B26EB /* ThanksViewController.swift */; };
-		D51898222B7CBFE40081FEFD /* CustomSwitchElement.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51898212B7CBFE40081FEFD /* CustomSwitchElement.swift */; };
+		D51898222B7CBFE40081FEFD /* ChekBoxSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = D51898212B7CBFE40081FEFD /* ChekBoxSwitch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +37,7 @@
 		9DE446F12B7A3624005B26EB /* OrderDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailsViewController.swift; sourceTree = "<group>"; };
 		9DE446F32B7A365B005B26EB /* OrderConfirmationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderConfirmationViewController.swift; sourceTree = "<group>"; };
 		9DE446F52B7A369F005B26EB /* ThanksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThanksViewController.swift; sourceTree = "<group>"; };
-		D51898212B7CBFE40081FEFD /* CustomSwitchElement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSwitchElement.swift; sourceTree = "<group>"; };
+		D51898212B7CBFE40081FEFD /* ChekBoxSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChekBoxSwitch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +116,6 @@
 				9DE446F12B7A3624005B26EB /* OrderDetailsViewController.swift */,
 				9DE446F32B7A365B005B26EB /* OrderConfirmationViewController.swift */,
 				9DE446F52B7A369F005B26EB /* ThanksViewController.swift */,
-				D51898212B7CBFE40081FEFD /* CustomSwitchElement.swift */,
 			);
 			path = OrderScreen;
 			sourceTree = "<group>";
@@ -124,6 +123,7 @@
 		D51898232B7CBFE90081FEFD /* CustomView */ = {
 			isa = PBXGroup;
 			children = (
+				D51898212B7CBFE40081FEFD /* ChekBoxSwitch.swift */,
 			);
 			path = CustomView;
 			sourceTree = "<group>";
@@ -248,7 +248,7 @@
 				9DC0B3822B72AB990096CD39 /* SceneDelegate.swift in Sources */,
 				9DE446F62B7A369F005B26EB /* ThanksViewController.swift in Sources */,
 				9DE446F42B7A365B005B26EB /* OrderConfirmationViewController.swift in Sources */,
-				D51898222B7CBFE40081FEFD /* CustomSwitchElement.swift in Sources */,
+				D51898222B7CBFE40081FEFD /* ChekBoxSwitch.swift in Sources */,
 				9DE446E82B7A3441005B26EB /* MenuItemCofigurationViewController.swift in Sources */,
 				9DE446EC2B7A353A005B26EB /* MenuItemIngridientsConfigurationViewController.swift in Sources */,
 				9DE446E62B7A339F005B26EB /* MenuViewController.swift in Sources */,

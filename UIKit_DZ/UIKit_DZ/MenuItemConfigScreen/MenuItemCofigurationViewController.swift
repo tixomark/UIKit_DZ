@@ -5,6 +5,14 @@ import UIKit
 
 /// Экран с конфигарцией напитка
 final class MenuItemCofigurationViewController: UIViewController {
+    // MARK: - Constants
+
+    private enum Constants {
+        static let modifireLabel = "Модификация"
+        static let promoCode = "Лови промокод roadmaplove на 50 отжиманий"
+        static let menuItems = ["Американо", "Капучино", "Латте"]
+    }
+
     // MARK: - visual components
 
     /// кастомная верхня белая вьюшка
@@ -42,9 +50,7 @@ final class MenuItemCofigurationViewController: UIViewController {
         UIImage(named: "capuchino"),
         UIImage(named: "latte")
     ]
-    /// массиив с эллементами выбора кофе
-    let menyItem = ["Американо", "Капучино", "Латте"]
-    /// массив сс тюплами нашего заказа
+    /// массив с тюплами нашего заказа
     var orderCoast = [(name: String, coast: Int)]()
     ///  ссегментед контрол
     private lazy var segmentControl = UISegmentedControl()
@@ -85,12 +91,12 @@ final class MenuItemCofigurationViewController: UIViewController {
         )
     }
 
-    /// кладем элеменнты на экран
+    /// кладем элементы на экран
     private func setupUi() {
         view.backgroundColor = .white
         topCustomView.addSubview(backButtonBackgroundView)
         topCustomView.addSubview(itemImage)
-        createLabel(label: modifireLabel, lineX: 16, lineY: 432, title: "Модификация")
+        createLabel(label: modifireLabel, lineX: 16, lineY: 432, title: Constants.modifireLabel)
         createLabel(label: priceLabel, lineX: 16, lineY: 669, title: "Цѣна - \(price) руб")
         orderMethod()
         createSegmendControll()
@@ -109,7 +115,7 @@ final class MenuItemCofigurationViewController: UIViewController {
 
     /// создание сегмент контрала
     private func createSegmendControll() {
-        segmentControl = UISegmentedControl(items: menyItem)
+        segmentControl = UISegmentedControl(items: Constants.menuItems)
         segmentControl.frame = .init(x: 16, y: 368, width: view.frame.width - 32, height: 44)
         segmentControl.selectedSegmentIndex = 0
         segmentControl.addTarget(self, action: #selector(selectedItemSegmentControl), for: .valueChanged)
@@ -155,14 +161,14 @@ final class MenuItemCofigurationViewController: UIViewController {
 
     /// метод дляя перехода на общий чек
     @objc private func tappedButton() {
-        let itemCofe = (name: menyItem[segmentControl.numberOfSegments - 1], coast: 100)
+        let itemCofe = (name: Constants.menuItems[segmentControl.numberOfSegments - 1], coast: 100)
         orderCoast.insert(itemCofe, at: 0)
         let orderConfirmation = OrderConfirmationViewController()
         /// передаем orderCoast
     }
 
     @objc private func activityButtonTapped() {
-        let shareContent = ["Лови промокод roadmaplove на 50 отжиманий"]
+        let shareContent = [Constants.promoCode]
         let activityController = UIActivityViewController(
             activityItems: shareContent,
             applicationActivities: nil

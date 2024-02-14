@@ -5,6 +5,16 @@ import UIKit
 
 /// Экран приложения с авторизацией
 final class AuthViewController: UIViewController {
+    // MARK: - Constants
+
+    private enum Constants {
+        static let authLabel = "Авторизация"
+        static let loginLabel = "Логин"
+        static let passwordLabel = "Пароль"
+        static let loginTextField = "Введите почту"
+        static let passwordTextField = "Введите пароль"
+    }
+
     // MARK: - Visual Components
 
     /// лейбл с именем кафе
@@ -55,11 +65,11 @@ final class AuthViewController: UIViewController {
         view.addSubview(whiteView)
         view.addSubview(ccreateDividerView(lineY: 386))
         view.addSubview(ccreateDividerView(lineY: 462))
-        createLabel(label: authLabel, lineY: 35, title: "Авторизация", fontSize: 26)
-        createLabel(label: loginLabel, lineY: 84, title: "Логин")
-        createLabel(label: passwordLabel, lineY: 159, title: "Пароль")
-        createTextFields(textField: loginTextField, placeholder: "Введите почту", lineY: 113, isSecure: false)
-        createTextFields(textField: passwordTextField, placeholder: "Введите пароль", lineY: 188)
+        createLabel(label: authLabel, lineY: 35, title: Constants.authLabel, fontSize: 26)
+        createLabel(label: loginLabel, lineY: 84, title: Constants.loginLabel)
+        createLabel(label: passwordLabel, lineY: 159, title: Constants.passwordLabel)
+        createTextFields(textField: loginTextField, placeholder: Constants.loginTextField, lineY: 113, isSecure: false)
+        createTextFields(textField: passwordTextField, placeholder: Constants.passwordTextField, lineY: 188)
         createShowPasswordButton()
         createSignUpButton()
     }

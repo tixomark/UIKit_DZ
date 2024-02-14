@@ -5,6 +5,17 @@ import UIKit
 
 // Экран с добавление конфигураций напитка
 final class MenuItemIngridientsConfigurationViewController: UIViewController {
+    // MARK: - Constants
+
+    private enum Constants {
+        static let titleLabel = "Выберите дополнительные ингредіенты"
+        static let ingridientMilkTitle = "Молоко"
+        static let ingridientSiropTitle = "Сироп"
+        static let ingridientSoyMilkTitle = "Молоко соевое"
+        static let ingridientAlmondMilkTitle = "Молоко миндальное"
+        static let ingridientEspressoTitle = "Еспрессо 50мл"
+    }
+
     // MARK: - visual components
 
     /// кнопка закрыть экран
@@ -22,7 +33,7 @@ final class MenuItemIngridientsConfigurationViewController: UIViewController {
         let text = UILabel()
         text.frame = CGRect(x: 40, y: 53, width: 294, height: 44)
         text.numberOfLines = 2
-        text.text = "Выберите дополнительные ингредіенты"
+        text.text = Constants.titleLabel
         text.textAlignment = .center
         text.font = UIFont(name: "HelveticaNeue-Bold", size: 18)
         return text
@@ -58,11 +69,26 @@ final class MenuItemIngridientsConfigurationViewController: UIViewController {
         view.backgroundColor = .white
         view.addSubview(closeButton)
         view.addSubview(titleLabel)
-        createIngridients(chekbox: ingridientMilkTitle, title: "Молоко", price: 50, lineY: 124)
-        createIngridients(chekbox: ingridientSiropTitle, title: "Сироп", price: 20, lineY: 174)
-        createIngridients(chekbox: ingridientSoyMilkTitle, title: "Молоко соевое", price: 50, lineY: 224)
-        createIngridients(chekbox: ingridientAlmondMilkTitle, title: "Молоко миндальное", price: 70, lineY: 274)
-        createIngridients(chekbox: ingridientEspressoTitle, title: "Еспрессо 50мл", price: 50, lineY: 324)
+        createIngridients(chekbox: ingridientMilkTitle, title: Constants.ingridientMilkTitle, price: 50, lineY: 124)
+        createIngridients(chekbox: ingridientSiropTitle, title: Constants.ingridientSiropTitle, price: 20, lineY: 174)
+        createIngridients(
+            chekbox: ingridientSoyMilkTitle,
+            title: Constants.ingridientSoyMilkTitle,
+            price: 50,
+            lineY: 224
+        )
+        createIngridients(
+            chekbox: ingridientAlmondMilkTitle,
+            title: Constants.ingridientAlmondMilkTitle,
+            price: 70,
+            lineY: 274
+        )
+        createIngridients(
+            chekbox: ingridientEspressoTitle,
+            title: Constants.ingridientEspressoTitle,
+            price: 50,
+            lineY: 324
+        )
     }
 
     /// создаем ингридиенты

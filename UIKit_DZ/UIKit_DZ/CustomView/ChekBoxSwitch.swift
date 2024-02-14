@@ -1,4 +1,4 @@
-// CustomSwitchElement.swift
+// ChekBoxSwitch.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
