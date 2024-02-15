@@ -1,9 +1,5 @@
-//
-//  NSLayoutConstaint+Extension.swift
-//  UIKit_DZ
-//
-//  Created by Tixon Markin on 15.02.2024.
-//
+// Array+Extension.swift
+// Copyright © RoadMap. All rights reserved.
 
 import UIKit
 

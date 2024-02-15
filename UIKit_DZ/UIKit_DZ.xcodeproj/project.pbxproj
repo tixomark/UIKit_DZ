@@ -17,7 +17,7 @@
 		9DA0904D2B7D50C90064139F /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA0904C2B7D50C90064139F /* UIFont+Extension.swift */; };
 		9DA090502B7D51740064139F /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA0904F2B7D51740064139F /* UIView+Extension.swift */; };
 		9DA090522B7D53C30064139F /* SubmissionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA090512B7D53C30064139F /* SubmissionButton.swift */; };
-		9DA090562B7E174B0064139F /* CatalogueImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA090552B7E174B0064139F /* CatalogueImage.swift */; };
+		9DA090562B7E174B0064139F /* CatalogueImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA090552B7E174B0064139F /* CatalogueImageView.swift */; };
 		9DA090582B7E178F0064139F /* CatalogueSectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA090572B7E178F0064139F /* CatalogueSectionItem.swift */; };
 		9DA0905B2B7E1D9A0064139F /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DA0905A2B7E1D9A0064139F /* Array+Extension.swift */; };
 		9DC0B3802B72AB990096CD39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B37F2B72AB990096CD39 /* AppDelegate.swift */; };
@@ -38,7 +38,7 @@
 		9DA0904C2B7D50C90064139F /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		9DA0904F2B7D51740064139F /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		9DA090512B7D53C30064139F /* SubmissionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmissionButton.swift; sourceTree = "<group>"; };
-		9DA090552B7E174B0064139F /* CatalogueImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueImage.swift; sourceTree = "<group>"; };
+		9DA090552B7E174B0064139F /* CatalogueImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueImageView.swift; sourceTree = "<group>"; };
 		9DA090572B7E178F0064139F /* CatalogueSectionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogueSectionItem.swift; sourceTree = "<group>"; };
 		9DA0905A2B7E1D9A0064139F /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		9DC0B37C2B72AB990096CD39 /* UIKit_DZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKit_DZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,7 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				9DA090592B7E179E0064139F /* CatalogueScreen */,
-				9DA0903F2B7D31540064139F /* GoodsCatalogueViewController.swift */,
+				9DE6A3722B7E9A9500C189DA /* GoodsScreen */,
 				9DA090412B7D31730064139F /* ChooseSizeViewController.swift */,
 			);
 			path = CatalogueSection;
@@ -111,8 +111,8 @@
 			isa = PBXGroup;
 			children = (
 				9DA0903D2B7D306F0064139F /* CatalogueViewController.swift */,
+				9DA090552B7E174B0064139F /* CatalogueImageView.swift */,
 				9DA090572B7E178F0064139F /* CatalogueSectionItem.swift */,
-				9DA090552B7E174B0064139F /* CatalogueImage.swift */,
 			);
 			path = CatalogueScreen;
 			sourceTree = "<group>";
@@ -149,6 +149,14 @@
 				9DC0B38D2B72AB9A0096CD39 /* Info.plist */,
 			);
 			path = UIKit_DZ;
+			sourceTree = "<group>";
+		};
+		9DE6A3722B7E9A9500C189DA /* GoodsScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9DA0903F2B7D31540064139F /* GoodsCatalogueViewController.swift */,
+			);
+			path = GoodsScreen;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -268,7 +276,7 @@
 				9DA090442B7D31980064139F /* UserProfileViewController.swift in Sources */,
 				9DA0905B2B7E1D9A0064139F /* Array+Extension.swift in Sources */,
 				9DC0B3802B72AB990096CD39 /* AppDelegate.swift in Sources */,
-				9DA090562B7E174B0064139F /* CatalogueImage.swift in Sources */,
+				9DA090562B7E174B0064139F /* CatalogueImageView.swift in Sources */,
 				9DA090462B7D31A60064139F /* UserDataViewController.swift in Sources */,
 				9DA090522B7D53C30064139F /* SubmissionButton.swift in Sources */,
 				9DC0B3822B72AB990096CD39 /* SceneDelegate.swift in Sources */,

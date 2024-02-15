@@ -22,7 +22,7 @@ extension UIView {
     static func doNotTranslateAoturesizingMaskIntoConstrains(for views: UIView...) {
         views.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
     }
-    
+
     /// Устанавливает translatesAutoresizingMaskIntoConstraints в false для массива переданных вью
     static func doNotTranslateAoturesizingMaskIntoConstrains(for views: [UIView]) {
         views.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }

@@ -1,9 +1,5 @@
-//
-//  CatalogueSectionItem.swift
-//  UIKit_DZ
-//
-//  Created by Tixon Markin on 15.02.2024.
-//
+// CatalogueSectionItem.swift
+// Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
@@ -24,9 +20,9 @@ final class CatalogueSectionItem: UIView {
         view.contentMode = .scaleAspectFit
         return view
     }()
-    
+
     // MARK: - Public Properties
-    
+
     override var intrinsicContentSize: CGSize {
         CGSize(width: 0, height: 80)
     }
@@ -47,29 +43,35 @@ final class CatalogueSectionItem: UIView {
 
     // MARK: - Public Methods
 
-    func configure(with data: (String, UIImage?)) {
-        label.text = data.0
-        imageView.image = data.1
+    func setTitle(_ title: String?) {
+        label.text = title
+    }
+
+    func setImage(_ image: UIImage?) {
+        imageView.image = image
     }
 
     // MARK: - Private Methods
 
     private func configureUI() {
-        layer.cornerRadius = 16
+        layer.cornerRadius = 12
         backgroundColor = #colorLiteral(red: 0.9725490212, green: 0.9725490212, blue: 0.9725490212, alpha: 1)
+        layer.cornerCurve = .continuous
         addSubviews(label, imageView)
     }
-    
+
     private func configureLayout() {
         UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: label, imageView)
-        
-        [label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 20),
-         label.centerYAnchor.constraint(equalTo: self.centerYAnchor),
-         label.trailingAnchor.constraint(lessThanOrEqualTo: imageView.leadingAnchor, constant: 20),
-         
-         imageView.heightAnchor.constraint(equalTo: self.heightAnchor),
-         imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 1.25),
-         imageView.centerYAnchor.constraint(equalTo: self.centerYAnchor)
+
+        [
+            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            label.centerYAnchor.constraint(equalTo: centerYAnchor),
+            label.trailingAnchor.constraint(lessThanOrEqualTo: imageView.leadingAnchor, constant: 20),
+
+            imageView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imageView.heightAnchor.constraint(equalTo: heightAnchor),
+            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 1.25),
+            imageView.centerYAnchor.constraint(equalTo: centerYAnchor)
         ].activate()
     }
 }

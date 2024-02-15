@@ -36,6 +36,12 @@ final class ShoeStoreTabBarController: UITabBarController {
             UINavigationController(rootViewController: UserProfileViewController())
         ]
         setViewControllers(controllers, animated: true)
+
+        tabBar.backgroundColor = .white
+        tabBar.layer.shadowOffset.height = -1
+        tabBar.layer.shadowRadius = 1
+        tabBar.layer.shadowOpacity = 0.2
+        tabBar.layer.shadowColor = UIColor.black.cgColor
     }
 
     private func configureBarButtonItems() {
