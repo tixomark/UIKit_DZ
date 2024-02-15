@@ -1,9 +1,9 @@
-// CatalogueSectionItem.swift
+// CatalogueSectionItemView.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
-final class CatalogueSectionItem: UIView {
+final class CatalogueSectionItemView: UIView {
     // MARK: - Visual Components
 
     private let label: UILabel = {
@@ -55,7 +55,7 @@ final class CatalogueSectionItem: UIView {
 
     private func configureUI() {
         layer.cornerRadius = 12
-        backgroundColor = #colorLiteral(red: 0.9725490212, green: 0.9725490212, blue: 0.9725490212, alpha: 1)
+        backgroundColor = .backgroundAccent
         layer.cornerCurve = .continuous
         addSubviews(label, imageView)
     }

@@ -1,9 +1,9 @@
-// CatalogueImageView.swift
+// CatalogueItemView.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
-final class CatalogueImageView: UIView {
+final class CatalogueItemView: UIView {
     // MARK: - Types
 
     enum LabelPosition {

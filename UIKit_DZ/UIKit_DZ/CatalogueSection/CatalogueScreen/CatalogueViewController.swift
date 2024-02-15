@@ -11,8 +11,8 @@ final class CatalogueViewController: UIViewController {
     private enum Constants {
         static let titleText = "Каталог"
         static let personGroups = ["Женщинам", "Мужчинам", "Детям"]
-        static let catalogueTitiles = ["Новинки", "Распродажа"]
-        static let catalogueImages: [String: [UIImage]] = [
+        static let catalogueItemTitiles = ["Новинки", "Распродажа"]
+        static let catalogueItemImages: [String: [UIImage]] = [
             personGroups[0]: [.shoeImage0, .shoeImage1],
             personGroups[1]: [.shoeImage2, .shoeImage3],
             personGroups[2]: [.shoeImage4, .shoeImage5]
@@ -28,15 +28,15 @@ final class CatalogueViewController: UIViewController {
 
     // MARK: - Visual Components
 
-    private let leftCatalogueImage: CatalogueImageView = {
-        let view = CatalogueImageView(labelPosition: .top)
-        view.setTitle(Constants.catalogueTitiles[0])
+    private let leftCatalogueImage: CatalogueItemView = {
+        let view = CatalogueItemView(labelPosition: .top)
+        view.setTitle(Constants.catalogueItemTitiles[0])
         return view
     }()
 
-    private let rightCatalogueImage: CatalogueImageView = {
-        let view = CatalogueImageView(labelPosition: .bottom)
-        view.setTitle(Constants.catalogueTitiles[1])
+    private let rightCatalogueImage: CatalogueItemView = {
+        let view = CatalogueItemView(labelPosition: .bottom)
+        view.setTitle(Constants.catalogueItemTitiles[1])
         return view
     }()
 
@@ -50,10 +50,10 @@ final class CatalogueViewController: UIViewController {
         return controll
     }()
 
-    private lazy var catalogueSectionItems: [CatalogueSectionItem] = {
-        var array: [CatalogueSectionItem] = []
+    private lazy var catalogueSectionItems: [CatalogueSectionItemView] = {
+        var array: [CatalogueSectionItemView] = []
         for catalogueSectionItemTitle in Constants.catalogueSectionItemTitles {
-            let view = CatalogueSectionItem()
+            let view = CatalogueSectionItemView()
             view.setTitle(catalogueSectionItemTitle)
             array.append(view)
         }
@@ -67,19 +67,25 @@ final class CatalogueViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configure()
+        configureUI()
         configureLayout()
     }
 
-    private func configure() {
+    private func configureUI() {
         title = Constants.titleText
         view.backgroundColor = .systemBackground
+
+        let navigationTitleFont = UIFont.verdanaBold?.withSize(16) ?? .systemFont(ofSize: 16)
+        navigationController?.navigationBar.titleTextAttributes = [.font: navigationTitleFont]
 
         valueChangedIn(personGroupSegmentedControll)
         catalogueSectionItems[0].setImage(Constants.catalogueSectionItemBrandsImage)
 
         view.addSubviews(personGroupSegmentedControll, leftCatalogueImage, rightCatalogueImage)
         view.addSubviews(catalogueSectionItems)
+
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "")
+        navigationItem.backBarButtonItem?.tintColor = .black
 
         configureNavigationItems()
     }
@@ -122,7 +128,6 @@ final class CatalogueViewController: UIViewController {
             action: #selector(cameraItemTapped)
         )
         let qrScannerItem = UIBarButtonItem(image: .qrScanerIcon.withRenderingMode(.alwaysOriginal))
-
         navigationItem.setRightBarButtonItems([qrScannerItem, cameraItem], animated: false)
     }
 
@@ -130,8 +135,8 @@ final class CatalogueViewController: UIViewController {
         let segmentIndex = sender.selectedSegmentIndex
         let personGroup = Constants.personGroups[segmentIndex]
 
-        leftCatalogueImage.setImage(Constants.catalogueImages[personGroup]?[0])
-        rightCatalogueImage.setImage(Constants.catalogueImages[personGroup]?[1])
+        leftCatalogueImage.setImage(Constants.catalogueItemImages[personGroup]?[0])
+        rightCatalogueImage.setImage(Constants.catalogueItemImages[personGroup]?[1])
 
         for index in 1 ..< Constants.catalogueSectionItemTitles.count {
             catalogueSectionItems[index].setImage(Constants.catalogueSectionItemImages[personGroup]?[index - 1])
