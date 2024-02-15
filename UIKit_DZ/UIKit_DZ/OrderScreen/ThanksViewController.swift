@@ -75,6 +75,11 @@ final class ThanksViewController: UIViewController {
         return button
     }()
 
+    // MARK: - Public Properties
+
+    /// Обработчик срабатывающий при закрытии экрана
+    var completion: (() -> ())?
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {
@@ -92,6 +97,6 @@ final class ThanksViewController: UIViewController {
     /// Обработчик нажатия на кнопку закрытия экрана
     @objc private func didTapCloseButton() {
         dismiss(animated: true)
-        navigationController?.popToRootViewController(animated: true)
+        completion?()
     }
 }

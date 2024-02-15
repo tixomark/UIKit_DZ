@@ -91,6 +91,9 @@ final class OrderConfirmationViewController: UIViewController {
 
     @objc private func doneButtonTapped() {
         let thanksViewController = ThanksViewController()
+        thanksViewController.completion = { [weak self] in
+            self?.navigationController?.popToRootViewController(animated: true)
+        }
         thanksViewController.modalPresentationStyle = .fullScreen
         present(thanksViewController, animated: true)
     }
