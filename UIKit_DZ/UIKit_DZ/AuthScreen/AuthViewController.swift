@@ -126,6 +126,7 @@ final class AuthViewController: UIViewController {
         let menuVC = MenuViewController()
         let navigationVC = UINavigationController(rootViewController: menuVC)
         navigationVC.modalPresentationStyle = .fullScreen
+        menuVC.setUserName(loginTextField.text ?? "")
         present(navigationVC, animated: true)
     }
 }

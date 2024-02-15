@@ -79,11 +79,10 @@ final class OrderDetailsViewController: UIViewController {
         return button
     }()
 
-    private lazy var payButton: UIButton = {
-        let button = UIButton()
-        button.frame.size = CGSize(width: 345, height: 53)
+    private lazy var payButton: SubmissionButton = {
+        let button = SubmissionButton()
+        button.frame.size.height = 53
         button.frame.origin = CGPoint(x: 15, y: 632)
-        button.backgroundColor = .torquoiseAccent
         button.setTitle(Constants.payText, for: .normal)
         button.addTarget(self, action: #selector(didTapPayButton), for: .touchUpInside)
         return button

@@ -27,8 +27,8 @@ final class OneItemView: UIView {
 
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.frame.size = CGSize(width: 165, height: 34)
-        label.frame.origin = CGPoint(x: 0, y: 117)
+        label.frame.size = CGSize(width: 165, height: 40)
+        label.frame.origin = CGPoint(x: 0, y: 111)
 
         label.textColor = .black
         label.font = .verdana?.withSize(14)
@@ -63,6 +63,11 @@ final class OneItemView: UIView {
 
     func setState(to newState: State) {
         layer.borderWidth = (newState == .highlited) ? 1 : 0
+    }
+
+    func setSizeImage(_ width: CGFloat, _ height: CGFloat) {
+        mainImageView.frame.size = CGSize(width: width, height: height)
+        mainImageView.frame.origin = CGPoint(x: 67, y: 56)
     }
 
     // MARK: - Private Methods

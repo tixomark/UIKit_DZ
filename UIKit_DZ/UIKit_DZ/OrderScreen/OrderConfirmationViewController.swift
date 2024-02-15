@@ -31,6 +31,7 @@ final class OrderConfirmationViewController: UIViewController {
         button.setTitle(Constants.doneButtonTitle, for: .normal)
         button.backgroundColor = #colorLiteral(red: 0.80188936, green: 0.9210196137, blue: 0.9322513938, alpha: 1)
         button.center.x = view.center.x
+        button.addTarget(self, action: #selector(doneButtonTapped), for: .touchUpInside)
         return button
     }()
 
@@ -86,6 +87,12 @@ final class OrderConfirmationViewController: UIViewController {
 
     @objc private func popViewController() {
         navigationController?.popViewController(animated: true)
+    }
+
+    @objc private func doneButtonTapped() {
+        let thanksViewController = ThanksViewController()
+        thanksViewController.modalPresentationStyle = .fullScreen
+        present(thanksViewController, animated: true)
     }
 }
 

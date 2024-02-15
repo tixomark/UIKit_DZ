@@ -11,8 +11,13 @@ final class MenuItemCofigurationViewController: UIViewController {
         static let modifireLabel = "Модификация"
         static let promoCode = "Лови промокод roadmaplove на 50 отжиманий"
         static let orderButtonTitle = "Заказать"
+        static let modifireTitle = "Дополнительные \n ингредіенты"
+        static let roastingTitle: [String] = ["Темная \n обжарка", "Свѣтлая \n обжарка"]
         static let menuItems = ["Американо", "Капучино", "Латте"]
+        static let menuItemIngridientTitle = "Уточните обжарку зеренъ"
         static let images: [UIImage] = [.americano, .capuchino, .latte]
+        static let roastingImages: [UIImage] = [.darkRoasting, .liteRoasting]
+        static let isIngridient: [UIImage] = [.plusIngridient, .doneIngridient]
     }
 
     // MARK: - visual components
@@ -43,15 +48,43 @@ final class MenuItemCofigurationViewController: UIViewController {
         return product
     }()
 
+    private lazy var roastingTypeView: OneItemView = {
+        let cell = OneItemView()
+        cell.frame.origin = CGPoint(x: 15, y: 482)
+        let gestoreRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(didTapRostingSelectionButton)
+        )
+        cell.addGestureRecognizer(gestoreRecognizer)
+        cell.setImage(.darkRoasting)
+        cell.setTitle(Constants.roastingTitle[0])
+        return cell
+    }()
+
+    private lazy var modifireView: OneItemView = {
+        let cell = OneItemView()
+        cell.frame.origin = CGPoint(x: 195, y: 482)
+        let gestoreRecognizer = UITapGestureRecognizer(
+            target: self,
+            action: #selector(presentOrderDetailViewController)
+        )
+        cell.addGestureRecognizer(gestoreRecognizer)
+        cell.setImage(Constants.isIngridient[0])
+        cell.setTitle(Constants.modifireTitle)
+        cell.setSizeImage(29, 29)
+        return cell
+    }()
+
     private lazy var segmentControl = UISegmentedControl()
     private lazy var modifireLabel = UILabel()
     private lazy var priceLabel = UILabel()
     private lazy var orderButton = SubmissionButton()
 
-    // MARK: - Public Properties
+    // MARK: - Private Properties
 
     private var price = 100
-    private var orderCoast = [(name: String, coast: Int)]()
+    private var orderCoast = [(name: String, cost: Int)]()
+    private var rostingTypeIndex = 0
 
     // MARK: - Life Cycle
 
@@ -84,12 +117,12 @@ final class MenuItemCofigurationViewController: UIViewController {
         view.backgroundColor = .white
         topCustomView.addSubview(backButtonBackgroundView)
         topCustomView.addSubview(itemImage)
+        view.addSubview(roastingTypeView)
+        view.addSubview(modifireView)
         makeLabel(label: modifireLabel, lineX: 16, lineY: 432, title: Constants.modifireLabel)
         makeLabel(label: priceLabel, lineX: 16, lineY: 669, title: "Цѣна - \(price) руб")
         makeOrderMethod()
         makeSegmendControll()
-        emptyView(title: "Обжарка", lineX: 15)
-        emptyView(title: "Дополнительные /n ингредіенты", lineX: 195)
     }
 
     private func makeLabel(label: UILabel, lineX: Int, lineY: Int, title: String, fontSize: CGFloat = 16) {
@@ -115,13 +148,13 @@ final class MenuItemCofigurationViewController: UIViewController {
         view.addSubview(orderButton)
     }
 
-    /// Заглушки
-    private func emptyView(title: String, lineX: Int) {
-        let button = UIButton()
-        button.frame = .init(x: lineX, y: 482, width: 165, height: 165)
-        button.backgroundColor = #colorLiteral(red: 0.9686273932, green: 0.9686273932, blue: 0.9686273932, alpha: 1)
-        button.addTarget(self, action: #selector(presentOrderDetailViewController), for: .touchUpInside)
-        view.addSubview(button)
+    @objc private func didTapRostingSelectionButton() {
+        let menuItemModification = MenuItemModificationViewController()
+        menuItemModification.delegate = self
+        menuItemModification.datasource = self
+        menuItemModification.setInitialSelectedItemIndex(rostingTypeIndex)
+        menuItemModification.setTitle(Constants.menuItemIngridientTitle)
+        present(menuItemModification, animated: true)
     }
 
     @objc private func segmentedControlDidChangeSelection() {
@@ -133,9 +166,12 @@ final class MenuItemCofigurationViewController: UIViewController {
         let orderViewController = MenuItemIngridientsConfigurationViewController()
         orderViewController.closure = { [weak self] item in
             self?.orderCoast = item
-            self?.orderCoast.forEach { _, coast in
-                self?.price += coast
+            self?.modifireView.setImage(Constants.isIngridient[item.isEmpty ? 0 : 1])
+            var sum = 100
+            self?.orderCoast.forEach { _, cost in
+                sum += cost
             }
+            self?.price = sum
             guard let coast = self?.price else { return }
             self?.priceLabel.text = "Цѣна - \(coast) руб"
         }
@@ -143,10 +179,14 @@ final class MenuItemCofigurationViewController: UIViewController {
     }
 
     @objc private func orderButtonTapped() {
-        let itemCofe = (name: Constants.menuItems[segmentControl.numberOfSegments - 1], coast: 100)
+        let itemCofe = (name: Constants.menuItems[segmentControl.numberOfSegments - 1], cost: 100)
         orderCoast.insert(itemCofe, at: 0)
-        let orderConfirmation = OrderConfirmationViewController()
-        /// передаем orderCoast
+        let orderConfirmation = OrderDetailsViewController()
+        orderConfirmation.orderPositions = orderCoast
+        orderConfirmation.completion = { [weak self] in
+            self?.navigationController?.pushViewController(OrderConfirmationViewController(), animated: true)
+        }
+        present(orderConfirmation, animated: true)
     }
 
     @objc private func activityButtonTapped() {
@@ -156,5 +196,37 @@ final class MenuItemCofigurationViewController: UIViewController {
             applicationActivities: nil
         )
         present(activityController, animated: true, completion: nil)
+    }
+}
+
+// MARK: - MenuItemModificationDelegate
+
+extension MenuItemCofigurationViewController: MenuItemModificationDelegate {
+    func menuItemModification(_ menuItemModification: MenuItemModificationViewController, didSelectItemAt index: Int) {
+        roastingTypeView.setImage(Constants.roastingImages[index])
+        roastingTypeView.setTitle(Constants.roastingTitle[index])
+        rostingTypeIndex = index
+    }
+}
+
+// MARK: - MenuItemModificationDataSource
+
+extension MenuItemCofigurationViewController: MenuItemModificationDataSource {
+    func numberOfItemsIn(_ menuItemModification: MenuItemModificationViewController) -> Int {
+        Constants.roastingTitle.count
+    }
+
+    func menuItemModification(
+        _ menuItemModification: MenuItemModificationViewController,
+        titleForItemAt index: Int
+    ) -> String? {
+        Constants.roastingTitle[index]
+    }
+
+    func menuItemModification(
+        _ menuItemModification: MenuItemModificationViewController,
+        imageForItemAt index: Int
+    ) -> UIImage? {
+        Constants.roastingImages[index]
     }
 }

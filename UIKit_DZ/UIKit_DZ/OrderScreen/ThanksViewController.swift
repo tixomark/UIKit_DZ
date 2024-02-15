@@ -61,17 +61,16 @@ final class ThanksViewController: UIViewController {
         let button = UIButton()
         button.setImage(UIImage(.xIcon), for: .normal)
         button.frame.size = CGSize(width: 14, height: 14)
-        button.frame.origin = CGPoint(x: 20, y: 26)
+        button.frame.origin = CGPoint(x: 20, y: 46)
         button.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
         return button
     }()
 
-    private lazy var okButton: UIButton = {
-        let button = UIButton()
-        button.frame.size = CGSize(width: 345, height: 53)
+    private lazy var okButton: SubmissionButton = {
+        let button = SubmissionButton()
+        button.frame.size.height = 53
         button.frame.origin = CGPoint(x: 15, y: 632)
         button.setTitle(Constants.buttonTitle, for: .normal)
-        button.backgroundColor = .torquoiseAccent
         button.addTarget(self, action: #selector(didTapCloseButton), for: .touchUpInside)
         return button
     }()

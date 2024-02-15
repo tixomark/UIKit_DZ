@@ -46,7 +46,7 @@ final class MenuItemIngridientsConfigurationViewController: UIViewController {
     // MARK: - Public propities
 
     /// кложура для передачи данных назад
-    var closure: (([(name: String, coast: Int)]) -> ())?
+    var closure: (([(name: String, cost: Int)]) -> ())?
 
     // MARK: - Life Cycle
 
@@ -99,10 +99,10 @@ final class MenuItemIngridientsConfigurationViewController: UIViewController {
             ingridientAlmondMilkTitle,
             ingridientEspressoTitle
         ]
-        var order = [(name: String, coast: Int)]()
+        var order = [(name: String, cost: Int)]()
         for value in array where value.isActive.isOn {
             guard let title = value.title.text else { return }
-            order.append((name: title, coast: value.nubmerPrice))
+            order.append((name: title, cost: value.nubmerPrice))
         }
         closure?(order)
         dismiss(animated: true)
