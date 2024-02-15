@@ -11,6 +11,10 @@ final class CatalogueViewController: UIViewController {
     private enum Constants {
         static let titleText = "Каталог"
     }
+    
+    // MARK: - Visual Components
+    
+    private 
 
     // MARK: - Life Cycle
 

@@ -41,12 +41,12 @@ final class ShoeStoreTabBarController: UITabBarController {
     private func configureBarButtonItems() {
         guard let viewControllers else { return }
         for index in viewControllers.indices {
-            let tabBatItem = UITabBarItem(
+            let tabBarItem = UITabBarItem(
                 title: Constants.titles[index],
                 image: Constants.images[index],
                 selectedImage: Constants.selectedImages[index]
             )
-            self.viewControllers?[index].tabBarItem = tabBatItem
+            self.viewControllers?[index].tabBarItem = tabBarItem
         }
     }
 }
