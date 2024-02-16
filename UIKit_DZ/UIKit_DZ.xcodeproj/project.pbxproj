@@ -27,6 +27,7 @@
 		9DC0B38C2B72AB9A0096CD39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC0B38A2B72AB9A0096CD39 /* LaunchScreen.storyboard */; };
 		9DE6A3742B7EA45000C189DA /* GoodsCatalogueItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE6A3732B7EA45000C189DA /* GoodsCatalogueItemView.swift */; };
 		9DE6A3762B7EC01A00C189DA /* Shoe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE6A3752B7EC01A00C189DA /* Shoe.swift */; };
+		9DE6A37A2B7ED36C00C189DA /* SizeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE6A3792B7ED36C00C189DA /* SizeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,6 +53,7 @@
 		9DC0B38D2B72AB9A0096CD39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9DE6A3732B7EA45000C189DA /* GoodsCatalogueItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoodsCatalogueItemView.swift; sourceTree = "<group>"; };
 		9DE6A3752B7EC01A00C189DA /* Shoe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shoe.swift; sourceTree = "<group>"; };
+		9DE6A3792B7ED36C00C189DA /* SizeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SizeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +179,7 @@
 			isa = PBXGroup;
 			children = (
 				9DA090412B7D31730064139F /* ChooseSizeViewController.swift */,
+				9DE6A3792B7ED36C00C189DA /* SizeView.swift */,
 			);
 			path = SizeSelectionScreen;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				9DE6A3762B7EC01A00C189DA /* Shoe.swift in Sources */,
 				9DA090462B7D31A60064139F /* UserDataViewController.swift in Sources */,
 				9DA090522B7D53C30064139F /* SubmissionButton.swift in Sources */,
+				9DE6A37A2B7ED36C00C189DA /* SizeView.swift in Sources */,
 				9DC0B3822B72AB990096CD39 /* SceneDelegate.swift in Sources */,
 				9DA090422B7D31730064139F /* ChooseSizeViewController.swift in Sources */,
 				9DA090502B7D51740064139F /* UIView+Extension.swift in Sources */,

@@ -43,7 +43,7 @@ final class GoodsCatalogueViewController: UIViewController {
         configureUI()
         configureLayout()
     }
-    
+
     // MARK: - Private Methods
 
     private func configureUI() {
@@ -64,7 +64,7 @@ final class GoodsCatalogueViewController: UIViewController {
                 item.topAnchor.constraint(equalTo: goodsCatalogueItems[index - 2].bottomAnchor, constant: 16)
                     .isActive = true
             }
-            
+
             if index % 2 == 0 {
                 item.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
             } else {
@@ -82,7 +82,14 @@ final class GoodsCatalogueViewController: UIViewController {
 
 extension GoodsCatalogueViewController: GoodsCatalogueItemViewDelegate {
     func didTapCartButtonIn(_ goodsCatalogueItemView: GoodsCatalogueItemView) {
-        
-        
+        let chooseSizeVC = ChooseSizeViewController()
+        chooseSizeVC.delegate = self
+        present(chooseSizeVC, animated: true)
+    }
+}
+
+extension GoodsCatalogueViewController: ChooseSizeViewControllerDelegate {
+    func didSelect(_ size: Int) {
+        print(size)
     }
 }

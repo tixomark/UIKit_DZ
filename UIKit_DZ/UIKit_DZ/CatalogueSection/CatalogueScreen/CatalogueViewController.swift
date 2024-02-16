@@ -59,7 +59,7 @@ final class CatalogueViewController: UIViewController {
         }
 
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(catalogueSectionItemTapped))
-        array[2].addGestureRecognizer(tapGesture)
+        array[1].addGestureRecognizer(tapGesture)
         return array
     }()
 
