@@ -22,6 +22,7 @@
 		9DC0B3842B72AB990096CD39 /* ShoeStoreTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B3832B72AB990096CD39 /* ShoeStoreTabBarController.swift */; };
 		9DC0B3892B72AB9A0096CD39 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9DC0B3882B72AB9A0096CD39 /* Assets.xcassets */; };
 		9DC0B38C2B72AB9A0096CD39 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DC0B38A2B72AB9A0096CD39 /* LaunchScreen.storyboard */; };
+		D58045BF2B7E626A003B0397 /* PersonalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58045BE2B7E626A003B0397 /* PersonalCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		9DC0B3882B72AB9A0096CD39 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9DC0B38B2B72AB9A0096CD39 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9DC0B38D2B72AB9A0096CD39 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D58045BE2B7E626A003B0397 /* PersonalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				9DA090512B7D53C30064139F /* SubmissionButton.swift */,
+				D58045BE2B7E626A003B0397 /* PersonalCell.swift */,
 			);
 			path = ReausableUIElements;
 			sourceTree = "<group>";
@@ -252,6 +255,7 @@
 				9DC0B3802B72AB990096CD39 /* AppDelegate.swift in Sources */,
 				9DA090462B7D31A60064139F /* UserDataViewController.swift in Sources */,
 				9DA090522B7D53C30064139F /* SubmissionButton.swift in Sources */,
+				D58045BF2B7E626A003B0397 /* PersonalCell.swift in Sources */,
 				9DC0B3822B72AB990096CD39 /* SceneDelegate.swift in Sources */,
 				9DA090422B7D31730064139F /* ChooseSizeViewController.swift in Sources */,
 				9DA090502B7D51740064139F /* UIView+Extension.swift in Sources */,
