@@ -31,9 +31,9 @@ final class ShoeStoreTabBarController: UITabBarController {
         tabBar.tintColor = .accentPink
         tabBar.unselectedItemTintColor = .black
         let controllers: [UIViewController] = [
-            UINavigationController(rootViewController: UserProfileViewController()),
             UINavigationController(rootViewController: CatalogueViewController()),
-            UINavigationController(rootViewController: BagViewController())
+            UINavigationController(rootViewController: BagViewController()),
+            UINavigationController(rootViewController: UserProfileViewController())
         ]
         setViewControllers(controllers, animated: true)
     }

@@ -20,12 +20,6 @@ final class FootSizeViewController: UIViewController {
         let whiteView = UIView()
         whiteView.backgroundColor = .white
         whiteView.layer.cornerRadius = 20
-        whiteView.layer.maskedCorners = [
-            .layerMinXMaxYCorner,
-            .layerMaxXMaxYCorner,
-            .layerMaxXMinYCorner,
-            .layerMinXMinYCorner
-        ]
         whiteView.dropShadow()
         return whiteView
     }()
@@ -63,13 +57,13 @@ final class FootSizeViewController: UIViewController {
         return button
     }()
 
-    // MARK: - Private Properties
-
-   private var sizeFoot = ""
-
     // MARK: - Public Properties
 
-    var transmisionDate: ((_ size: String) -> ())?
+    var dataTransmissionHandler: ((_ size: String) -> ())?
+
+    // MARK: - Private Properties
+
+    private var sizeFoot = ""
 
     // MARK: - Life Cycle
 
@@ -78,13 +72,12 @@ final class FootSizeViewController: UIViewController {
         configure()
     }
 
+    // MARK: - Private Methods
+
     private func configure() {
         view.backgroundColor = .black.withAlphaComponent(0.2)
         view.addSubview(overlayView)
-        overlayView.addSubview(titleLabel)
-        overlayView.addSubview(sizePicker)
-        overlayView.addSubview(saveButton)
-        overlayView.addSubview(dismissButton)
+        overlayView.addSubviews(titleLabel, sizePicker, saveButton, dismissButton)
         makeAnchorOverlayView()
         makeAnchorTitleLabel()
         makeAnchorsizePicker()
@@ -97,7 +90,7 @@ final class FootSizeViewController: UIViewController {
     }
 
     @objc private func tappedButtonSave() {
-        transmisionDate?("\(sizeFoot)")
+        dataTransmissionHandler?("\(sizeFoot)")
         dismiss(animated: true)
     }
 }
@@ -162,6 +155,6 @@ extension FootSizeViewController: UIPickerViewDelegate {
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         sizeFoot = Constants.sizes[row]
-        transmisionDate?("\(sizeFoot)")
+        dataTransmissionHandler?("\(sizeFoot)")
     }
 }

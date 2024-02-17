@@ -3,7 +3,6 @@
 
 import UIKit
 
-
 /// Экран профиля пользователя
 final class UserProfileViewController: UIViewController {
     // MARK: - Constants
@@ -35,20 +34,20 @@ final class UserProfileViewController: UIViewController {
         return card
     }()
 
-    private var cardIconImage: UIImageView = {
+    private let cardIconImage: UIImageView = {
         let image = UIImageView()
         image.image = Constants.cardIconImage
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
 
-    private var backgroundCirculQRCodView = UIView()
-    private var backgroundCirculInfoView = UIView()
-    private var iconQRCodImageView = UIImageView()
-    private var iconInfoImageView = UIImageView()
-    private var discountLabel = UILabel()
-    private var numberCardLabel = UILabel()
-    private var personalLabel: UILabel = {
+    private let backgroundCirculQRCodView = UIView()
+    private let backgroundCirculInfoView = UIView()
+    private let iconQRCodImageView = UIImageView()
+    private let iconInfoImageView = UIImageView()
+    private let discountLabel = UILabel()
+    private let numberCardLabel = UILabel()
+    private let personalLabel: UILabel = {
         let title = UILabel()
         title.translatesAutoresizingMaskIntoConstraints = false
         title.text = Constants.personalDataTitle
@@ -56,9 +55,9 @@ final class UserProfileViewController: UIViewController {
         return title
     }()
 
-    private var myDataCell = PersonalCell()
-    private var bringFriendCell = PersonalCell()
-    private var feedBaccCell = PersonalCell()
+    private let myDataCell = PersonalCell()
+    private let bringFriendCell = PersonalCell()
+    private let feedBaccCell = PersonalCell()
 
     // MARK: - Life Cycle
 
@@ -72,10 +71,7 @@ final class UserProfileViewController: UIViewController {
     private func configure() {
         title = Constants.titleText
         view.backgroundColor = .systemBackground
-        view.addSubview(cardView)
-        view.addSubview(cardIconImage)
-        view.addSubview(personalLabel)
-        view.addSubview(myDataCell)
+        view.addSubviews(cardView, cardIconImage, personalLabel, myDataCell)
         configureCardView()
         makeCell(cell: myDataCell, title: Constants.personCellTitle, icon: Constants.personCellIcon)
         makeCell(cell: bringFriendCell, title: Constants.bringFriend, icon: Constants.bringFriendIcon)

@@ -5,6 +5,8 @@ import UIKit
 
 /// Ячейка длля экрана с персональными данными
 final class PersonalCell: UIView {
+    // MARK: - Visual Components
+
     var iconCell: UIImageView = {
         let image = UIImageView()
         image.translatesAutoresizingMaskIntoConstraints = false
@@ -25,6 +27,8 @@ final class PersonalCell: UIView {
         return divider
     }()
 
+    // MARK: - Life Cycle
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         makeCell()
@@ -35,6 +39,8 @@ final class PersonalCell: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Private Methods
+
     private func makeCell() {
         addSubviews(iconCell)
         addSubviews(titleCellLabel)
@@ -43,7 +49,7 @@ final class PersonalCell: UIView {
     }
 
     private func makeAnchor() {
-        makeIconCellAncchor()
+        makeAnchorIconCell()
         makeTitleCellLabel()
         makeDividerView()
     }
@@ -52,7 +58,7 @@ final class PersonalCell: UIView {
 // MARK: - Setup Anchor
 
 extension PersonalCell {
-    private func makeIconCellAncchor() {
+    private func makeAnchorIconCell() {
         iconCell.topAnchor.constraint(equalTo: topAnchor, constant: 3).isActive = true
         iconCell.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         iconCell.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true

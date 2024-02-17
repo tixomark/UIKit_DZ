@@ -35,7 +35,6 @@ final class UserDataViewController: UIViewController {
         button.backgroundColor = .accentPink
         button.setTitle(Constants.buttonTitle, for: .normal)
         button.layer.cornerRadius = 12
-        button.addTarget(self, action: #selector(saveUserInformation), for: .touchUpInside)
         button.dropShadow()
         return button
     }()
@@ -168,13 +167,11 @@ final class UserDataViewController: UIViewController {
         let sizeViewController = FootSizeViewController()
         sizeViewController.modalPresentationStyle = .overFullScreen
         sizeViewController.modalTransitionStyle = .crossDissolve
-        sizeViewController.transmisionDate = { [self] size in
+        sizeViewController.dataTransmissionHandler = { [self] size in
             sizeShoesTextField.text = size
         }
         present(sizeViewController, animated: true, completion: nil)
     }
-
-    @objc private func saveUserInformation() {}
 }
 
 // MARK: - Make Anchor
@@ -236,7 +233,7 @@ extension UserDataViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let nextTag = textField.tag + 1
 
-        if let nextResponder = textField.superview?.viewWithTag(nextTag) {
+        if let nextResponder = view.superview?.viewWithTag(nextTag) {
             nextResponder.becomeFirstResponder()
         } else {
             textField.resignFirstResponder()
