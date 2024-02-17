@@ -169,7 +169,7 @@ final class BagItemView: UIView {
             sizeLabel.topAnchor.constraint(equalTo: amountLabel.bottomAnchor, constant: 12),
 
             sizeSelectorView.leadingAnchor.constraint(equalTo: goodItemView.trailingAnchor, constant: 22),
-            sizeSelectorView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+//            sizeSelectorView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             sizeSelectorView.topAnchor.constraint(equalTo: sizeLabel.bottomAnchor, constant: 10),
 
             costTitleLabel.leadingAnchor.constraint(equalTo: goodItemView.trailingAnchor, constant: 16),
@@ -178,6 +178,10 @@ final class BagItemView: UIView {
             costLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             costLabel.topAnchor.constraint(equalTo: sizeSelectorView.bottomAnchor, constant: 9),
         ].activate()
+
+        let constraint = sizeSelectorView.leadingAnchor.constraint(equalTo: goodItemView.trailingAnchor, constant: 22)
+        constraint.priority = .defaultLow
+        constraint.activate()
     }
 }
 

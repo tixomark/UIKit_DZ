@@ -32,10 +32,7 @@ final class UserDataViewController: UIViewController {
     private lazy var saveConfigUserButton: SubmissionButton = {
         let button = SubmissionButton()
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.backgroundColor = .accentPink
         button.setTitle(Constants.buttonTitle, for: .normal)
-        button.layer.cornerRadius = 12
-        button.dropShadow()
         return button
     }()
 
@@ -165,6 +162,7 @@ final class UserDataViewController: UIViewController {
             birdthdayTextField.text = paramDatePickker.date.formatted(date: .numeric, time: .omitted)
         }
         view.endEditing(true)
+        emailTextField.becomeFirstResponder()
     }
 
     @objc private func presentSizeViewController() {
@@ -236,7 +234,10 @@ extension UserDataViewController {
 extension UserDataViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let nextTag = textField.tag + 1
-        guard let nextResponder = view.viewWithTag(nextTag) else { return true }
+        guard let nextResponder = view.viewWithTag(nextTag) else {
+            textField.resignFirstResponder()
+            return true
+        }
 
         switch textField.tag {
         case 3:
