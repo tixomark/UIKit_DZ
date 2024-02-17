@@ -29,7 +29,7 @@ final class SubmissionButton: UIButton {
         layer.cornerRadius = 12
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowRadius = 2
-        layer.shadowOpacity = 0.5
+        layer.shadowOpacity = 0.25
         layer.shadowOffset.height = 4
         layer.cornerCurve = .continuous
         backgroundColor = .accentPink

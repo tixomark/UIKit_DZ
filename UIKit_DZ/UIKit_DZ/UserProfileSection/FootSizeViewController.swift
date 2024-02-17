@@ -11,7 +11,7 @@ final class FootSizeViewController: UIViewController {
         static let title = "Размер ноги"
         static let sizes = ["37", "38", "39"]
         static let saveButtonTitle = "Сохранить"
-        static let closeImage: UIImage = .init(systemName: "xmark") ?? UIImage()
+        static let closeImage: UIImage? = .init(systemName: "xmark")
     }
 
     // MARK: - Visual Components
@@ -50,10 +50,7 @@ final class FootSizeViewController: UIViewController {
     private lazy var saveButton: SubmissionButton = {
         var button = SubmissionButton()
         button.setTitle(Constants.saveButtonTitle, for: .normal)
-        button.dropShadow()
         button.addTarget(self, action: #selector(tappedButtonSave), for: .touchUpInside)
-        button.backgroundColor = .accentPink
-        button.layer.cornerRadius = 20
         return button
     }()
 
@@ -63,7 +60,7 @@ final class FootSizeViewController: UIViewController {
 
     // MARK: - Private Properties
 
-    private var sizeFoot = ""
+    private var sizeFoot = Constants.sizes[0]
 
     // MARK: - Life Cycle
 
@@ -78,11 +75,14 @@ final class FootSizeViewController: UIViewController {
         view.backgroundColor = .black.withAlphaComponent(0.2)
         view.addSubview(overlayView)
         overlayView.addSubviews(titleLabel, sizePicker, saveButton, dismissButton)
+
         makeAnchorOverlayView()
         makeAnchorTitleLabel()
         makeAnchorsizePicker()
         makeAnchorsizeSaveButton()
         makeAnchorCloseButton()
+
+        dataTransmissionHandler?(Constants.sizes[0])
     }
 
     @objc private func closeViewController() {
@@ -90,7 +90,7 @@ final class FootSizeViewController: UIViewController {
     }
 
     @objc private func tappedButtonSave() {
-        dataTransmissionHandler?("\(sizeFoot)")
+        dataTransmissionHandler?(sizeFoot)
         dismiss(animated: true)
     }
 }
@@ -155,6 +155,6 @@ extension FootSizeViewController: UIPickerViewDelegate {
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         sizeFoot = Constants.sizes[row]
-        dataTransmissionHandler?("\(sizeFoot)")
+        dataTransmissionHandler?(sizeFoot)
     }
 }

@@ -8,7 +8,7 @@ final class UserDataViewController: UIViewController {
     // MARK: - Constants
 
     private enum Constants {
-        static let backBarButtonImage: UIImage = .init(systemName: "chevron.backward") ?? UIImage()
+        static let backBarButtonImage = UIImage(systemName: "chevron.backward")
         static let title = "Мои данные"
         static let nameText = "Имя"
         static let secondNameText = "Фамилия"
@@ -92,7 +92,7 @@ final class UserDataViewController: UIViewController {
     }
 
     private func configure() {
-        view.backgroundColor = .white
+        view.backgroundColor = .systemBackground
         configureNavBar()
         makeTextFields(textField: nameTextField, placeholder: Constants.nameText, tag: 1)
         makeTextFields(textField: secondNameField, placeholder: Constants.secondNameText, tag: 2)
@@ -127,7 +127,11 @@ final class UserDataViewController: UIViewController {
         textField.leftView = findTextFieldView
         textField.tag = tag
         if tag == 4 {
-            textField.addTarget(self, action: #selector(presentSizeViewController), for: .touchDown)
+            textField.addTarget(
+                self,
+                action: #selector(presentSizeViewController),
+                for: .editingDidBegin
+            )
         }
         view.addSubview(textField)
     }
@@ -167,10 +171,10 @@ final class UserDataViewController: UIViewController {
         let sizeViewController = FootSizeViewController()
         sizeViewController.modalPresentationStyle = .overFullScreen
         sizeViewController.modalTransitionStyle = .crossDissolve
-        sizeViewController.dataTransmissionHandler = { [self] size in
-            sizeShoesTextField.text = size
+        sizeViewController.dataTransmissionHandler = { size in
+            self.sizeShoesTextField.text = size
         }
-        present(sizeViewController, animated: true, completion: nil)
+        present(sizeViewController, animated: true)
     }
 }
 
@@ -232,13 +236,24 @@ extension UserDataViewController {
 extension UserDataViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         let nextTag = textField.tag + 1
+        guard let nextResponder = view.viewWithTag(nextTag) else { return true }
 
-        if let nextResponder = view.superview?.viewWithTag(nextTag) {
-            nextResponder.becomeFirstResponder()
-        } else {
+        switch textField.tag {
+        case 3:
             textField.resignFirstResponder()
+            presentSizeViewController()
+        case 1, 2, 4, 5:
+            nextResponder.becomeFirstResponder()
+        default:
+            break
         }
         return true
+    }
+
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField.tag == 4 {
+            textField.resignFirstResponder()
+        }
     }
 
     func textField(
