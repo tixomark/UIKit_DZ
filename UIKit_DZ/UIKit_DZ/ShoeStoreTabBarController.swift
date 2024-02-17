@@ -30,23 +30,33 @@ final class ShoeStoreTabBarController: UITabBarController {
     private func configure() {
         tabBar.tintColor = .accentPink
         tabBar.unselectedItemTintColor = .black
+
+        let bagVC = BagViewController()
+        let catalogueVC = CatalogueViewController()
+        catalogueVC.shoes = bagVC.cart
         let controllers: [UIViewController] = [
-            UINavigationController(rootViewController: CatalogueViewController()),
-            UINavigationController(rootViewController: BagViewController()),
+            UINavigationController(rootViewController: catalogueVC),
+            UINavigationController(rootViewController: bagVC),
             UINavigationController(rootViewController: UserProfileViewController())
         ]
         setViewControllers(controllers, animated: true)
+
+        tabBar.backgroundColor = .white
+        tabBar.layer.shadowOffset.height = -1
+        tabBar.layer.shadowRadius = 1
+        tabBar.layer.shadowOpacity = 0.2
+        tabBar.layer.shadowColor = UIColor.black.cgColor
     }
 
     private func configureBarButtonItems() {
         guard let viewControllers else { return }
         for index in viewControllers.indices {
-            let tabBatItem = UITabBarItem(
+            let tabBarItem = UITabBarItem(
                 title: Constants.titles[index],
                 image: Constants.images[index],
                 selectedImage: Constants.selectedImages[index]
             )
-            self.viewControllers?[index].tabBarItem = tabBatItem
+            self.viewControllers?[index].tabBarItem = tabBarItem
         }
     }
 }
