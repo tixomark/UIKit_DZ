@@ -8,7 +8,6 @@ protocol ChooseSizeViewControllerDelegate: AnyObject {
     func didSelect(_ size: Int)
 }
 
-// tixomark
 /// Экран выбора размера товара
 final class ChooseSizeViewController: UIViewController {
     // MARK: - Constants

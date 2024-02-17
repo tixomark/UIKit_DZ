@@ -3,7 +3,6 @@
 
 import UIKit
 
-// tixomark
 /// Экран корзины пользователя
 final class BagViewController: UIViewController {
     // MARK: - Constants
@@ -128,7 +127,7 @@ final class BagViewController: UIViewController {
     }
 }
 
-/// Получение уведомлений об изменениях в карточке товара - назатие кнопки корзины, измененеи размера, изменение
+/// Получение уведомлений об изменениях в карточке товара - нажатие кнопки корзины, измененеи размера, изменение
 /// количества
 extension BagViewController: BagItemViewDelegate {
     func cartButtonIn(_ bagItemView: BagItemView, switchedTo value: Bool) {

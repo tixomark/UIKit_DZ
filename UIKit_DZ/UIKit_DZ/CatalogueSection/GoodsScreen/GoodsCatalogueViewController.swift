@@ -3,7 +3,6 @@
 
 import UIKit
 
-// tixomark
 /// Экран со списком товаров секции основного каталога
 final class GoodsCatalogueViewController: UIViewController {
     // MARK: - Constants

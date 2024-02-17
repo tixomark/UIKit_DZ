@@ -181,7 +181,7 @@ final class BagItemView: UIView {
     }
 }
 
-///  Получение увадомлений о нажатии кнопки корзины
+///  Получение уведомлений о нажатии кнопки корзины
 extension BagItemView: GoodItemViewDelegate {
     func cartButtonSelectionStateIn(_ goodItemView: GoodItemView, changedTo value: Bool) {
         delegate?.cartButtonIn(self, switchedTo: value)

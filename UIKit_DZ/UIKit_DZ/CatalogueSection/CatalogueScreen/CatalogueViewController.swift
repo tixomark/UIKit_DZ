@@ -3,7 +3,6 @@
 
 import UIKit
 
-// tixomark
 /// Экран содержащий каталог товаров магазина
 final class CatalogueViewController: UIViewController {
     // MARK: - Constants
@@ -95,7 +94,6 @@ final class CatalogueViewController: UIViewController {
 
     private func configureLayout() {
         UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: view.subviews)
-
         [
             personGroupSegmentedControll.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             personGroupSegmentedControll.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
@@ -124,12 +122,7 @@ final class CatalogueViewController: UIViewController {
     }
 
     private func configureNavigationItems() {
-        let cameraItem = UIBarButtonItem(
-            image: .cameraIcon.withRenderingMode(.alwaysOriginal),
-            style: .plain,
-            target: self,
-            action: #selector(cameraItemTapped)
-        )
+        let cameraItem = UIBarButtonItem(image: .cameraIcon.withRenderingMode(.alwaysOriginal))
         let qrScannerItem = UIBarButtonItem(image: .qrScanerIcon.withRenderingMode(.alwaysOriginal))
         navigationItem.setRightBarButtonItems([qrScannerItem, cameraItem], animated: false)
     }
@@ -146,13 +139,9 @@ final class CatalogueViewController: UIViewController {
         }
     }
 
-    @objc private func cameraItemTapped() {
-        print("camera")
-    }
-
     @objc private func catalogueSectionItemTapped() {
-        let goodsVC = GoodsCatalogueViewController()
-        goodsVC.cart = shoes
-        navigationController?.pushViewController(goodsVC, animated: true)
+        let goodsViewController = GoodsCatalogueViewController()
+        goodsViewController.cart = shoes
+        navigationController?.pushViewController(goodsViewController, animated: true)
     }
 }
