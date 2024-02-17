@@ -1,16 +1,20 @@
-// GoodsCatalogueItemView.swift
+// GoodItemView.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
-protocol GoodsCatalogueItemViewDelegate: AnyObject {
-    func didTapCartButtonIn(_ goodsCatalogueItemView: GoodsCatalogueItemView)
+protocol GoodItemViewDelegate: AnyObject {
+    /// Метод, уведомляющий об изменении выделения кнопки корзины
+    func cartButtonSelectionStateIn(_ goodItemView: GoodItemView, changedTo value: Bool)
 }
 
-final class GoodsCatalogueItemView: UIView {
-    // MARK: - Public Properties
+/// Ячейка товара содержащяя его изображение, название и цену
+final class GoodItemView: UIView {
+    // MARK: - Constants
 
-    weak var delegate: GoodsCatalogueItemViewDelegate?
+    private enum Constants {
+        static let currencySigh = " \u{20BD}"
+    }
 
     // MARK: - Visual Components
 
@@ -39,18 +43,21 @@ final class GoodsCatalogueItemView: UIView {
 
     // MARK: - Public Properties
 
+    weak var delegate: GoodItemViewDelegate?
+
     override var intrinsicContentSize: CGSize {
         CGSize(width: 100, height: 100)
     }
 
     // MARK: - Private Properties
 
-    private var isCartButtonActivated = false
+    private(set) var isCartButtonHiglited = false
 
     // MARK: - Life Cycle
 
-    override init(frame: CGRect) {
+    init(isCostLabelHidden: Bool = true) {
         super.init(frame: .zero)
+        costLabel.isHidden = isCostLabelHidden
         configureUI()
         configureLayout()
     }
@@ -63,12 +70,21 @@ final class GoodsCatalogueItemView: UIView {
 
     // MARK: - Public Methods
 
-    func setCostLabel(_ text: String?) {
-        costLabel.text = text
-    }
-
     func setImage(_ image: UIImage?) {
         imageView.image = image
+    }
+
+    func configure(with bagItem: Cart.CartItem) {
+        imageView.image = bagItem.image
+        costLabel.text = "\(bagItem.price)" + Constants.currencySigh
+        setCartButtonHighlition(to: bagItem.isInCart)
+    }
+
+    func setCartButtonHighlition(to isHighlited: Bool) {
+        isCartButtonHiglited = isHighlited
+        let cartButtonImage: UIImage = isCartButtonHiglited ? .cartIcon.withTintColor(.accentPink) : .cartIcon
+        cartButton.setImage(cartButtonImage, for: .normal)
+        cartButton.setImage(cartButtonImage, for: .highlighted)
     }
 
     // MARK: - Private Methods
@@ -100,11 +116,7 @@ final class GoodsCatalogueItemView: UIView {
     }
 
     @objc private func cartButtonTapped() {
-        isCartButtonActivated.toggle()
-        let cartButtonImage: UIImage = isCartButtonActivated ? .cartIcon.withTintColor(.accentPink) : .cartIcon
-        cartButton.setImage(cartButtonImage, for: .normal)
-        cartButton.setImage(cartButtonImage, for: .highlighted)
-
-        delegate?.didTapCartButtonIn(self)
+        setCartButtonHighlition(to: !isCartButtonHiglited)
+        delegate?.cartButtonSelectionStateIn(self, changedTo: isCartButtonHiglited)
     }
 }

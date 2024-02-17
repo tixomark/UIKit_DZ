@@ -4,6 +4,7 @@
 import UIKit
 
 protocol ChooseSizeViewControllerDelegate: AnyObject {
+    /// Сообщает делегату о выбранном пользователем размере
     func didSelect(_ size: Int)
 }
 
@@ -92,7 +93,6 @@ final class ChooseSizeViewController: UIViewController {
                 sizeView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
             ].activate()
         }
-
         navigationBar.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
     }
 
@@ -109,12 +109,3 @@ final class ChooseSizeViewController: UIViewController {
         dismiss(animated: true)
     }
 }
-
-// navigationItem.leftBarButtonItem = cancelButton
-// navigationItem.rightBarButtonItem = addButton
-//
-// navigationBar.items = [navigationItem]
-// navigationBar.setValue(true, forKey: "hidesShadow")
-// navigationBar.isTranslucent = false
-//
-// view.addSubviews(navigationBar, headerImageView, changePhotoButton)

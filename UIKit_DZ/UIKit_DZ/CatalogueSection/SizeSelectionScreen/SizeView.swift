@@ -55,7 +55,6 @@ final class SizeView: UIView {
 
     private func configureLayout() {
         UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: subviews)
-
         [
             label.leadingAnchor.constraint(equalTo: leadingAnchor),
             label.trailingAnchor.constraint(equalTo: trailingAnchor),

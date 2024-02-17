@@ -30,9 +30,13 @@ final class ShoeStoreTabBarController: UITabBarController {
     private func configure() {
         tabBar.tintColor = .accentPink
         tabBar.unselectedItemTintColor = .black
+
+        let bagVC = BagViewController()
+        let catalogueVC = CatalogueViewController()
+        catalogueVC.shoes = bagVC.cart
         let controllers: [UIViewController] = [
-            UINavigationController(rootViewController: CatalogueViewController()),
-            UINavigationController(rootViewController: BagViewController()),
+            UINavigationController(rootViewController: catalogueVC),
+            UINavigationController(rootViewController: bagVC),
             UINavigationController(rootViewController: UserProfileViewController())
         ]
         setViewControllers(controllers, animated: true)

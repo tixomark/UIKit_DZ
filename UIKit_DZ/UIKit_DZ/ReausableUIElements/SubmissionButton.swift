@@ -5,13 +5,34 @@ import UIKit
 
 /// Кнопка подтверждения
 final class SubmissionButton: UIButton {
-    override init(frame: CGRect) {
-        var customFrame = frame
-        customFrame.size.height = 44
-        super.init(frame: customFrame)
+    // MARK: - Public Properties
+
+    override var intrinsicContentSize: CGSize {
+        CGSize(width: 100, height: 44)
+    }
+
+    // MARK: - Life Cycle
+
+    init() {
+        super.init(frame: .zero)
+        configureUI()
     }
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        configureUI()
+    }
+
+    // MARK: - Private Methods
+
+    private func configureUI() {
+        layer.cornerRadius = 12
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowRadius = 2
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset.height = 4
+        layer.cornerCurve = .continuous
+        backgroundColor = .accentPink
+        titleLabel?.font = .verdanaBold?.withSize(16)
     }
 }

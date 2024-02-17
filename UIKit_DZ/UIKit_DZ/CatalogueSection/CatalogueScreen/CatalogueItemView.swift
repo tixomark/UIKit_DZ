@@ -3,11 +3,15 @@
 
 import UIKit
 
+/// Элемент каталога содержащийся в бастром доступе сразу под выбором категорий
 final class CatalogueItemView: UIView {
     // MARK: - Types
 
+    /// Позиция лейбла в данном вью
     enum LabelPosition {
+        /// Лейбл позиционирован в самом верху вью
         case top
+        /// Лейбл позиционирован в самом низу вью
         case bottom
     }
 
@@ -91,9 +95,9 @@ final class CatalogueItemView: UIView {
 
         switch labelPosition {
         case .top:
-            label.topAnchor.constraint(equalTo: topAnchor).isActive = true
+            label.topAnchor.constraint(equalTo: topAnchor).activate()
         case .bottom:
-            label.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
+            label.bottomAnchor.constraint(equalTo: bottomAnchor).activate()
         }
     }
 }

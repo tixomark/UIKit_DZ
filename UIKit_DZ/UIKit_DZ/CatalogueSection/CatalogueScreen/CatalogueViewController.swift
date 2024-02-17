@@ -57,11 +57,14 @@ final class CatalogueViewController: UIViewController {
             view.setTitle(catalogueSectionItemTitle)
             array.append(view)
         }
-
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(catalogueSectionItemTapped))
         array[1].addGestureRecognizer(tapGesture)
         return array
     }()
+
+    // MARK: - Public Properties
+
+    var shoes: Cart?
 
     // MARK: - Life Cycle
 
@@ -148,6 +151,8 @@ final class CatalogueViewController: UIViewController {
     }
 
     @objc private func catalogueSectionItemTapped() {
-        navigationController?.pushViewController(GoodsCatalogueViewController(), animated: true)
+        let goodsVC = GoodsCatalogueViewController()
+        goodsVC.cart = shoes
+        navigationController?.pushViewController(goodsVC, animated: true)
     }
 }

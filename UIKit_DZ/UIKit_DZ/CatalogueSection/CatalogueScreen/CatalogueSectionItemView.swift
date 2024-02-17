@@ -3,6 +3,7 @@
 
 import UIKit
 
+/// Элемент секции каталога, содержащий категорию для текущего типа людей
 final class CatalogueSectionItemView: UIView {
     // MARK: - Visual Components
 
@@ -62,7 +63,6 @@ final class CatalogueSectionItemView: UIView {
 
     private func configureLayout() {
         UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: label, imageView)
-
         [
             label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             label.centerYAnchor.constraint(equalTo: centerYAnchor),
