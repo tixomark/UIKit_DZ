@@ -13,7 +13,7 @@ final class RecomendationView: UIView {
 
     // MARK: - Visual Components
 
-    private let imageView: UIImageView = {
+    private let userIconImageView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
         view.layer.cornerRadius = 57.5
@@ -62,7 +62,7 @@ final class RecomendationView: UIView {
     // MARK: - Public Methods
 
     func configure(with recomendation: Recomendation) {
-        imageView.image = UIImage(recomendation.user.profileImage)
+        userIconImageView.image = UIImage(recomendation.user.profileImage)
         nicknameLabel.text = recomendation.user.nickname
     }
 
@@ -70,24 +70,29 @@ final class RecomendationView: UIView {
 
     private func configureUI() {
         backgroundColor = .systemBackground
-        addSubviews(closeButton, imageView, nicknameLabel, subscribeButton)
+        addSubviews(closeButton, userIconImageView, nicknameLabel, subscribeButton)
     }
 
     private func configureLayout() {
-        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: closeButton, imageView, nicknameLabel, subscribeButton)
+        UIView.doNotTranslateAoturesizingMaskIntoConstrains(
+            for: closeButton,
+            userIconImageView,
+            nicknameLabel,
+            subscribeButton
+        )
         [
             closeButton.topAnchor.constraint(equalTo: topAnchor, constant: 8.5),
             closeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8.5),
             closeButton.heightAnchor.constraint(equalToConstant: 7),
             closeButton.widthAnchor.constraint(equalTo: closeButton.heightAnchor),
 
-            imageView.topAnchor.constraint(equalTo: topAnchor, constant: 15),
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
-            imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -35),
-            imageView.heightAnchor.constraint(equalToConstant: 115),
-            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor),
+            userIconImageView.topAnchor.constraint(equalTo: topAnchor, constant: 15),
+            userIconImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
+            userIconImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -35),
+            userIconImageView.heightAnchor.constraint(equalToConstant: 115),
+            userIconImageView.widthAnchor.constraint(equalTo: userIconImageView.heightAnchor),
 
-            nicknameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5),
+            nicknameLabel.topAnchor.constraint(equalTo: userIconImageView.bottomAnchor, constant: 5),
             nicknameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
 
             subscribeButton.topAnchor.constraint(equalTo: nicknameLabel.bottomAnchor, constant: 9),

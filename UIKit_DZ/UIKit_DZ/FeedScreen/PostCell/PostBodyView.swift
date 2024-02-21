@@ -1,10 +1,10 @@
-// PostBody.swift
+// PostBodyView.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
 /// Основная часть ячейки поста c изображениями, функциональными элементами и счетчиком лайков
-final class PostBody: UIView {
+final class PostBodyView: UIView {
     // MARK: - Constants
 
     private enum Constants {
@@ -174,7 +174,7 @@ final class PostBody: UIView {
     }
 }
 
-extension PostBody: UIScrollViewDelegate {
+extension PostBodyView: UIScrollViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let currentPage = scrollView.contentOffset.x / scrollView.bounds.width
         imageScrollPageControl.currentPage = Int(currentPage)

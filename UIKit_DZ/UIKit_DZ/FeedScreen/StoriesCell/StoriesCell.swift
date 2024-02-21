@@ -61,6 +61,10 @@ final class StoriesCell: UITableViewCell {
     }
 
     private func configureLayout() {
+        configureScrollViewLayout()
+    }
+
+    private func configureScrollViewLayout() {
         UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: scrollView)
         [
             scrollView.topAnchor.constraint(equalTo: contentView.topAnchor),

@@ -1,10 +1,10 @@
-// PostTextAndFooter.swift
+// PostFooterView.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
 /// Нижняя часть ячейки поста c комментариями и
-final class PostTextAndFooter: UIView {
+final class PostFooterView: UIView {
     // MARK: - Constants
 
     private enum Constants {

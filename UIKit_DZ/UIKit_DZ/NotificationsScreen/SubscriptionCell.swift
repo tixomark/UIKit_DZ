@@ -69,24 +69,15 @@ final class SubscriptionCell: UITableViewCell {
         userImageView.image = UIImage(subscription.user.profileImage)
         switchSubscriptionButtonTo(subscription.isSubscribed)
 
-        let nickFont = UIFont.verdanaBold?.withSize(12) ?? UIFont.systemFont(ofSize: 12)
-        let nickNameAttributes: [NSAttributedString.Key: Any] = [.font: nickFont, .foregroundColor: UIColor.accent]
-        let postText = NSMutableAttributedString(string: subscription.user.nickname, attributes: nickNameAttributes)
-
-        let commentFont = UIFont.verdana?.withSize(12) ?? UIFont.systemFont(ofSize: 12)
-        let commentAttributes: [NSAttributedString.Key: Any] = [.font: commentFont, .foregroundColor: UIColor.accent]
-        let commentText = NSAttributedString(string: subscription.text, attributes: commentAttributes)
-
-        let timePassedFont = UIFont.verdana?.withSize(12) ?? UIFont.systemFont(ofSize: 12)
-        let timePassedAttributes: [NSAttributedString.Key: Any] = [
-            .font: timePassedFont,
-            .foregroundColor: UIColor.opaqueSeparator
-        ]
-        let timePassedText = NSAttributedString(string: subscription.timePassed, attributes: timePassedAttributes)
-
-        postText.append(commentText)
-        postText.append(timePassedText)
-        infoLabel.attributedText = postText
+        let infoText = subscription.user.nickname.attributed()
+            .withColor(.accent)
+            .withFont(.verdanaBold?.withSize(12))
+        infoText.append(
+            subscription.text.attributed()
+                .withColor(.accent)
+                .withFont(.verdana?.withSize(12))
+        )
+        infoLabel.attributedText = infoText
     }
 
     // MARK: - Private Methods
@@ -99,19 +90,17 @@ final class SubscriptionCell: UITableViewCell {
     private func configureLayout() {
         UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: userImageView, infoLabel, subscribtionButton)
         [
-            contentView.topAnchor.constraint(equalTo: topAnchor),
-            contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
-
             userImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
             userImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
             userImageView.widthAnchor.constraint(equalToConstant: 40),
             userImageView.heightAnchor.constraint(equalTo: userImageView.widthAnchor),
+            userImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -10),
 
             infoLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
             infoLabel.leadingAnchor.constraint(equalTo: userImageView.trailingAnchor, constant: 7),
-            infoLabel.bottomAnchor.constraint(greaterThanOrEqualTo: contentView.bottomAnchor, constant: 10),
+            infoLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -10),
 
-            subscribtionButton.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            subscribtionButton.centerYAnchor.constraint(equalTo: infoLabel.centerYAnchor),
             subscribtionButton.leadingAnchor.constraint(equalTo: infoLabel.trailingAnchor, constant: 10),
             subscribtionButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
             subscribtionButton.heightAnchor.constraint(equalToConstant: 30),

@@ -7,9 +7,9 @@ import UIKit
 final class PostCell: UITableViewCell {
     // MARK: - Visual Components
 
-    private let header = PostHeader()
-    private let body = PostBody()
-    private let textAndFooter = PostTextAndFooter()
+    private let postHeaderView = PostHeaderView()
+    private let postBodyView = PostBodyView()
+    private let postFooterView = PostFooterView()
 
     // MARK: - Life Cycle
 
@@ -28,32 +28,32 @@ final class PostCell: UITableViewCell {
     // MARK: - Public Methods
 
     func configure(with post: Post) {
-        header.configure(with: post.user)
-        body.configure(images: post.images, numberOfLikes: post.numberOflikes)
-        textAndFooter.configure(nickName: post.user.nickname, comment: post.text)
+        postHeaderView.configure(with: post.user)
+        postBodyView.configure(images: post.images, numberOfLikes: post.numberOflikes)
+        postFooterView.configure(nickName: post.user.nickname, comment: post.text)
     }
 
     // MARK: - Private Methods
 
     private func configureUI() {
-        contentView.addSubviews(header, body, textAndFooter)
+        contentView.addSubviews(postHeaderView, postBodyView, postFooterView)
     }
 
     private func configureLayout() {
-        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: header, body, textAndFooter)
+        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: postHeaderView, postBodyView, postFooterView)
         [
-            header.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
-            header.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            header.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            postHeaderView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
+            postHeaderView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            postHeaderView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 
-            body.topAnchor.constraint(equalTo: header.bottomAnchor, constant: 10),
-            body.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            body.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            postBodyView.topAnchor.constraint(equalTo: postHeaderView.bottomAnchor, constant: 10),
+            postBodyView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            postBodyView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
 
-            textAndFooter.topAnchor.constraint(equalTo: body.bottomAnchor, constant: 6),
-            textAndFooter.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            textAndFooter.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            textAndFooter.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
+            postFooterView.topAnchor.constraint(equalTo: postBodyView.bottomAnchor, constant: 6),
+            postFooterView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            postFooterView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            postFooterView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -20)
         ].activate()
     }
 }

@@ -35,7 +35,6 @@ final class NotificationsViewController: UIViewController {
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
-        tableView.contentInset.top = 7
         tableView.register(NotionCell.self, forCellReuseIdentifier: NotionCell.description())
         tableView.register(SubscriptionCell.self, forCellReuseIdentifier: SubscriptionCell.description())
         tableView.register(HeaderView.self, forHeaderFooterViewReuseIdentifier: HeaderView.description())

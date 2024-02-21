@@ -1,10 +1,10 @@
-// PostHeader.swift
+// PostHeaderView.swift
 // Copyright © RoadMap. All rights reserved.
 
 import UIKit
 
 /// Хедер ячейки поста с информацией о владельце данного поста
-final class PostHeader: UIView {
+final class PostHeaderView: UIView {
     // MARK: - Visual Components
 
     private let userIconImageView: UIImageView = {

@@ -24,8 +24,8 @@
 		9D009BDA2B83DAA900508245 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D009BD92B83DAA900508245 /* DataProvider.swift */; };
 		9D009BDC2B83DC3D00508245 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D009BDB2B83DC3D00508245 /* User.swift */; };
 		9D009BDF2B83DD4700508245 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D009BDE2B83DD4700508245 /* PostCell.swift */; };
-		9D009BE22B83DDE300508245 /* PostHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D009BE12B83DDE300508245 /* PostHeader.swift */; };
-		9D009BE42B83E1C800508245 /* PostBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D009BE32B83E1C800508245 /* PostBody.swift */; };
+		9D009BE22B83DDE300508245 /* PostHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D009BE12B83DDE300508245 /* PostHeaderView.swift */; };
+		9D009BE42B83E1C800508245 /* PostBodyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D009BE32B83E1C800508245 /* PostBodyView.swift */; };
 		9D3364FD2B8507AC0080AFC6 /* RecomendationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3364FC2B8507AC0080AFC6 /* RecomendationsCell.swift */; };
 		9D3364FF2B850ECC0080AFC6 /* Story.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3364FE2B850ECC0080AFC6 /* Story.swift */; };
 		9D3365012B850EDD0080AFC6 /* Recomendation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3365002B850EDD0080AFC6 /* Recomendation.swift */; };
@@ -35,7 +35,9 @@
 		9D33650A2B8555E80080AFC6 /* Subscription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3365092B8555E80080AFC6 /* Subscription.swift */; };
 		9D33650D2B85CFAB0080AFC6 /* SubscriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D33650C2B85CFAB0080AFC6 /* SubscriptionCell.swift */; };
 		9D33650F2B85DC230080AFC6 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D33650E2B85DC230080AFC6 /* HeaderView.swift */; };
-		9D4520B52B84024D00A22682 /* PostTextAndFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4520B42B84024D00A22682 /* PostTextAndFooter.swift */; };
+		9D3365112B862A750080AFC6 /* NSMutableAttributedString+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3365102B862A750080AFC6 /* NSMutableAttributedString+Extension.swift */; };
+		9D3365132B86334A0080AFC6 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D3365122B86334A0080AFC6 /* String+Extension.swift */; };
+		9D4520B52B84024D00A22682 /* PostFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4520B42B84024D00A22682 /* PostFooterView.swift */; };
 		9D4520B92B85062200A22682 /* RecomendationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4520B82B85062200A22682 /* RecomendationView.swift */; };
 		9DC0B3802B72AB990096CD39 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B37F2B72AB990096CD39 /* AppDelegate.swift */; };
 		9DC0B3822B72AB990096CD39 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC0B3812B72AB990096CD39 /* SceneDelegate.swift */; };
@@ -62,8 +64,8 @@
 		9D009BD92B83DAA900508245 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		9D009BDB2B83DC3D00508245 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		9D009BDE2B83DD4700508245 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
-		9D009BE12B83DDE300508245 /* PostHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeader.swift; sourceTree = "<group>"; };
-		9D009BE32B83E1C800508245 /* PostBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBody.swift; sourceTree = "<group>"; };
+		9D009BE12B83DDE300508245 /* PostHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostHeaderView.swift; sourceTree = "<group>"; };
+		9D009BE32B83E1C800508245 /* PostBodyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostBodyView.swift; sourceTree = "<group>"; };
 		9D3364FC2B8507AC0080AFC6 /* RecomendationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationsCell.swift; sourceTree = "<group>"; };
 		9D3364FE2B850ECC0080AFC6 /* Story.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Story.swift; sourceTree = "<group>"; };
 		9D3365002B850EDD0080AFC6 /* Recomendation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recomendation.swift; sourceTree = "<group>"; };
@@ -73,7 +75,9 @@
 		9D3365092B8555E80080AFC6 /* Subscription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Subscription.swift; sourceTree = "<group>"; };
 		9D33650C2B85CFAB0080AFC6 /* SubscriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubscriptionCell.swift; sourceTree = "<group>"; };
 		9D33650E2B85DC230080AFC6 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
-		9D4520B42B84024D00A22682 /* PostTextAndFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTextAndFooter.swift; sourceTree = "<group>"; };
+		9D3365102B862A750080AFC6 /* NSMutableAttributedString+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSMutableAttributedString+Extension.swift"; sourceTree = "<group>"; };
+		9D3365122B86334A0080AFC6 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		9D4520B42B84024D00A22682 /* PostFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostFooterView.swift; sourceTree = "<group>"; };
 		9D4520B82B85062200A22682 /* RecomendationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomendationView.swift; sourceTree = "<group>"; };
 		9DC0B37C2B72AB990096CD39 /* UIKit_DZ.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UIKit_DZ.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DC0B37F2B72AB990096CD39 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 				9D009BC32B8376F800508245 /* Array+Extension.swift */,
 				9D009BCF2B83953900508245 /* AssetsImages.swift */,
 				9D009BD12B8395B800508245 /* UIImage+Extension.swift */,
+				9D3365102B862A750080AFC6 /* NSMutableAttributedString+Extension.swift */,
+				9D3365122B86334A0080AFC6 /* String+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -161,9 +167,9 @@
 			isa = PBXGroup;
 			children = (
 				9D009BDE2B83DD4700508245 /* PostCell.swift */,
-				9D009BE12B83DDE300508245 /* PostHeader.swift */,
-				9D009BE32B83E1C800508245 /* PostBody.swift */,
-				9D4520B42B84024D00A22682 /* PostTextAndFooter.swift */,
+				9D009BE12B83DDE300508245 /* PostHeaderView.swift */,
+				9D009BE32B83E1C800508245 /* PostBodyView.swift */,
+				9D4520B42B84024D00A22682 /* PostFooterView.swift */,
 			);
 			path = PostCell;
 			sourceTree = "<group>";
@@ -351,11 +357,12 @@
 				9D009BDA2B83DAA900508245 /* DataProvider.swift in Sources */,
 				9D009BBD2B83747100508245 /* UIFont+Extension.swift in Sources */,
 				9D009BC42B8376F800508245 /* Array+Extension.swift in Sources */,
-				9D009BE42B83E1C800508245 /* PostBody.swift in Sources */,
+				9D009BE42B83E1C800508245 /* PostBodyView.swift in Sources */,
 				9D009BB72B836AE800508245 /* NotificationsViewController.swift in Sources */,
 				9D33650D2B85CFAB0080AFC6 /* SubscriptionCell.swift in Sources */,
 				9D009BD62B83D92200508245 /* Post.swift in Sources */,
 				9D009BC02B83769300508245 /* UIView+Extension.swift in Sources */,
+				9D3365132B86334A0080AFC6 /* String+Extension.swift in Sources */,
 				9D009BDC2B83DC3D00508245 /* User.swift in Sources */,
 				9D009BD42B83992D00508245 /* CreateStoryView.swift in Sources */,
 				9D3364FF2B850ECC0080AFC6 /* Story.swift in Sources */,
@@ -364,14 +371,15 @@
 				9D3365032B8549D90080AFC6 /* NotionCell.swift in Sources */,
 				9D3365012B850EDD0080AFC6 /* Recomendation.swift in Sources */,
 				9D33650F2B85DC230080AFC6 /* HeaderView.swift in Sources */,
-				9D009BE22B83DDE300508245 /* PostHeader.swift in Sources */,
+				9D009BE22B83DDE300508245 /* PostHeaderView.swift in Sources */,
 				9DC0B3842B72AB990096CD39 /* RMLinkTabBarController.swift in Sources */,
-				9D4520B52B84024D00A22682 /* PostTextAndFooter.swift in Sources */,
+				9D4520B52B84024D00A22682 /* PostFooterView.swift in Sources */,
 				9D3364FD2B8507AC0080AFC6 /* RecomendationsCell.swift in Sources */,
 				9D3365082B8555C20080AFC6 /* Notion.swift in Sources */,
 				9DC0B3802B72AB990096CD39 /* AppDelegate.swift in Sources */,
 				9D009BDF2B83DD4700508245 /* PostCell.swift in Sources */,
 				9D3365062B854D580080AFC6 /* Notification.swift in Sources */,
+				9D3365112B862A750080AFC6 /* NSMutableAttributedString+Extension.swift in Sources */,
 				9D4520B92B85062200A22682 /* RecomendationView.swift in Sources */,
 				9D009BCB2B8391DB00508245 /* StoryView.swift in Sources */,
 				9D33650A2B8555E80080AFC6 /* Subscription.swift in Sources */,
@@ -528,8 +536,8 @@
 				INFOPLIST_FILE = UIKit_DZ/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -555,8 +563,8 @@
 				INFOPLIST_FILE = UIKit_DZ/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

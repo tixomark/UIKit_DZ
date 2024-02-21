@@ -32,7 +32,6 @@ final class FeedViewController: UIViewController {
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
-        tableView.contentInset.top = 7
         tableView.register(StoriesCell.self, forCellReuseIdentifier: StoriesCell.description())
         tableView.register(PostCell.self, forCellReuseIdentifier: PostCell.description())
         tableView.register(RecomendationsCell.self, forCellReuseIdentifier: RecomendationsCell.description())
@@ -41,7 +40,7 @@ final class FeedViewController: UIViewController {
 
     // MARK: - Private Properties
 
-    private var feedStructure: [FeedSectionType] = [
+    private var feedSections: [FeedSectionType] = [
         .stories, .feedItems(1), .recomendations, .feedItems(5)
     ]
     private var dataProvider: DataProvider!
@@ -96,11 +95,11 @@ final class FeedViewController: UIViewController {
 
 extension FeedViewController: UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        feedStructure.count
+        feedSections.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        switch feedStructure[section] {
+        switch feedSections[section] {
         case .stories, .recomendations:
             1
         case let .feedItems(amount):
@@ -109,7 +108,7 @@ extension FeedViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        switch feedStructure[indexPath.section] {
+        switch feedSections[indexPath.section] {
         case .stories:
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: StoriesCell.description(),
@@ -128,7 +127,7 @@ extension FeedViewController: UITableViewDataSource {
 
             let post = dataProvider.post(
                 forRow: indexPath.row,
-                sectionType: feedStructure[indexPath.section]
+                sectionType: feedSections[indexPath.section]
             )
             cell.configure(with: post)
             return cell
