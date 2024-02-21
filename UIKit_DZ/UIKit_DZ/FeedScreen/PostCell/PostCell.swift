@@ -3,6 +3,7 @@
 
 import UIKit
 
+/// Ячейка используемая для отображения данных о посте
 final class PostCell: UITableViewCell {
     // MARK: - Visual Components
 

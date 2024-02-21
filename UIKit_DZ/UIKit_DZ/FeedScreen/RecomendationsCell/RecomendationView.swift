@@ -21,7 +21,7 @@ final class RecomendationView: UIView {
         return view
     }()
 
-    private let label: UILabel = {
+    private let nicknameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .accent
         label.font = .verdana?.withSize(10)
@@ -63,18 +63,18 @@ final class RecomendationView: UIView {
 
     func configure(with recomendation: Recomendation) {
         imageView.image = UIImage(recomendation.user.profileImage)
-        label.text = recomendation.user.nickname
+        nicknameLabel.text = recomendation.user.nickname
     }
 
     // MARK: - Private Methods
 
     private func configureUI() {
         backgroundColor = .systemBackground
-        addSubviews(closeButton, imageView, label, subscribeButton)
+        addSubviews(closeButton, imageView, nicknameLabel, subscribeButton)
     }
 
     private func configureLayout() {
-        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: closeButton, imageView, label, subscribeButton)
+        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: closeButton, imageView, nicknameLabel, subscribeButton)
         [
             closeButton.topAnchor.constraint(equalTo: topAnchor, constant: 8.5),
             closeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8.5),
@@ -87,10 +87,10 @@ final class RecomendationView: UIView {
             imageView.heightAnchor.constraint(equalToConstant: 115),
             imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor),
 
-            label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5),
-            label.centerXAnchor.constraint(equalTo: centerXAnchor),
+            nicknameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5),
+            nicknameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
 
-            subscribeButton.topAnchor.constraint(equalTo: label.bottomAnchor, constant: 9),
+            subscribeButton.topAnchor.constraint(equalTo: nicknameLabel.bottomAnchor, constant: 9),
             subscribeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             subscribeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             subscribeButton.heightAnchor.constraint(equalToConstant: 30),

@@ -3,13 +3,13 @@
 
 import UIKit
 
-/// Нижняя часть ячейки поста
+/// Нижняя часть ячейки поста c комментариями и
 final class PostTextAndFooter: UIView {
     // MARK: - Constants
 
     private enum Constants {
         static let commentLabelText = "Комментировать ..."
-        static let lastSeenText = "10 минут назад"
+        static let editionTimeText = "10 минут назад"
     }
 
     // MARK: - Visual Components
@@ -41,12 +41,12 @@ final class PostTextAndFooter: UIView {
         return label
     }()
 
-    private let lastSeenLabel: UILabel = {
+    private let editionTimeLabel: UILabel = {
         let label = UILabel()
         label.textColor = .opaqueSeparator
         label.font = .verdana?.withSize(10)
         label.textAlignment = .left
-        label.text = Constants.lastSeenText
+        label.text = Constants.editionTimeText
         return label
     }()
 
@@ -66,15 +66,24 @@ final class PostTextAndFooter: UIView {
 
     // MARK: - Public Methods
 
-    func configure(nickName: String?, comment text: String?) {
-        postTextLabel.text = (nickName ?? "") + (text ?? "")
+    func configure(nickName: String, comment text: String) {
+        let nickFont = UIFont.verdanaBold?.withSize(10) ?? UIFont.systemFont(ofSize: 10)
+        let nickNameAttributes: [NSAttributedString.Key: Any] = [.font: nickFont, .foregroundColor: UIColor.accent]
+        let postText = NSMutableAttributedString(string: nickName, attributes: nickNameAttributes)
+
+        let commentFont = UIFont.verdana?.withSize(10) ?? UIFont.systemFont(ofSize: 10)
+        let commentAttributes: [NSAttributedString.Key: Any] = [.font: commentFont, .foregroundColor: UIColor.accent]
+        let commentText = NSAttributedString(string: text, attributes: commentAttributes)
+
+        postText.append(commentText)
+        postTextLabel.attributedText = postText
     }
 
     // MARK: - Private Methods
 
     private func configureUI() {
         backgroundColor = .systemBackground
-        addSubviews(postTextLabel, currentUserImageView, commentLabel, lastSeenLabel)
+        addSubviews(postTextLabel, currentUserImageView, commentLabel, editionTimeLabel)
     }
 
     private func configureLayout() {
@@ -82,7 +91,7 @@ final class PostTextAndFooter: UIView {
             for: postTextLabel,
             currentUserImageView,
             commentLabel,
-            lastSeenLabel
+            editionTimeLabel
         )
         [
             postTextLabel.topAnchor.constraint(equalTo: topAnchor),
@@ -98,10 +107,10 @@ final class PostTextAndFooter: UIView {
             commentLabel.centerYAnchor.constraint(equalTo: currentUserImageView.centerYAnchor),
             commentLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
 
-            lastSeenLabel.topAnchor.constraint(equalTo: currentUserImageView.bottomAnchor, constant: 4),
-            lastSeenLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
-            lastSeenLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
-            lastSeenLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
+            editionTimeLabel.topAnchor.constraint(equalTo: currentUserImageView.bottomAnchor, constant: 4),
+            editionTimeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            editionTimeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
+            editionTimeLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
         ].activate()
     }
 }

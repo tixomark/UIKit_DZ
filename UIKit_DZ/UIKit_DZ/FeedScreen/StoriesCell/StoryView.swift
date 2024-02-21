@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Иконка пользователя с подписью снизу
+/// Вью с изображением и подписью под ним
 class StoryView: UIView {
     // MARK: - Visual Components
 
@@ -15,7 +15,7 @@ class StoryView: UIView {
         return view
     }()
 
-    private(set) var label: UILabel = {
+    private(set) var nicknameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .accent
         label.font = .verdana?.withSize(8)
@@ -41,17 +41,17 @@ class StoryView: UIView {
 
     func configure(with story: Story) {
         imageView.image = UIImage(story.user.profileImage)
-        label.text = story.user.nickname
+        nicknameLabel.text = story.user.nickname
     }
 
     // MARK: - Private Methods
 
     private func configureUI() {
-        addSubviews(imageView, label)
+        addSubviews(imageView, nicknameLabel)
     }
 
     private func configureLayout() {
-        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: imageView, label)
+        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: imageView, nicknameLabel)
         [
             imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 7),
@@ -59,9 +59,9 @@ class StoryView: UIView {
             imageView.heightAnchor.constraint(equalToConstant: 60),
             imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor),
 
-            label.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5),
-            label.bottomAnchor.constraint(equalTo: bottomAnchor),
-            label.centerXAnchor.constraint(equalTo: centerXAnchor)
+            nicknameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5),
+            nicknameLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
+            nicknameLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ].activate()
     }
 }

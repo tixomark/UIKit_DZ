@@ -23,12 +23,14 @@ final class RMLinkTabBarController: UITabBarController {
     // MARK: - Private Methods
 
     private func configure() {
+        let dataProvider = DataProvider()
         let controllers: [UIViewController] = [
-            FeedViewController(),
-            NotificationsViewController(),
+            FeedViewController(dataProvider: dataProvider),
+            NotificationsViewController(dataProvider: dataProvider),
             UserProfileViewController()
         ]
-        setViewControllers(controllers, animated: false)
+        let embededControllers = controllers.map { UINavigationController(rootViewController: $0) }
+        setViewControllers(embededControllers, animated: false)
 
         tabBar.unselectedItemTintColor = .accent
         tabBar.backgroundColor = .systemBackground

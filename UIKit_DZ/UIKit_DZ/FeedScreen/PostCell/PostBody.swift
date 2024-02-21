@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Основная часть ячейки поста
+/// Основная часть ячейки поста c изображениями, функциональными элементами и счетчиком лайков
 final class PostBody: UIView {
     // MARK: - Constants
 
@@ -72,7 +72,7 @@ final class PostBody: UIView {
 
     // MARK: - Private Properties
 
-    private var imageScrollViewImageViews: [UIImageView] = []
+    private var imageScrollImageViews: [UIImageView] = []
 
     // MARK: - Life Cycle
 
@@ -93,10 +93,9 @@ final class PostBody: UIView {
     func configure(images: [AssetImageName], numberOfLikes amount: Int = 0) {
         numberOfLikesLabel.text = Constants.amountOfLikesText + "\(amount)"
 
-        guard images.count != imageScrollViewImageViews.count else { return }
+        guard images.count != imageScrollImageViews.count else { return }
         configureImageScroll(with: images)
         configureImageScrollLayout()
-        print("conf")
     }
 
     // MARK: - Private Methods
@@ -138,32 +137,33 @@ final class PostBody: UIView {
     }
 
     private func configureImageScroll(with images: [AssetImageName]) {
-        imageScrollViewImageViews.forEach { $0.removeFromSuperview() }
-        imageScrollViewImageViews = []
+        imageScrollImageViews.forEach { $0.removeFromSuperview() }
+        imageScrollImageViews = []
 
         for name in images {
             let image = UIImage(name)
             let imageView = UIImageView(image: image)
             imageView.contentMode = .scaleAspectFill
-            imageScrollViewImageViews.append(imageView)
+            imageScrollImageViews.append(imageView)
         }
-        imageScrollView.addSubviews(imageScrollViewImageViews)
+        imageScrollView.addSubviews(imageScrollImageViews)
+        imageScrollView.isPagingEnabled = !images.isEmpty
 
-        imageScrollPageControl.numberOfPages = imageScrollViewImageViews.count
+        imageScrollPageControl.numberOfPages = imageScrollImageViews.count
     }
 
     private func configureImageScrollLayout() {
-        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: imageScrollViewImageViews)
+        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: imageScrollImageViews)
 
-        for (index, imageView) in imageScrollViewImageViews.enumerated() {
+        for (index, imageView) in imageScrollImageViews.enumerated() {
             switch index {
             case 0:
                 imageView.leadingAnchor.constraint(equalTo: imageScrollView.leadingAnchor).activate()
-            case imageScrollViewImageViews.count - 1:
+            case imageScrollImageViews.count - 1:
                 imageView.trailingAnchor.constraint(equalTo: imageScrollView.trailingAnchor).activate()
                 fallthrough
             default:
-                let previousimageView = imageScrollViewImageViews[index - 1]
+                let previousimageView = imageScrollImageViews[index - 1]
                 imageView.leadingAnchor.constraint(equalTo: previousimageView.trailingAnchor).activate()
             }
             [

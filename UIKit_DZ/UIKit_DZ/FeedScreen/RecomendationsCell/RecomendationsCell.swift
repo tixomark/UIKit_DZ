@@ -16,7 +16,7 @@ final class RecomendationsCell: UITableViewCell {
 
     private let titleLabel: UILabel = {
         let label = UILabel()
-        label.textColor = .accent
+        label.textColor = .black
         label.textAlignment = .left
         label.font = .verdanaBold?.withSize(10)
         label.text = Constants.titleText
@@ -34,8 +34,8 @@ final class RecomendationsCell: UITableViewCell {
 
     private let scrollView: UIScrollView = {
         let scroll = UIScrollView()
-        let contentInset = UIEdgeInsets(top: 0, left: 17, bottom: 0, right: 17)
-        scroll.contentInset = contentInset
+        scroll.contentInset.left = 17
+        scroll.contentInset.right = 17
         scroll.showsHorizontalScrollIndicator = false
         scroll.showsVerticalScrollIndicator = false
         scroll.backgroundColor = .clear
@@ -69,6 +69,7 @@ final class RecomendationsCell: UITableViewCell {
 
     func configure(with recomendations: [Recomendation]) {
         guard recomendations.count != recomendationViews.count else { return }
+
         for index in 0 ..< recomendations.count {
             let recomendationCell = RecomendationView()
             recomendationCell.configure(with: recomendations[index])

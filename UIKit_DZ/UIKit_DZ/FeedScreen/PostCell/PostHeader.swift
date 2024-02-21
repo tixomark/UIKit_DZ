@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Верхняя часть ячейки поста
+/// Хедер ячейки поста с информацией о владельце данного поста
 final class PostHeader: UIView {
     // MARK: - Visual Components
 
@@ -15,7 +15,7 @@ final class PostHeader: UIView {
         return view
     }()
 
-    private let nicknameLable: UILabel = {
+    private let nicknameLabel: UILabel = {
         let label = UILabel()
         label.textColor = .accent
         label.font = .verdanaBold?.withSize(12)
@@ -48,18 +48,18 @@ final class PostHeader: UIView {
 
     func configure(with user: User) {
         userIconImageView.image = UIImage(user.profileImage)
-        nicknameLable.text = user.nickname
+        nicknameLabel.text = user.nickname
     }
 
     // MARK: - Private Methods
 
     private func configureUI() {
         backgroundColor = .systemBackground
-        addSubviews(userIconImageView, nicknameLable, moreImageView)
+        addSubviews(userIconImageView, nicknameLabel, moreImageView)
     }
 
     private func configureLayout() {
-        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: userIconImageView, nicknameLable, moreImageView)
+        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: userIconImageView, nicknameLabel, moreImageView)
         [
             userIconImageView.topAnchor.constraint(equalTo: topAnchor),
             userIconImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
@@ -67,13 +67,12 @@ final class PostHeader: UIView {
             userIconImageView.heightAnchor.constraint(equalToConstant: 30),
             userIconImageView.widthAnchor.constraint(equalTo: userIconImageView.heightAnchor),
 
-            nicknameLable.leadingAnchor.constraint(equalTo: userIconImageView.trailingAnchor, constant: 8),
-            nicknameLable.centerYAnchor.constraint(equalTo: centerYAnchor),
+            nicknameLabel.leadingAnchor.constraint(equalTo: userIconImageView.trailingAnchor, constant: 8),
+            nicknameLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
 
-            moreImageView.leadingAnchor.constraint(equalTo: nicknameLable.trailingAnchor, constant: 10),
+            moreImageView.leadingAnchor.constraint(equalTo: nicknameLabel.trailingAnchor, constant: 10),
             moreImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
             moreImageView.centerYAnchor.constraint(equalTo: centerYAnchor),
-
         ].activate()
     }
 }

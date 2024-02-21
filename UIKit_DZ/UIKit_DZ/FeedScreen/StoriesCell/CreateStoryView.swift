@@ -3,7 +3,7 @@
 
 import UIKit
 
-/// Самая первая ячейка по назаию на которую можно создать свою историю
+/// Наследник от StoryView с дополнительной иконкой плюса в правом нижнем углу
 final class CreateStoryView: StoryView {
     private enum Constants {
         static let plusImage: UIImage = .plusIcon.withTintColor(.systemBackground)
@@ -36,7 +36,7 @@ final class CreateStoryView: StoryView {
     // MARK: - Private Methods
 
     private func configureUI() {
-        label.textColor = .opaqueSeparator
+        nicknameLabel.textColor = .opaqueSeparator
         addSubviews(addImageView)
     }
 
@@ -46,7 +46,6 @@ final class CreateStoryView: StoryView {
             addImageView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
             addImageView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor),
             addImageView.heightAnchor.constraint(equalToConstant: 20),
-
             addImageView.widthAnchor.constraint(equalTo: addImageView.heightAnchor),
         ].activate()
     }

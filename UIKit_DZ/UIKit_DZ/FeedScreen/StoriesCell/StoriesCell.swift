@@ -9,8 +9,8 @@ final class StoriesCell: UITableViewCell {
 
     private var scrollView: UIScrollView = {
         let scroll = UIScrollView()
-        let contentInset = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
-        scroll.contentInset = contentInset
+        scroll.contentInset.left = 12
+        scroll.contentInset.right = 12
         scroll.showsHorizontalScrollIndicator = false
         scroll.showsVerticalScrollIndicator = false
         scroll.backgroundColor = .systemBackground

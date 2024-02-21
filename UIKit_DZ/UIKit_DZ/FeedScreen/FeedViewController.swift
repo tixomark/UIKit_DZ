@@ -7,9 +7,13 @@ import UIKit
 final class FeedViewController: UIViewController {
     // MARK: - Types
 
-    private enum FeedSectionType {
+    /// Тип секции в ленте
+    enum FeedSectionType {
+        /// Секция истории
         case stories
+        /// Секция постов с указанием количества
         case feedItems(_ amount: Int)
+        /// Секция рекомендаций
         case recomendations
     }
 
@@ -28,22 +32,26 @@ final class FeedViewController: UIViewController {
         tableView.estimatedRowHeight = UITableView.automaticDimension
         tableView.allowsSelection = false
         tableView.separatorStyle = .none
+        tableView.contentInset.top = 7
         tableView.register(StoriesCell.self, forCellReuseIdentifier: StoriesCell.description())
         tableView.register(PostCell.self, forCellReuseIdentifier: PostCell.description())
         tableView.register(RecomendationsCell.self, forCellReuseIdentifier: RecomendationsCell.description())
         return tableView
     }()
 
-    private let navigationBar = UINavigationBar()
-
     // MARK: - Private Properties
 
     private var feedStructure: [FeedSectionType] = [
         .stories, .feedItems(1), .recomendations, .feedItems(5)
     ]
-    private var dataStore = DataStore()
+    private var dataProvider: DataProvider!
 
     // MARK: - Life Cycle
+
+    convenience init(dataProvider: DataProvider) {
+        self.init()
+        self.dataProvider = dataProvider
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,18 +63,14 @@ final class FeedViewController: UIViewController {
 
     private func configureUI() {
         view.backgroundColor = .systemBackground
-        configureNavigationBar()
         view.addSubview(feedTableView)
+        configureNavigationBar()
     }
 
     private func configureLayout() {
         UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: view.subviews)
         [
-            navigationBar.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            navigationBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            navigationBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-
-            feedTableView.topAnchor.constraint(equalTo: navigationBar.bottomAnchor),
+            feedTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             feedTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             feedTableView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             feedTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
@@ -79,19 +83,14 @@ final class FeedViewController: UIViewController {
         label.font = .dancingScriptBold?.withSize(22)
         label.textColor = .accent
         let leftItem = UIBarButtonItem(customView: label)
+        navigationItem.leftBarButtonItem = leftItem
 
         let imageView = UIImageView(image: .signalMessageIcon.withTintColor(.accent))
         let rightItem = UIBarButtonItem(customView: imageView)
-
-        let navigationItem = UINavigationItem()
-        navigationItem.leftBarButtonItem = leftItem
         navigationItem.rightBarButtonItem = rightItem
 
-        navigationBar.items = [navigationItem]
-        navigationBar.isTranslucent = false
-        navigationBar.barTintColor = .systemBackground
-        navigationBar.setValue(true, forKey: "hidesShadow")
-        view.addSubview(navigationBar)
+        navigationController?.navigationBar.backgroundColor = .systemBackground
+        navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
 }
 
@@ -118,7 +117,7 @@ extension FeedViewController: UITableViewDataSource {
             ) as? StoriesCell
             else { return UITableViewCell() }
 
-            cell.configure(with: dataStore.stories)
+            cell.configure(with: dataProvider.stories)
             return cell
         case .feedItems:
             guard let cell = tableView.dequeueReusableCell(
@@ -127,7 +126,11 @@ extension FeedViewController: UITableViewDataSource {
             ) as? PostCell
             else { return UITableViewCell() }
 
-            cell.configure(with: dataStore.posts[indexPath.row])
+            let post = dataProvider.post(
+                forRow: indexPath.row,
+                sectionType: feedStructure[indexPath.section]
+            )
+            cell.configure(with: post)
             return cell
         case .recomendations:
             guard let cell = tableView.dequeueReusableCell(
@@ -136,7 +139,7 @@ extension FeedViewController: UITableViewDataSource {
             ) as? RecomendationsCell
             else { return UITableViewCell() }
 
-            cell.configure(with: dataStore.recomendations)
+            cell.configure(with: dataProvider.recomendations)
             return cell
         }
     }
@@ -144,12 +147,6 @@ extension FeedViewController: UITableViewDataSource {
 
 extension FeedViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-//        switch feedStructure[indexPath.section] {
-//        case .stories, .recomendations:
-//            75
-//        case let .feedItems(amount):
-//            400
-//        }
         UITableView.automaticDimension
     }
 }
