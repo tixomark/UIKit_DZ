@@ -66,16 +66,15 @@ final class PostFooterView: UIView {
 
     // MARK: - Public Methods
 
-    func configure(nickName: String, comment text: String) {
-        let nickFont = UIFont.verdanaBold?.withSize(10) ?? UIFont.systemFont(ofSize: 10)
-        let nickNameAttributes: [NSAttributedString.Key: Any] = [.font: nickFont, .foregroundColor: UIColor.accent]
-        let postText = NSMutableAttributedString(string: nickName, attributes: nickNameAttributes)
-
-        let commentFont = UIFont.verdana?.withSize(10) ?? UIFont.systemFont(ofSize: 10)
-        let commentAttributes: [NSAttributedString.Key: Any] = [.font: commentFont, .foregroundColor: UIColor.accent]
-        let commentText = NSAttributedString(string: text, attributes: commentAttributes)
-
-        postText.append(commentText)
+    func configure(nickname: String, comment text: String) {
+        let postText = nickname.attributed()
+            .withColor(.accent)
+            .withFont(.verdanaBold?.withSize(10))
+        postText.append(
+            text.attributed()
+                .withColor(.accent)
+                .withFont(.verdana?.withSize(10))
+        )
         postTextLabel.attributedText = postText
     }
 
@@ -87,26 +86,40 @@ final class PostFooterView: UIView {
     }
 
     private func configureLayout() {
-        UIView.doNotTranslateAoturesizingMaskIntoConstrains(
-            for: postTextLabel,
-            currentUserImageView,
-            commentLabel,
-            editionTimeLabel
-        )
+        UIView.doNotTAMIC(for: postTextLabel, currentUserImageView, commentLabel, editionTimeLabel)
+        configurePostTextLabelLayout()
+        configureCurrentUserImageViewLayout()
+        configureCommentLabelLayout()
+        configureEditionTimeLabelLayout()
+    }
+
+    private func configurePostTextLabelLayout() {
         [
             postTextLabel.topAnchor.constraint(equalTo: topAnchor),
             postTextLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
             postTextLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
+        ].activate()
+    }
 
+    private func configureCurrentUserImageViewLayout() {
+        [
             currentUserImageView.topAnchor.constraint(equalTo: postTextLabel.bottomAnchor, constant: 4),
             currentUserImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
             currentUserImageView.heightAnchor.constraint(equalToConstant: 20),
             currentUserImageView.widthAnchor.constraint(equalTo: currentUserImageView.heightAnchor),
+        ].activate()
+    }
 
+    private func configureCommentLabelLayout() {
+        [
             commentLabel.leadingAnchor.constraint(equalTo: currentUserImageView.trailingAnchor, constant: 3),
             commentLabel.centerYAnchor.constraint(equalTo: currentUserImageView.centerYAnchor),
             commentLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
+        ].activate()
+    }
 
+    private func configureEditionTimeLabelLayout() {
+        [
             editionTimeLabel.topAnchor.constraint(equalTo: currentUserImageView.bottomAnchor, constant: 4),
             editionTimeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
             editionTimeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),

@@ -106,59 +106,96 @@ final class PostBodyView: UIView {
         addSubviews(shareImageView, imageScrollPageControl, bookMarkImageView, numberOfLikesLabel)
     }
 
-    private func configureLayout() {
-        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: subviews)
-        [
-            imageScrollView.topAnchor.constraint(equalTo: topAnchor),
-            imageScrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            imageScrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            imageScrollView.widthAnchor.constraint(equalTo: widthAnchor),
-            imageScrollView.heightAnchor.constraint(equalTo: imageScrollView.widthAnchor, multiplier: 0.64),
-
-            likeImageView.topAnchor.constraint(equalTo: imageScrollView.bottomAnchor, constant: 8),
-            likeImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-
-            commentImageView.topAnchor.constraint(equalTo: imageScrollView.bottomAnchor, constant: 8),
-            commentImageView.leadingAnchor.constraint(equalTo: likeImageView.trailingAnchor, constant: 8),
-
-            shareImageView.topAnchor.constraint(equalTo: imageScrollView.bottomAnchor, constant: 8),
-            shareImageView.leadingAnchor.constraint(equalTo: commentImageView.trailingAnchor, constant: 8),
-
-            imageScrollPageControl.centerYAnchor.constraint(equalTo: shareImageView.centerYAnchor),
-            imageScrollPageControl.centerXAnchor.constraint(equalTo: centerXAnchor),
-
-            bookMarkImageView.topAnchor.constraint(equalTo: imageScrollView.bottomAnchor, constant: 8),
-            bookMarkImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-
-            numberOfLikesLabel.topAnchor.constraint(equalTo: likeImageView.bottomAnchor, constant: 10),
-            numberOfLikesLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
-            numberOfLikesLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
-        ].activate()
-    }
-
-    private func configureImageScroll(with images: [AssetImageName]) {
+    private func configureImageScroll(with imageNames: [AssetImageName]) {
         imageScrollImageViews.forEach { $0.removeFromSuperview() }
         imageScrollImageViews = []
 
-        for name in images {
+        for name in imageNames {
             let image = UIImage(name)
             let imageView = UIImageView(image: image)
             imageView.contentMode = .scaleAspectFill
             imageScrollImageViews.append(imageView)
         }
         imageScrollView.addSubviews(imageScrollImageViews)
-        imageScrollView.isPagingEnabled = !images.isEmpty
+        imageScrollView.isPagingEnabled = !imageNames.isEmpty
 
         imageScrollPageControl.numberOfPages = imageScrollImageViews.count
     }
 
+    private func configureLayout() {
+        UIView.doNotTAMIC(for: subviews)
+        configureImageScrollViewLayout()
+        configureLikeImageViewLayout()
+        configureCommentImageViewLayout()
+        configureShareImageViewLayout()
+        configureImageScrollPageControlLayout()
+        configureBookMarkImageViewLayout()
+        configureNumberOfLikesLabelLayout()
+    }
+
+    private func configureImageScrollViewLayout() {
+        [
+            imageScrollView.topAnchor.constraint(equalTo: topAnchor),
+            imageScrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageScrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            imageScrollView.widthAnchor.constraint(equalTo: widthAnchor),
+            imageScrollView.heightAnchor.constraint(equalTo: imageScrollView.widthAnchor, multiplier: 0.64)
+        ].activate()
+    }
+
+    private func configureLikeImageViewLayout() {
+        [
+            likeImageView.topAnchor.constraint(equalTo: imageScrollView.bottomAnchor, constant: 8),
+            likeImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10)
+        ].activate()
+    }
+
+    private func configureCommentImageViewLayout() {
+        [
+            commentImageView.topAnchor.constraint(equalTo: imageScrollView.bottomAnchor, constant: 8),
+            commentImageView.leadingAnchor.constraint(equalTo: likeImageView.trailingAnchor, constant: 8)
+        ].activate()
+    }
+
+    private func configureShareImageViewLayout() {
+        [
+            shareImageView.topAnchor.constraint(equalTo: imageScrollView.bottomAnchor, constant: 8),
+            shareImageView.leadingAnchor.constraint(equalTo: commentImageView.trailingAnchor, constant: 8)
+        ].activate()
+    }
+
+    private func configureImageScrollPageControlLayout() {
+        [
+            imageScrollPageControl.centerYAnchor.constraint(equalTo: shareImageView.centerYAnchor),
+            imageScrollPageControl.centerXAnchor.constraint(equalTo: centerXAnchor)
+        ].activate()
+    }
+
+    private func configureBookMarkImageViewLayout() {
+        [
+            bookMarkImageView.topAnchor.constraint(equalTo: imageScrollView.bottomAnchor, constant: 8),
+            bookMarkImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10)
+        ].activate()
+    }
+
+    private func configureNumberOfLikesLabelLayout() {
+        [
+            numberOfLikesLabel.topAnchor.constraint(equalTo: likeImageView.bottomAnchor, constant: 10),
+            numberOfLikesLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
+            numberOfLikesLabel.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ].activate()
+    }
+
     private func configureImageScrollLayout() {
-        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: imageScrollImageViews)
+        UIView.doNotTAMIC(for: imageScrollImageViews)
 
         for (index, imageView) in imageScrollImageViews.enumerated() {
             switch index {
             case 0:
                 imageView.leadingAnchor.constraint(equalTo: imageScrollView.leadingAnchor).activate()
+                if imageScrollImageViews.count == 1 {
+                    imageView.trailingAnchor.constraint(equalTo: imageScrollView.trailingAnchor).activate()
+                }
             case imageScrollImageViews.count - 1:
                 imageView.trailingAnchor.constraint(equalTo: imageScrollView.trailingAnchor).activate()
                 fallthrough

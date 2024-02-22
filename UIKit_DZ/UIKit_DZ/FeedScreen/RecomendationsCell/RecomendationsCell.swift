@@ -81,14 +81,28 @@ final class RecomendationsCell: UITableViewCell {
     }
 
     private func configureLayout() {
-        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: titleLabel, allLabel, scrollView)
+        UIView.doNotTAMIC(for: titleLabel, allLabel, scrollView)
+        configureTitleLabelLayout()
+        configureAllLabelLayout()
+        configureScrollViewLayout()
+    }
+
+    private func configureTitleLabelLayout() {
         [
             titleLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 9),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
+        ].activate()
+    }
 
+    private func configureAllLabelLayout() {
+        [
             allLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 9),
             allLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
+        ].activate()
+    }
 
+    private func configureScrollViewLayout() {
+        [
             scrollView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 21),
             scrollView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
@@ -97,7 +111,7 @@ final class RecomendationsCell: UITableViewCell {
     }
 
     private func configureCellsLayout() {
-        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: recomendationViews)
+        UIView.doNotTAMIC(for: recomendationViews)
         for (index, cell) in recomendationViews.enumerated() {
             switch index {
             case 0:

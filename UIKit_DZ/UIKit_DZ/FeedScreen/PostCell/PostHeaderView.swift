@@ -59,17 +59,31 @@ final class PostHeaderView: UIView {
     }
 
     private func configureLayout() {
-        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: userIconImageView, nicknameLabel, moreImageView)
+        UIView.doNotTAMIC(for: userIconImageView, nicknameLabel, moreImageView)
+        configureUserIconImageViewLayout()
+        configureNicknameLabelLayout()
+        configureMoreImageViewLayout()
+    }
+
+    private func configureUserIconImageViewLayout() {
         [
             userIconImageView.topAnchor.constraint(equalTo: topAnchor),
             userIconImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 12),
             userIconImageView.bottomAnchor.constraint(equalTo: bottomAnchor),
             userIconImageView.heightAnchor.constraint(equalToConstant: 30),
-            userIconImageView.widthAnchor.constraint(equalTo: userIconImageView.heightAnchor),
+            userIconImageView.widthAnchor.constraint(equalTo: userIconImageView.heightAnchor)
+        ].activate()
+    }
 
+    private func configureNicknameLabelLayout() {
+        [
             nicknameLabel.leadingAnchor.constraint(equalTo: userIconImageView.trailingAnchor, constant: 8),
-            nicknameLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
+            nicknameLabel.centerYAnchor.constraint(equalTo: centerYAnchor)
+        ].activate()
+    }
 
+    private func configureMoreImageViewLayout() {
+        [
             moreImageView.leadingAnchor.constraint(equalTo: nicknameLabel.trailingAnchor, constant: 10),
             moreImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
             moreImageView.centerYAnchor.constraint(equalTo: centerYAnchor),

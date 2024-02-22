@@ -51,14 +51,23 @@ class StoryView: UIView {
     }
 
     private func configureLayout() {
-        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: imageView, nicknameLabel)
+        UIView.doNotTAMIC(for: imageView, nicknameLabel)
+        configureImageViewLayout()
+        configureNicknameLabelLayout()
+    }
+
+    private func configureImageViewLayout() {
         [
             imageView.topAnchor.constraint(equalTo: topAnchor),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 7),
             imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -7),
             imageView.heightAnchor.constraint(equalToConstant: 60),
-            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor),
+            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor)
+        ].activate()
+    }
 
+    private func configureNicknameLabelLayout() {
+        [
             nicknameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5),
             nicknameLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             nicknameLabel.centerXAnchor.constraint(equalTo: centerXAnchor)

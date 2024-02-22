@@ -41,7 +41,11 @@ final class CreateStoryView: StoryView {
     }
 
     private func configureLayout() {
-        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: addImageView)
+        UIView.doNotTAMIC(for: addImageView)
+        configureAddImageViewLayout()
+    }
+
+    private func configureAddImageViewLayout() {
         [
             addImageView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
             addImageView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor),

@@ -5,12 +5,14 @@ import UIKit
 
 /// Расширение позволяющее добавлять несколько дочерних вью за раз
 extension UIView {
-    /// Добавляет несколько сабвюь
+    /// Добавляет несколько сабвюь на текущий экземпляр вью
+    /// - Parameter views: Вью которые надо добавить на текущее вью
     func addSubviews(_ views: UIView...) {
         views.forEach { self.addSubview($0) }
     }
 
-    /// Перегрузка предыдущего метода если вдруг все вью уже лежат в массиве
+    /// Добавляет несколько сабвюь на текущий экземпляр вью
+    /// - Parameter views: Вью которые надо добавить на текущее вью
     func addSubviews(_ views: [UIView]) {
         views.forEach { self.addSubview($0) }
     }
@@ -19,12 +21,14 @@ extension UIView {
 /// Расширение позволяющее переключать translatesAutoresizingMaskIntoConstraints сразу у нескольких view.
 extension UIView {
     /// Устанавливает translatesAutoresizingMaskIntoConstraints в false для переданных вью
-    static func doNotTranslateAoturesizingMaskIntoConstrains(for views: UIView...) {
+    /// - Parameter views: Вью которые для которых надо установить translatesAutoresizingMaskIntoConstraints в false
+    static func doNotTAMIC(for views: UIView...) {
         views.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
     }
 
-    /// Устанавливает translatesAutoresizingMaskIntoConstraints в false для массива переданных вью
-    static func doNotTranslateAoturesizingMaskIntoConstrains(for views: [UIView]) {
+    /// Устанавливает translatesAutoresizingMaskIntoConstraints в false для переданных вью
+    /// - Parameter views: Вью которые для которых надо установить translatesAutoresizingMaskIntoConstraints в false
+    static func doNotTAMIC(for views: [UIView]) {
         views.forEach { $0.translatesAutoresizingMaskIntoConstraints = false }
     }
 }

@@ -71,7 +71,7 @@ final class NotificationsViewController: UIViewController {
     }
 
     private func configureLayout() {
-        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: notificationTableView)
+        UIView.doNotTAMIC(for: notificationTableView)
         [
             notificationTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             notificationTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),

@@ -74,27 +74,41 @@ final class RecomendationView: UIView {
     }
 
     private func configureLayout() {
-        UIView.doNotTranslateAoturesizingMaskIntoConstrains(
-            for: closeButton,
-            userIconImageView,
-            nicknameLabel,
-            subscribeButton
-        )
+        UIView.doNotTAMIC(for: closeButton, userIconImageView, nicknameLabel, subscribeButton)
+        configureCloseButtonLayout()
+        configureUserIconImageViewLayout()
+        configureNicknameLabelLayout()
+        configureSubscribeButtonLayout()
+    }
+
+    private func configureCloseButtonLayout() {
         [
             closeButton.topAnchor.constraint(equalTo: topAnchor, constant: 8.5),
             closeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8.5),
             closeButton.heightAnchor.constraint(equalToConstant: 7),
             closeButton.widthAnchor.constraint(equalTo: closeButton.heightAnchor),
+        ].activate()
+    }
 
+    private func configureUserIconImageViewLayout() {
+        [
             userIconImageView.topAnchor.constraint(equalTo: topAnchor, constant: 15),
             userIconImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 35),
             userIconImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -35),
             userIconImageView.heightAnchor.constraint(equalToConstant: 115),
             userIconImageView.widthAnchor.constraint(equalTo: userIconImageView.heightAnchor),
+        ].activate()
+    }
 
+    private func configureNicknameLabelLayout() {
+        [
             nicknameLabel.topAnchor.constraint(equalTo: userIconImageView.bottomAnchor, constant: 5),
             nicknameLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+        ].activate()
+    }
 
+    private func configureSubscribeButtonLayout() {
+        [
             subscribeButton.topAnchor.constraint(equalTo: nicknameLabel.bottomAnchor, constant: 9),
             subscribeButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             subscribeButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),

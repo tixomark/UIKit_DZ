@@ -65,7 +65,7 @@ final class StoriesCell: UITableViewCell {
     }
 
     private func configureScrollViewLayout() {
-        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: scrollView)
+        UIView.doNotTAMIC(for: scrollView)
         [
             scrollView.topAnchor.constraint(equalTo: contentView.topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
@@ -75,7 +75,7 @@ final class StoriesCell: UITableViewCell {
     }
 
     private func configureCellsLayout() {
-        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: storyViews)
+        UIView.doNotTAMIC(for: storyViews)
         for (index, cell) in storyViews.enumerated() {
             switch index {
             case 0:

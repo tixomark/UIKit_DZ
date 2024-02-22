@@ -67,7 +67,7 @@ final class FeedViewController: UIViewController {
     }
 
     private func configureLayout() {
-        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: view.subviews)
+        UIView.doNotTAMIC(for: view.subviews)
         [
             feedTableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             feedTableView.leadingAnchor.constraint(equalTo: view.leadingAnchor),

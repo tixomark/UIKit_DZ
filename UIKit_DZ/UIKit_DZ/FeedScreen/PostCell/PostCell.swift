@@ -30,7 +30,7 @@ final class PostCell: UITableViewCell {
     func configure(with post: Post) {
         postHeaderView.configure(with: post.user)
         postBodyView.configure(images: post.images, numberOfLikes: post.numberOflikes)
-        postFooterView.configure(nickName: post.user.nickname, comment: post.text)
+        postFooterView.configure(nickname: post.user.nickname, comment: post.text)
     }
 
     // MARK: - Private Methods
@@ -40,16 +40,30 @@ final class PostCell: UITableViewCell {
     }
 
     private func configureLayout() {
-        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: postHeaderView, postBodyView, postFooterView)
+        UIView.doNotTAMIC(for: postHeaderView, postBodyView, postFooterView)
+        configurePostHeaderViewLayout()
+        configurePostBodyViewLayout()
+        configurePostFooterViewLayout()
+    }
+
+    private func configurePostHeaderViewLayout() {
         [
             postHeaderView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 20),
             postHeaderView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            postHeaderView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            postHeaderView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+        ].activate()
+    }
 
+    private func configurePostBodyViewLayout() {
+        [
             postBodyView.topAnchor.constraint(equalTo: postHeaderView.bottomAnchor, constant: 10),
             postBodyView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            postBodyView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            postBodyView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor)
+        ].activate()
+    }
 
+    private func configurePostFooterViewLayout() {
+        [
             postFooterView.topAnchor.constraint(equalTo: postBodyView.bottomAnchor, constant: 6),
             postFooterView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             postFooterView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),

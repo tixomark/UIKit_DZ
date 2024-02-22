@@ -76,19 +76,33 @@ final class NotionCell: UITableViewCell {
     }
 
     private func configureLayout() {
-        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: userImageView, infoLabel, detailImageView)
+        UIView.doNotTAMIC(for: userImageView, infoLabel, detailImageView)
+        configureUserImageViewLayout()
+        configureInfoLabelLayout()
+        configureDetailImageViewLayout()
+    }
+
+    private func configureUserImageViewLayout() {
         [
-            userImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            userImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             userImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
             userImageView.widthAnchor.constraint(equalToConstant: 40),
             userImageView.heightAnchor.constraint(equalTo: userImageView.widthAnchor),
-            userImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -10),
+            userImageView.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -5),
+        ].activate()
+    }
 
-            infoLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+    private func configureInfoLabelLayout() {
+        [
+            infoLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             infoLabel.leadingAnchor.constraint(equalTo: userImageView.trailingAnchor, constant: 7),
-            infoLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -10),
+            infoLabel.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -5),
+        ].activate()
+    }
 
-            detailImageView.topAnchor.constraint(equalTo: contentView.topAnchor),
+    private func configureDetailImageViewLayout() {
+        [
+            detailImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5),
             detailImageView.leadingAnchor.constraint(greaterThanOrEqualTo: infoLabel.trailingAnchor, constant: 10),
             detailImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -12),
             detailImageView.heightAnchor.constraint(equalToConstant: 40),

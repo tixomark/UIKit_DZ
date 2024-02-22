@@ -42,12 +42,12 @@ final class HeaderView: UITableViewHeaderFooterView {
     }
 
     private func configureLayout() {
-        UIView.doNotTranslateAoturesizingMaskIntoConstrains(for: headerLabel)
+        UIView.doNotTAMIC(for: headerLabel)
         [
-            headerLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            headerLabel.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             headerLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 12),
             headerLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            headerLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -18)
+            headerLabel.heightAnchor.constraint(equalToConstant: 17)
         ].activate()
     }
 }
