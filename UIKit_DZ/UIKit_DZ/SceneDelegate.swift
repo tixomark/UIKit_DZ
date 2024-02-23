@@ -11,14 +11,11 @@ final class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         willConnectTo session: UISceneSession,
         options connectionOptions: UIScene.ConnectionOptions
     ) {
-        createWindow(using: scene)
+        createWindow(with: scene)
     }
 
-    // MARK: - Private Methods
-
-    private func createWindow(using scene: UIScene) {
+    private func createWindow(with scene: UIScene) {
         guard let scene = (scene as? UIWindowScene) else { return }
-
         window = UIWindow(windowScene: scene)
         window?.rootViewController = RMLinkTabBarController()
         window?.makeKeyAndVisible()

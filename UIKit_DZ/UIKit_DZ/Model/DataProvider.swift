@@ -14,6 +14,40 @@ final class DataProvider {
         static let subscriptionText = " подписался(-ась) на ваши новости "
     }
 
+    // MARK: - Private Properties
+
+    /// Текущий авторизированный пользователь приложения
+    var currentUser = CurrentUser(
+        nickname: "mary_rmLink",
+        username: "Мария Иванова",
+        publicationsAmount: 67,
+        subscribersAmount: 485,
+        subscriptionsAmount: 120,
+        occupation: "Консультат",
+        link: "https://www.spacex.com/vehicles/starship/",
+        profileImageName: .currentUserImage
+    )
+
+    /// Истории текущего автори зированного пользователя
+    var currentUserStories: [UserStory] = [
+        .init(imageName: .storyImage1, caption: "Запуск"),
+        .init(imageName: .storyImage2, caption: "Луна"),
+        .init(imageName: .storyImage3, caption: "Космонавт"),
+        .init(imageName: .storyImage4, caption: "Космос"),
+        .init(imageName: .storyImage1, caption: "Запуск"),
+        .init(imageName: .storyImage2, caption: "Луна"),
+        .init(imageName: .storyImage3, caption: "Космонавт"),
+        .init(imageName: .storyImage4, caption: "Космос")
+    ]
+
+    var currentUserGallery: [AssetImageName] = [
+        .galleryImage1, .galleryImage2, .galleryImage3, .galleryImage4,
+        .galleryImage1, .galleryImage2, .galleryImage3, .galleryImage4,
+        .galleryImage1, .galleryImage2, .galleryImage3, .galleryImage4,
+        .galleryImage1, .galleryImage2, .galleryImage3, .galleryImage4,
+        .galleryImage1, .galleryImage2, .galleryImage3, .galleryImage4
+    ]
+
     /// Пользователи
     var users: [User] = [
         .init(nickname: "tixomark", profileImage: .myImage),

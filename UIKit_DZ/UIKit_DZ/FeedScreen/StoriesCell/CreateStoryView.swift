@@ -5,14 +5,11 @@ import UIKit
 
 /// Наследник от StoryView с дополнительной иконкой плюса в правом нижнем углу
 final class CreateStoryView: StoryView {
-    private enum Constants {
-        static let plusImage: UIImage = .plusIcon.withTintColor(.systemBackground)
-    }
-
     // MARK: - Visual Components
 
     private let addImageView: UIImageView = {
-        let view = UIImageView(image: Constants.plusImage)
+        let view = UIImageView()
+        view.image = .plusIcon.withTintColor(.systemBackground)
         view.contentMode = .center
         view.layer.cornerRadius = 10
         view.backgroundColor = .systemRed
@@ -47,8 +44,8 @@ final class CreateStoryView: StoryView {
 
     private func configureAddImageViewLayout() {
         [
-            addImageView.trailingAnchor.constraint(equalTo: imageView.trailingAnchor),
-            addImageView.bottomAnchor.constraint(equalTo: imageView.bottomAnchor),
+            addImageView.trailingAnchor.constraint(equalTo: userIconImageView.trailingAnchor),
+            addImageView.bottomAnchor.constraint(equalTo: userIconImageView.bottomAnchor),
             addImageView.heightAnchor.constraint(equalToConstant: 20),
             addImageView.widthAnchor.constraint(equalTo: addImageView.heightAnchor),
         ].activate()

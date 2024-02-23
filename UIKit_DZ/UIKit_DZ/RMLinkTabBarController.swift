@@ -27,7 +27,7 @@ final class RMLinkTabBarController: UITabBarController {
         let controllers: [UIViewController] = [
             FeedViewController(dataProvider: dataProvider),
             NotificationsViewController(dataProvider: dataProvider),
-            UserProfileViewController()
+            UserProfileViewController(dataProvider: dataProvider)
         ]
         let embededControllers = controllers.map { UINavigationController(rootViewController: $0) }
         setViewControllers(embededControllers, animated: false)
