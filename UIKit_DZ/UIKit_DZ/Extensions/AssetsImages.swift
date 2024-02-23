@@ -5,7 +5,9 @@ import Foundation
 
 /// Перечисление содержащее некоторые названия изображений из Assets (названия кейсов один в один!)
 enum AssetImageName: String {
+    case currentUserImage
     case myImage
+
     case userImage1
     case userImage2
     case userImage3
@@ -18,4 +20,14 @@ enum AssetImageName: String {
     case photo2
     case photo3
     case photo4
+
+    case storyImage1
+    case storyImage2
+    case storyImage3
+    case storyImage4
+
+    case galleryImage1
+    case galleryImage2
+    case galleryImage3
+    case galleryImage4
 }

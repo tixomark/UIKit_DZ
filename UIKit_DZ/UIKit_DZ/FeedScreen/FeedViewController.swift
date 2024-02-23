@@ -88,7 +88,6 @@ final class FeedViewController: UIViewController {
         let rightItem = UIBarButtonItem(customView: imageView)
         navigationItem.rightBarButtonItem = rightItem
 
-        navigationController?.navigationBar.backgroundColor = .systemBackground
         navigationController?.navigationBar.setValue(true, forKey: "hidesShadow")
     }
 }

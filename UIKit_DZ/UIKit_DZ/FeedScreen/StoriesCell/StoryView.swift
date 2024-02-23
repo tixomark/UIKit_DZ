@@ -7,7 +7,7 @@ import UIKit
 class StoryView: UIView {
     // MARK: - Visual Components
 
-    private(set) var imageView: UIImageView = {
+    private(set) var userIconImageView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
         view.layer.cornerRadius = 30
@@ -40,35 +40,35 @@ class StoryView: UIView {
     // MARK: - Public Methods
 
     func configure(with story: Story) {
-        imageView.image = UIImage(story.user.profileImage)
+        userIconImageView.image = UIImage(story.user.profileImage)
         nicknameLabel.text = story.user.nickname
     }
 
     // MARK: - Private Methods
 
     private func configureUI() {
-        addSubviews(imageView, nicknameLabel)
+        addSubviews(userIconImageView, nicknameLabel)
     }
 
     private func configureLayout() {
-        UIView.doNotTAMIC(for: imageView, nicknameLabel)
-        configureImageViewLayout()
+        UIView.doNotTAMIC(for: userIconImageView, nicknameLabel)
+        configureUserIconImageViewLayout()
         configureNicknameLabelLayout()
     }
 
-    private func configureImageViewLayout() {
+    private func configureUserIconImageViewLayout() {
         [
-            imageView.topAnchor.constraint(equalTo: topAnchor),
-            imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 7),
-            imageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -7),
-            imageView.heightAnchor.constraint(equalToConstant: 60),
-            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor)
+            userIconImageView.topAnchor.constraint(equalTo: topAnchor),
+            userIconImageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 7),
+            userIconImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -7),
+            userIconImageView.heightAnchor.constraint(equalToConstant: 60),
+            userIconImageView.widthAnchor.constraint(equalTo: userIconImageView.heightAnchor)
         ].activate()
     }
 
     private func configureNicknameLabelLayout() {
         [
-            nicknameLabel.topAnchor.constraint(equalTo: imageView.bottomAnchor, constant: 5),
+            nicknameLabel.topAnchor.constraint(equalTo: userIconImageView.bottomAnchor, constant: 5),
             nicknameLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             nicknameLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ].activate()
