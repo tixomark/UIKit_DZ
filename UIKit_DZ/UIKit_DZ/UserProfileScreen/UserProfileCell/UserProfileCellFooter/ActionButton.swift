@@ -26,7 +26,7 @@ final class ActionButton: UIButton {
     // MARK: - Private Methods
 
     private func configureUI() {
-        backgroundColor = .opaqueSeparator
+        backgroundColor = .opaqueSeparator.withAlphaComponent(0.7)
         layer.cornerRadius = 8
         titleLabel?.font = .verdanaBold?.withSize(10)
         titleLabel?.textAlignment = .center

@@ -12,10 +12,9 @@ final class UserStoriesCell: UITableViewCell {
         layout.scrollDirection = .horizontal
         layout.sectionInset.left = 18
         layout.sectionInset.right = 18
-        layout.itemSize = CGSize(width: 54, height: 70)
+        layout.itemSize = CGSize(width: 54, height: 75)
 
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        layout.estimatedItemSize = UICollectionViewFlowLayout.automaticSize
         collection.delegate = self
         collection.dataSource = self
         collection.showsHorizontalScrollIndicator = false
@@ -61,11 +60,11 @@ final class UserStoriesCell: UITableViewCell {
     private func configureLayout() {
         UIView.doNotTAMIC(for: collectionView)
         [
-            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 19),
+            collectionView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 14),
             collectionView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             collectionView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -14),
-            collectionView.heightAnchor.constraint(equalToConstant: 90)
+            collectionView.heightAnchor.constraint(equalToConstant: 75)
         ].activate()
     }
 }

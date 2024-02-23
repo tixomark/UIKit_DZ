@@ -25,13 +25,9 @@ final class StoryViewController: UIViewController {
     private let storyIconImageView: UIImageView = {
         let view = UIImageView()
         view.contentMode = .scaleAspectFill
-        view.layer.cornerRadius = 13.5
-        let backgroungLayer = CALayer()
-        backgroungLayer.backgroundColor = UIColor.white.cgColor
-        backgroungLayer.frame = view.frame.insetBy(dx: -3, dy: -3)
-        backgroungLayer.cornerRadius = 15
-        backgroungLayer.masksToBounds = true
-        view.layer.addSublayer(backgroungLayer)
+        view.layer.cornerRadius = 13
+        view.layer.borderWidth = 1
+        view.layer.borderColor = UIColor.darkGray.cgColor
         return view
     }()
 
@@ -61,6 +57,11 @@ final class StoryViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         configureLayout()
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        addFrameToStoryIconImageView()
     }
 
     // MARK: - Public Methods
@@ -101,7 +102,7 @@ final class StoryViewController: UIViewController {
             storyProgressView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 11),
             storyProgressView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 5),
             storyProgressView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -5),
-            storyProgressView.heightAnchor.constraint(equalToConstant: 3)
+            storyProgressView.heightAnchor.constraint(equalToConstant: 2)
         ].activate()
     }
 
@@ -130,22 +131,41 @@ final class StoryViewController: UIViewController {
         ].activate()
     }
 
+    private func addFrameToStoryIconImageView() {
+        guard storyIconImageView.layer.sublayers == nil else { return }
+        let backgroungLayer = CALayer()
+        backgroungLayer.frame = storyIconImageView.bounds.insetBy(dx: -1.5, dy: -1.5)
+        backgroungLayer.backgroundColor = UIColor.clear.cgColor
+        backgroungLayer.borderColor = UIColor.white.cgColor
+        backgroungLayer.cornerRadius = backgroungLayer.frame.width / 2
+        backgroungLayer.borderWidth = 1
+        storyIconImageView.layer.addSublayer(backgroungLayer)
+    }
+
     private func createTimer() {
-        timer = Timer(timeInterval: 0.1, target: self, selector: #selector(fireTimer), userInfo: nil, repeats: true)
-        
+        timer = Timer.scheduledTimer(
+            timeInterval: 1,
+            target: self,
+            selector: #selector(fireTimer),
+            userInfo: nil,
+            repeats: true
+        )
+        timer.tolerance = 0.1
     }
 
     @objc private func fireTimer() {
         if storyProgressView.progress != 1 {
-            UIView.animate(withDuration: 0.1) {
-                self.storyProgressView.progress += 0.05
+            UIView.animate(withDuration: 1) {
+                self.storyProgressView.progress += 0.25
             }
         } else if storyProgressView.progress == 1.0 {
+            timer.invalidate()
             dismiss(animated: true)
         }
     }
 
     @objc private func closeButtonTapped() {
+        timer.invalidate()
         dismiss(animated: true)
     }
 }

@@ -49,7 +49,8 @@ final class WebViewController: UIViewController {
 
     private lazy var toolBar: UIToolbar = {
         let bar = UIToolbar()
-        bar.items = [
+        bar.frame.size.width = 70
+        bar.setItems([
             .fixedSpace(23),
             backButton,
             .fixedSpace(43),
@@ -57,7 +58,7 @@ final class WebViewController: UIViewController {
             .flexibleSpace(),
             reloadButton,
             .fixedSpace(20)
-        ]
+        ], animated: false)
         bar.tintColor = .accent
         bar.isTranslucent = true
         return bar

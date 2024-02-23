@@ -104,7 +104,6 @@ extension UserProfileViewController: UITableViewDataSource {
                 present(webController, animated: true)
             }
             return cell
-
         case .stories:
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: UserStoriesCell.description(),
@@ -119,9 +118,7 @@ extension UserProfileViewController: UITableViewDataSource {
                 storyController.modalPresentationStyle = .fullScreen
                 present(storyController, animated: true)
             }
-
             return cell
-
         case .postImages:
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: UserGalleryCell.description(),

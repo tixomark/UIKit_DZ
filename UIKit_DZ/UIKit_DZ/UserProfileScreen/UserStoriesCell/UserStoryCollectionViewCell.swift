@@ -12,6 +12,7 @@ class UserStoryCollectionViewCell: UICollectionViewCell {
         view.contentMode = .scaleAspectFill
         view.layer.cornerRadius = 25
         view.clipsToBounds = true
+        view.layer.masksToBounds = false
         return view
     }()
 
@@ -37,6 +38,12 @@ class UserStoryCollectionViewCell: UICollectionViewCell {
         configureLayout()
     }
 
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        storyImageView.image = nil
+        captionLabel.text = nil
+    }
+
     // MARK: - Public Methods
 
     func configure(with story: UserStory) {
@@ -54,11 +61,12 @@ class UserStoryCollectionViewCell: UICollectionViewCell {
         UIView.doNotTAMIC(for: storyImageView, captionLabel)
         configureStoryImageViewLayout()
         configureCaptionLabelLayout()
+        addFrameToStoryImageView()
     }
 
     private func configureStoryImageViewLayout() {
         [
-            storyImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 2),
+            storyImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
             storyImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 2),
             storyImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -2),
             storyImageView.heightAnchor.constraint(equalToConstant: 50),
@@ -71,7 +79,25 @@ class UserStoryCollectionViewCell: UICollectionViewCell {
             captionLabel.topAnchor.constraint(equalTo: storyImageView.bottomAnchor, constant: 7),
             captionLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
             captionLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            captionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            captionLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor)
         ].activate()
+    }
+
+    private func addFrameToStoryImageView() {
+        guard storyImageView.layer.sublayers == nil else { return }
+        let backgroungLayer = CALayer()
+        backgroungLayer.borderColor = UIColor.opaqueSeparator.cgColor
+
+        let size = storyImageView.systemLayoutSizeFitting(
+            UIView.layoutFittingCompressedSize,
+            withHorizontalFittingPriority: .fittingSizeLevel,
+            verticalFittingPriority: .fittingSizeLevel
+        )
+        var frame = CGRect.zero
+        frame.size = size
+        backgroungLayer.frame = frame.insetBy(dx: -3, dy: -3)
+        backgroungLayer.cornerRadius = backgroungLayer.frame.width / 2
+        backgroungLayer.borderWidth = 1
+        storyImageView.layer.addSublayer(backgroungLayer)
     }
 }
